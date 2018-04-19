@@ -1,0 +1,485 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		10FC1A46208958C700BEBAD6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FC1A45208958C700BEBAD6 /* AppDelegate.swift */; };
+		10FC1A48208958C700BEBAD6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FC1A47208958C700BEBAD6 /* ViewController.swift */; };
+		10FC1A4B208958C700BEBAD6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10FC1A49208958C700BEBAD6 /* Main.storyboard */; };
+		10FC1A4E208958C700BEBAD6 /* Balancing_Act.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 10FC1A4C208958C700BEBAD6 /* Balancing_Act.xcdatamodeld */; };
+		10FC1A50208958C900BEBAD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10FC1A4F208958C900BEBAD6 /* Assets.xcassets */; };
+		10FC1A53208958C900BEBAD6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10FC1A51208958C900BEBAD6 /* LaunchScreen.storyboard */; };
+		10FC1A5E208958C900BEBAD6 /* Balancing_ActTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FC1A5D208958C900BEBAD6 /* Balancing_ActTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		10FC1A5A208958C900BEBAD6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 10FC1A3A208958C700BEBAD6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 10FC1A41208958C700BEBAD6;
+			remoteInfo = "Balancing Act";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		10FC1A42208958C700BEBAD6 /* Balancing Act.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Balancing Act.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		10FC1A45208958C700BEBAD6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		10FC1A47208958C700BEBAD6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		10FC1A4A208958C700BEBAD6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		10FC1A4D208958C700BEBAD6 /* Balancing_Act.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Balancing_Act.xcdatamodel; sourceTree = "<group>"; };
+		10FC1A4F208958C900BEBAD6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		10FC1A52208958C900BEBAD6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		10FC1A54208958C900BEBAD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		10FC1A59208958C900BEBAD6 /* Balancing ActTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Balancing ActTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		10FC1A5D208958C900BEBAD6 /* Balancing_ActTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Balancing_ActTests.swift; sourceTree = "<group>"; };
+		10FC1A5F208958C900BEBAD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		10FC1A3F208958C700BEBAD6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		10FC1A56208958C900BEBAD6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		10FC1A39208958C700BEBAD6 = {
+			isa = PBXGroup;
+			children = (
+				10FC1A44208958C700BEBAD6 /* Balancing Act */,
+				10FC1A5C208958C900BEBAD6 /* Balancing ActTests */,
+				10FC1A43208958C700BEBAD6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		10FC1A43208958C700BEBAD6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				10FC1A42208958C700BEBAD6 /* Balancing Act.app */,
+				10FC1A59208958C900BEBAD6 /* Balancing ActTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		10FC1A44208958C700BEBAD6 /* Balancing Act */ = {
+			isa = PBXGroup;
+			children = (
+				10FC1A45208958C700BEBAD6 /* AppDelegate.swift */,
+				10FC1A47208958C700BEBAD6 /* ViewController.swift */,
+				10FC1A49208958C700BEBAD6 /* Main.storyboard */,
+				10FC1A4F208958C900BEBAD6 /* Assets.xcassets */,
+				10FC1A51208958C900BEBAD6 /* LaunchScreen.storyboard */,
+				10FC1A54208958C900BEBAD6 /* Info.plist */,
+				10FC1A4C208958C700BEBAD6 /* Balancing_Act.xcdatamodeld */,
+			);
+			path = "Balancing Act";
+			sourceTree = "<group>";
+		};
+		10FC1A5C208958C900BEBAD6 /* Balancing ActTests */ = {
+			isa = PBXGroup;
+			children = (
+				10FC1A5D208958C900BEBAD6 /* Balancing_ActTests.swift */,
+				10FC1A5F208958C900BEBAD6 /* Info.plist */,
+			);
+			path = "Balancing ActTests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		10FC1A41208958C700BEBAD6 /* Balancing Act */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 10FC1A62208958C900BEBAD6 /* Build configuration list for PBXNativeTarget "Balancing Act" */;
+			buildPhases = (
+				10FC1A3E208958C700BEBAD6 /* Sources */,
+				10FC1A3F208958C700BEBAD6 /* Frameworks */,
+				10FC1A40208958C700BEBAD6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Balancing Act";
+			productName = "Balancing Act";
+			productReference = 10FC1A42208958C700BEBAD6 /* Balancing Act.app */;
+			productType = "com.apple.product-type.application";
+		};
+		10FC1A58208958C900BEBAD6 /* Balancing ActTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 10FC1A65208958C900BEBAD6 /* Build configuration list for PBXNativeTarget "Balancing ActTests" */;
+			buildPhases = (
+				10FC1A55208958C900BEBAD6 /* Sources */,
+				10FC1A56208958C900BEBAD6 /* Frameworks */,
+				10FC1A57208958C900BEBAD6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				10FC1A5B208958C900BEBAD6 /* PBXTargetDependency */,
+			);
+			name = "Balancing ActTests";
+			productName = "Balancing ActTests";
+			productReference = 10FC1A59208958C900BEBAD6 /* Balancing ActTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		10FC1A3A208958C700BEBAD6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = "Drew Lanning";
+				TargetAttributes = {
+					10FC1A41208958C700BEBAD6 = {
+						CreatedOnToolsVersion = 9.3;
+					};
+					10FC1A58208958C900BEBAD6 = {
+						CreatedOnToolsVersion = 9.3;
+						TestTargetID = 10FC1A41208958C700BEBAD6;
+					};
+				};
+			};
+			buildConfigurationList = 10FC1A3D208958C700BEBAD6 /* Build configuration list for PBXProject "Balancing Act" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 10FC1A39208958C700BEBAD6;
+			productRefGroup = 10FC1A43208958C700BEBAD6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				10FC1A41208958C700BEBAD6 /* Balancing Act */,
+				10FC1A58208958C900BEBAD6 /* Balancing ActTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		10FC1A40208958C700BEBAD6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				10FC1A53208958C900BEBAD6 /* LaunchScreen.storyboard in Resources */,
+				10FC1A50208958C900BEBAD6 /* Assets.xcassets in Resources */,
+				10FC1A4B208958C700BEBAD6 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		10FC1A57208958C900BEBAD6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		10FC1A3E208958C700BEBAD6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				10FC1A48208958C700BEBAD6 /* ViewController.swift in Sources */,
+				10FC1A4E208958C700BEBAD6 /* Balancing_Act.xcdatamodeld in Sources */,
+				10FC1A46208958C700BEBAD6 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		10FC1A55208958C900BEBAD6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				10FC1A5E208958C900BEBAD6 /* Balancing_ActTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		10FC1A5B208958C900BEBAD6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 10FC1A41208958C700BEBAD6 /* Balancing Act */;
+			targetProxy = 10FC1A5A208958C900BEBAD6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		10FC1A49208958C700BEBAD6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				10FC1A4A208958C700BEBAD6 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		10FC1A51208958C900BEBAD6 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				10FC1A52208958C900BEBAD6 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		10FC1A60208958C900BEBAD6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		10FC1A61208958C900BEBAD6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		10FC1A63208958C900BEBAD6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TFEDY5M56J;
+				INFOPLIST_FILE = "Balancing Act/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.drewlanning.Balancing-Act";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		10FC1A64208958C900BEBAD6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TFEDY5M56J;
+				INFOPLIST_FILE = "Balancing Act/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.drewlanning.Balancing-Act";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		10FC1A66208958C900BEBAD6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TFEDY5M56J;
+				INFOPLIST_FILE = "Balancing ActTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.drewlanning.Balancing-ActTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Balancing Act.app/Balancing Act";
+			};
+			name = Debug;
+		};
+		10FC1A67208958C900BEBAD6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TFEDY5M56J;
+				INFOPLIST_FILE = "Balancing ActTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.drewlanning.Balancing-ActTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Balancing Act.app/Balancing Act";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		10FC1A3D208958C700BEBAD6 /* Build configuration list for PBXProject "Balancing Act" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				10FC1A60208958C900BEBAD6 /* Debug */,
+				10FC1A61208958C900BEBAD6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		10FC1A62208958C900BEBAD6 /* Build configuration list for PBXNativeTarget "Balancing Act" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				10FC1A63208958C900BEBAD6 /* Debug */,
+				10FC1A64208958C900BEBAD6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		10FC1A65208958C900BEBAD6 /* Build configuration list for PBXNativeTarget "Balancing ActTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				10FC1A66208958C900BEBAD6 /* Debug */,
+				10FC1A67208958C900BEBAD6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		10FC1A4C208958C700BEBAD6 /* Balancing_Act.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				10FC1A4D208958C700BEBAD6 /* Balancing_Act.xcdatamodel */,
+			);
+			currentVersion = 10FC1A4D208958C700BEBAD6 /* Balancing_Act.xcdatamodel */;
+			path = Balancing_Act.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 10FC1A3A208958C700BEBAD6 /* Project object */;
+}
