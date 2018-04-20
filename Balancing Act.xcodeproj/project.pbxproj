@@ -8,12 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		10FC1A46208958C700BEBAD6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FC1A45208958C700BEBAD6 /* AppDelegate.swift */; };
-		10FC1A48208958C700BEBAD6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FC1A47208958C700BEBAD6 /* ViewController.swift */; };
 		10FC1A4B208958C700BEBAD6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10FC1A49208958C700BEBAD6 /* Main.storyboard */; };
 		10FC1A4E208958C700BEBAD6 /* Balancing_Act.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 10FC1A4C208958C700BEBAD6 /* Balancing_Act.xcdatamodeld */; };
 		10FC1A50208958C900BEBAD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10FC1A4F208958C900BEBAD6 /* Assets.xcassets */; };
 		10FC1A53208958C900BEBAD6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10FC1A51208958C900BEBAD6 /* LaunchScreen.storyboard */; };
 		10FC1A5E208958C900BEBAD6 /* Balancing_ActTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FC1A5D208958C900BEBAD6 /* Balancing_ActTests.swift */; };
+		10FC1A7020895E5100BEBAD6 /* Transaction+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FC1A6E20895E5100BEBAD6 /* Transaction+CoreDataClass.swift */; };
+		10FC1A7120895E5100BEBAD6 /* Transaction+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FC1A6E20895E5100BEBAD6 /* Transaction+CoreDataClass.swift */; };
+		10FC1A7220895E5100BEBAD6 /* Transaction+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FC1A6F20895E5100BEBAD6 /* Transaction+CoreDataProperties.swift */; };
+		10FC1A7320895E5100BEBAD6 /* Transaction+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FC1A6F20895E5100BEBAD6 /* Transaction+CoreDataProperties.swift */; };
+		10FC1A752089630300BEBAD6 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FC1A742089630300BEBAD6 /* StorageManager.swift */; };
+		10FC1A762089630300BEBAD6 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FC1A742089630300BEBAD6 /* StorageManager.swift */; };
+		10FC1A7920896A2500BEBAD6 /* Account+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FC1A7720896A2500BEBAD6 /* Account+CoreDataClass.swift */; };
+		10FC1A7A20896A2500BEBAD6 /* Account+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FC1A7720896A2500BEBAD6 /* Account+CoreDataClass.swift */; };
+		10FC1A7B20896A2500BEBAD6 /* Account+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FC1A7820896A2500BEBAD6 /* Account+CoreDataProperties.swift */; };
+		10FC1A7C20896A2500BEBAD6 /* Account+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FC1A7820896A2500BEBAD6 /* Account+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,7 +38,6 @@
 /* Begin PBXFileReference section */
 		10FC1A42208958C700BEBAD6 /* Balancing Act.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Balancing Act.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		10FC1A45208958C700BEBAD6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		10FC1A47208958C700BEBAD6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		10FC1A4A208958C700BEBAD6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		10FC1A4D208958C700BEBAD6 /* Balancing_Act.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Balancing_Act.xcdatamodel; sourceTree = "<group>"; };
 		10FC1A4F208958C900BEBAD6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -38,6 +46,11 @@
 		10FC1A59208958C900BEBAD6 /* Balancing ActTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Balancing ActTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		10FC1A5D208958C900BEBAD6 /* Balancing_ActTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Balancing_ActTests.swift; sourceTree = "<group>"; };
 		10FC1A5F208958C900BEBAD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		10FC1A6E20895E5100BEBAD6 /* Transaction+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataClass.swift"; sourceTree = "<group>"; };
+		10FC1A6F20895E5100BEBAD6 /* Transaction+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		10FC1A742089630300BEBAD6 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		10FC1A7720896A2500BEBAD6 /* Account+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Account+CoreDataClass.swift"; sourceTree = "<group>"; };
+		10FC1A7820896A2500BEBAD6 /* Account+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Account+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,8 +92,10 @@
 		10FC1A44208958C700BEBAD6 /* Balancing Act */ = {
 			isa = PBXGroup;
 			children = (
+				10FC1A6A208958E000BEBAD6 /* Model */,
+				10FC1A69208958D700BEBAD6 /* View */,
+				10FC1A68208958D100BEBAD6 /* Controller */,
 				10FC1A45208958C700BEBAD6 /* AppDelegate.swift */,
-				10FC1A47208958C700BEBAD6 /* ViewController.swift */,
 				10FC1A49208958C700BEBAD6 /* Main.storyboard */,
 				10FC1A4F208958C900BEBAD6 /* Assets.xcassets */,
 				10FC1A51208958C900BEBAD6 /* LaunchScreen.storyboard */,
@@ -97,6 +112,32 @@
 				10FC1A5F208958C900BEBAD6 /* Info.plist */,
 			);
 			path = "Balancing ActTests";
+			sourceTree = "<group>";
+		};
+		10FC1A68208958D100BEBAD6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		10FC1A69208958D700BEBAD6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		10FC1A6A208958E000BEBAD6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				10FC1A7720896A2500BEBAD6 /* Account+CoreDataClass.swift */,
+				10FC1A7820896A2500BEBAD6 /* Account+CoreDataProperties.swift */,
+				10FC1A6E20895E5100BEBAD6 /* Transaction+CoreDataClass.swift */,
+				10FC1A6F20895E5100BEBAD6 /* Transaction+CoreDataProperties.swift */,
+				10FC1A742089630300BEBAD6 /* StorageManager.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,7 +241,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				10FC1A48208958C700BEBAD6 /* ViewController.swift in Sources */,
+				10FC1A7B20896A2500BEBAD6 /* Account+CoreDataProperties.swift in Sources */,
+				10FC1A7220895E5100BEBAD6 /* Transaction+CoreDataProperties.swift in Sources */,
+				10FC1A7920896A2500BEBAD6 /* Account+CoreDataClass.swift in Sources */,
+				10FC1A7020895E5100BEBAD6 /* Transaction+CoreDataClass.swift in Sources */,
+				10FC1A752089630300BEBAD6 /* StorageManager.swift in Sources */,
 				10FC1A4E208958C700BEBAD6 /* Balancing_Act.xcdatamodeld in Sources */,
 				10FC1A46208958C700BEBAD6 /* AppDelegate.swift in Sources */,
 			);
@@ -210,6 +255,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10FC1A7C20896A2500BEBAD6 /* Account+CoreDataProperties.swift in Sources */,
+				10FC1A762089630300BEBAD6 /* StorageManager.swift in Sources */,
+				10FC1A7A20896A2500BEBAD6 /* Account+CoreDataClass.swift in Sources */,
+				10FC1A7320895E5100BEBAD6 /* Transaction+CoreDataProperties.swift in Sources */,
+				10FC1A7120895E5100BEBAD6 /* Transaction+CoreDataClass.swift in Sources */,
 				10FC1A5E208958C900BEBAD6 /* Balancing_ActTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
