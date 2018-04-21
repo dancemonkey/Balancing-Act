@@ -27,6 +27,14 @@ public class Account: NSManagedObject {
     }
   }
   
+  func setup(number: Int, startingBalance: Double, bank: String, name: String) {
+    self.accountNumber = Int64(number)
+    self.startingBalance = startingBalance
+    self.currentBalance = startingBalance
+    self.bank = bank
+    self.name = name
+  }
+  
   public override func awakeFromInsert() {
     super.awakeFromInsert()
     self.creation = Date() as NSDate
@@ -56,6 +64,7 @@ public class Account: NSManagedObject {
     trxToRec.forEach({ (trx) in
       (trx as! Transaction).reconciled = true
     })
+    self.lastReconcile = Date() as NSDate
   }
   
   func getNonReconciledTrx() -> [Transaction]? {
@@ -65,6 +74,19 @@ public class Account: NSManagedObject {
     return transactions.filter({ (trx) -> Bool in
       return (trx as! Transaction).reconciled == false
     }) as? [Transaction]
+  }
+  
+  override public var description: String {
+    get {
+      return """
+      account: \(name!)
+      bank: \(bank!)
+      account #: \(accountNumber)
+      starting balance: \(startingBalance)
+      current balance: \(currentBalance)
+      -=-=-=-=-=-
+      """
+    }
   }
   
 }

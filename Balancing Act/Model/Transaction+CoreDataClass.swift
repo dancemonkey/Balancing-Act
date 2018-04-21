@@ -25,6 +25,14 @@ public class Transaction: NSManagedObject {
     self.split = false
   }
   
+  func setup(type: TrxType, number: Int, amount: Double, date: Date, category: String?) {
+    self.type = type.rawValue
+    self.number = Int16(number)
+    self.amount = amount
+    self.date = date as NSDate
+    self.category = category
+  }
+  
   func setType(as type: TrxType) {
     self.type = type.rawValue
   }
@@ -78,9 +86,25 @@ public class Transaction: NSManagedObject {
   override public var description: String {
     get {
       if split {
-        return "type: \(self.type), amount: \(self.amount), date: \(String(describing: self.date)), category: \(self.splitTransactions!), cleared: \(self.cleared), reconciled: \(self.reconciled)"
+        return """
+        type: \(TrxType.init(rawValue: type)!)
+        amount: \(self.amount)
+        date: \(String(describing: self.date!))
+        category: \(self.splitTransactions!)
+        cleared: \(self.cleared)
+        reconciled: \(self.reconciled)
+        -=-=-=-=-=-
+        """
       } else {
-        return "type: \(self.type), amount: \(self.amount), date: \(String(describing: self.date)), category: \(String(describing: self.category)), cleared: \(self.cleared), reconciled: \(self.reconciled)"
+        return """
+        type: \(TrxType.init(rawValue: type)!)
+        amount: \(self.amount)
+        date: \(String(describing: self.date!))
+        category: \(String(describing: self.category!))
+        cleared: \(self.cleared)
+        reconciled: \(self.reconciled)
+        -=-=-=-=-=-
+        """
       }
     }
   }

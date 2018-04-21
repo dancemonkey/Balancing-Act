@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		107676A0208BFB3600949B28 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1076769F208BFB3600949B28 /* TestViewController.swift */; };
 		10FC1A46208958C700BEBAD6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FC1A45208958C700BEBAD6 /* AppDelegate.swift */; };
 		10FC1A4B208958C700BEBAD6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10FC1A49208958C700BEBAD6 /* Main.storyboard */; };
 		10FC1A4E208958C700BEBAD6 /* Balancing_Act.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 10FC1A4C208958C700BEBAD6 /* Balancing_Act.xcdatamodeld */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1076769F208BFB3600949B28 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		10FC1A42208958C700BEBAD6 /* Balancing Act.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Balancing Act.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		10FC1A45208958C700BEBAD6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10FC1A4A208958C700BEBAD6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 		10FC1A69208958D700BEBAD6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1076769F208BFB3600949B28 /* TestViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 			files = (
 				10FC1A7B20896A2500BEBAD6 /* Account+CoreDataProperties.swift in Sources */,
 				10FC1A7220895E5100BEBAD6 /* Transaction+CoreDataProperties.swift in Sources */,
+				107676A0208BFB3600949B28 /* TestViewController.swift in Sources */,
 				10FC1A7920896A2500BEBAD6 /* Account+CoreDataClass.swift in Sources */,
 				10FC1A7020895E5100BEBAD6 /* Transaction+CoreDataClass.swift in Sources */,
 				10FC1A752089630300BEBAD6 /* StorageManager.swift in Sources */,
