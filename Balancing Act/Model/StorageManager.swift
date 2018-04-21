@@ -25,11 +25,11 @@ class StorageManager {
   }
   
   func addNew(transaction trx: Transaction, to account: Account) {
-    // add transaction to Account
-    // set attributes like account that can only be set here
+    self.context.insert(trx)
+    account.apply(transaction: trx)
   }
   
-  func createAccount() {
-    // create new account and insert into context
+  func addNew(account: Account) {
+    self.context.insert(account)
   }
 }
