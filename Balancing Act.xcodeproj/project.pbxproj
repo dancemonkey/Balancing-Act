@@ -8,22 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		107676A0208BFB3600949B28 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1076769F208BFB3600949B28 /* TestViewController.swift */; };
+		10C86EEF20A325A10045FF4D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 10C86EEE20A325A10045FF4D /* GoogleService-Info.plist */; };
 		10FC1A46208958C700BEBAD6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FC1A45208958C700BEBAD6 /* AppDelegate.swift */; };
 		10FC1A4B208958C700BEBAD6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10FC1A49208958C700BEBAD6 /* Main.storyboard */; };
-		10FC1A4E208958C700BEBAD6 /* Balancing_Act.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 10FC1A4C208958C700BEBAD6 /* Balancing_Act.xcdatamodeld */; };
 		10FC1A50208958C900BEBAD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10FC1A4F208958C900BEBAD6 /* Assets.xcassets */; };
 		10FC1A53208958C900BEBAD6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10FC1A51208958C900BEBAD6 /* LaunchScreen.storyboard */; };
 		10FC1A5E208958C900BEBAD6 /* Balancing_ActTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FC1A5D208958C900BEBAD6 /* Balancing_ActTests.swift */; };
-		10FC1A7020895E5100BEBAD6 /* Transaction+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FC1A6E20895E5100BEBAD6 /* Transaction+CoreDataClass.swift */; };
-		10FC1A7120895E5100BEBAD6 /* Transaction+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FC1A6E20895E5100BEBAD6 /* Transaction+CoreDataClass.swift */; };
-		10FC1A7220895E5100BEBAD6 /* Transaction+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FC1A6F20895E5100BEBAD6 /* Transaction+CoreDataProperties.swift */; };
-		10FC1A7320895E5100BEBAD6 /* Transaction+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FC1A6F20895E5100BEBAD6 /* Transaction+CoreDataProperties.swift */; };
 		10FC1A752089630300BEBAD6 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FC1A742089630300BEBAD6 /* StorageManager.swift */; };
 		10FC1A762089630300BEBAD6 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FC1A742089630300BEBAD6 /* StorageManager.swift */; };
-		10FC1A7920896A2500BEBAD6 /* Account+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FC1A7720896A2500BEBAD6 /* Account+CoreDataClass.swift */; };
-		10FC1A7A20896A2500BEBAD6 /* Account+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FC1A7720896A2500BEBAD6 /* Account+CoreDataClass.swift */; };
-		10FC1A7B20896A2500BEBAD6 /* Account+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FC1A7820896A2500BEBAD6 /* Account+CoreDataProperties.swift */; };
-		10FC1A7C20896A2500BEBAD6 /* Account+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FC1A7820896A2500BEBAD6 /* Account+CoreDataProperties.swift */; };
+		7A01071220339FD438E3F99B /* Pods_Balancing_Act.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F853E715D00C65F30FBFDCD7 /* Pods_Balancing_Act.framework */; };
+		D85C29109D2FD8352E53BBB2 /* Pods_Balancing_ActTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6FD16C43E49E7C771036F5C /* Pods_Balancing_ActTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,21 +32,23 @@
 
 /* Begin PBXFileReference section */
 		1076769F208BFB3600949B28 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		10C86EEE20A325A10045FF4D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		10FC1A42208958C700BEBAD6 /* Balancing Act.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Balancing Act.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		10FC1A45208958C700BEBAD6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10FC1A4A208958C700BEBAD6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		10FC1A4D208958C700BEBAD6 /* Balancing_Act.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Balancing_Act.xcdatamodel; sourceTree = "<group>"; };
 		10FC1A4F208958C900BEBAD6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		10FC1A52208958C900BEBAD6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		10FC1A54208958C900BEBAD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		10FC1A59208958C900BEBAD6 /* Balancing ActTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Balancing ActTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		10FC1A5D208958C900BEBAD6 /* Balancing_ActTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Balancing_ActTests.swift; sourceTree = "<group>"; };
 		10FC1A5F208958C900BEBAD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		10FC1A6E20895E5100BEBAD6 /* Transaction+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataClass.swift"; sourceTree = "<group>"; };
-		10FC1A6F20895E5100BEBAD6 /* Transaction+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		10FC1A742089630300BEBAD6 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
-		10FC1A7720896A2500BEBAD6 /* Account+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Account+CoreDataClass.swift"; sourceTree = "<group>"; };
-		10FC1A7820896A2500BEBAD6 /* Account+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Account+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		326244584C54DD56378FA9DA /* Pods-Balancing Act.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Balancing Act.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Balancing Act/Pods-Balancing Act.debug.xcconfig"; sourceTree = "<group>"; };
+		3BE70A85257582DD88C234CC /* Pods-Balancing ActTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Balancing ActTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Balancing ActTests/Pods-Balancing ActTests.release.xcconfig"; sourceTree = "<group>"; };
+		4B037BD236073D15D353D43B /* Pods-Balancing ActTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Balancing ActTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Balancing ActTests/Pods-Balancing ActTests.debug.xcconfig"; sourceTree = "<group>"; };
+		ADB70AB47021AB67B9491350 /* Pods-Balancing Act.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Balancing Act.release.xcconfig"; path = "Pods/Target Support Files/Pods-Balancing Act/Pods-Balancing Act.release.xcconfig"; sourceTree = "<group>"; };
+		D6FD16C43E49E7C771036F5C /* Pods_Balancing_ActTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Balancing_ActTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F853E715D00C65F30FBFDCD7 /* Pods_Balancing_Act.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Balancing_Act.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A01071220339FD438E3F99B /* Pods_Balancing_Act.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D85C29109D2FD8352E53BBB2 /* Pods_Balancing_ActTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +77,8 @@
 				10FC1A44208958C700BEBAD6 /* Balancing Act */,
 				10FC1A5C208958C900BEBAD6 /* Balancing ActTests */,
 				10FC1A43208958C700BEBAD6 /* Products */,
+				46EA12B9E5E0052DA24CBF2A /* Pods */,
+				E98588C723242C2B3E802FD4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -102,7 +102,7 @@
 				10FC1A4F208958C900BEBAD6 /* Assets.xcassets */,
 				10FC1A51208958C900BEBAD6 /* LaunchScreen.storyboard */,
 				10FC1A54208958C900BEBAD6 /* Info.plist */,
-				10FC1A4C208958C700BEBAD6 /* Balancing_Act.xcdatamodeld */,
+				10C86EEE20A325A10045FF4D /* GoogleService-Info.plist */,
 			);
 			path = "Balancing Act";
 			sourceTree = "<group>";
@@ -134,13 +134,29 @@
 		10FC1A6A208958E000BEBAD6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				10FC1A7720896A2500BEBAD6 /* Account+CoreDataClass.swift */,
-				10FC1A7820896A2500BEBAD6 /* Account+CoreDataProperties.swift */,
-				10FC1A6E20895E5100BEBAD6 /* Transaction+CoreDataClass.swift */,
-				10FC1A6F20895E5100BEBAD6 /* Transaction+CoreDataProperties.swift */,
 				10FC1A742089630300BEBAD6 /* StorageManager.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		46EA12B9E5E0052DA24CBF2A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				326244584C54DD56378FA9DA /* Pods-Balancing Act.debug.xcconfig */,
+				ADB70AB47021AB67B9491350 /* Pods-Balancing Act.release.xcconfig */,
+				4B037BD236073D15D353D43B /* Pods-Balancing ActTests.debug.xcconfig */,
+				3BE70A85257582DD88C234CC /* Pods-Balancing ActTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E98588C723242C2B3E802FD4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F853E715D00C65F30FBFDCD7 /* Pods_Balancing_Act.framework */,
+				D6FD16C43E49E7C771036F5C /* Pods_Balancing_ActTests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,9 +166,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 10FC1A62208958C900BEBAD6 /* Build configuration list for PBXNativeTarget "Balancing Act" */;
 			buildPhases = (
+				F9654945ABFCAD8F5DBEA398 /* [CP] Check Pods Manifest.lock */,
 				10FC1A3E208958C700BEBAD6 /* Sources */,
 				10FC1A3F208958C700BEBAD6 /* Frameworks */,
 				10FC1A40208958C700BEBAD6 /* Resources */,
+				262F4D14E8F9A54C173A4A96 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -167,6 +185,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 10FC1A65208958C900BEBAD6 /* Build configuration list for PBXNativeTarget "Balancing ActTests" */;
 			buildPhases = (
+				6EA72B2111559CBCA93A2561 /* [CP] Check Pods Manifest.lock */,
 				10FC1A55208958C900BEBAD6 /* Sources */,
 				10FC1A56208958C900BEBAD6 /* Frameworks */,
 				10FC1A57208958C900BEBAD6 /* Resources */,
@@ -225,6 +244,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				10FC1A53208958C900BEBAD6 /* LaunchScreen.storyboard in Resources */,
+				10C86EEF20A325A10045FF4D /* GoogleService-Info.plist in Resources */,
 				10FC1A50208958C900BEBAD6 /* Assets.xcassets in Resources */,
 				10FC1A4B208958C700BEBAD6 /* Main.storyboard in Resources */,
 			);
@@ -239,18 +259,72 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		262F4D14E8F9A54C173A4A96 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Balancing Act/Pods-Balancing Act-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Balancing Act/Pods-Balancing Act-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6EA72B2111559CBCA93A2561 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Balancing ActTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F9654945ABFCAD8F5DBEA398 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Balancing Act-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		10FC1A3E208958C700BEBAD6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				10FC1A7B20896A2500BEBAD6 /* Account+CoreDataProperties.swift in Sources */,
-				10FC1A7220895E5100BEBAD6 /* Transaction+CoreDataProperties.swift in Sources */,
 				107676A0208BFB3600949B28 /* TestViewController.swift in Sources */,
-				10FC1A7920896A2500BEBAD6 /* Account+CoreDataClass.swift in Sources */,
-				10FC1A7020895E5100BEBAD6 /* Transaction+CoreDataClass.swift in Sources */,
 				10FC1A752089630300BEBAD6 /* StorageManager.swift in Sources */,
-				10FC1A4E208958C700BEBAD6 /* Balancing_Act.xcdatamodeld in Sources */,
 				10FC1A46208958C700BEBAD6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,11 +333,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				10FC1A7C20896A2500BEBAD6 /* Account+CoreDataProperties.swift in Sources */,
 				10FC1A762089630300BEBAD6 /* StorageManager.swift in Sources */,
-				10FC1A7A20896A2500BEBAD6 /* Account+CoreDataClass.swift in Sources */,
-				10FC1A7320895E5100BEBAD6 /* Transaction+CoreDataProperties.swift in Sources */,
-				10FC1A7120895E5100BEBAD6 /* Transaction+CoreDataClass.swift in Sources */,
 				10FC1A5E208958C900BEBAD6 /* Balancing_ActTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -414,6 +484,7 @@
 		};
 		10FC1A63208958C900BEBAD6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 326244584C54DD56378FA9DA /* Pods-Balancing Act.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -432,6 +503,7 @@
 		};
 		10FC1A64208958C900BEBAD6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ADB70AB47021AB67B9491350 /* Pods-Balancing Act.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -450,6 +522,7 @@
 		};
 		10FC1A66208958C900BEBAD6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4B037BD236073D15D353D43B /* Pods-Balancing ActTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -471,6 +544,7 @@
 		};
 		10FC1A67208958C900BEBAD6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3BE70A85257582DD88C234CC /* Pods-Balancing ActTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -521,19 +595,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		10FC1A4C208958C700BEBAD6 /* Balancing_Act.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				10FC1A4D208958C700BEBAD6 /* Balancing_Act.xcdatamodel */,
-			);
-			currentVersion = 10FC1A4D208958C700BEBAD6 /* Balancing_Act.xcdatamodel */;
-			path = Balancing_Act.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 10FC1A3A208958C700BEBAD6 /* Project object */;
 }
