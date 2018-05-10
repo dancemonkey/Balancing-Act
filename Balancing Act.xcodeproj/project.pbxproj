@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		107676A0208BFB3600949B28 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1076769F208BFB3600949B28 /* TestViewController.swift */; };
+		1016207020A47C55001BE2F3 /* AccountListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1016206F20A47C55001BE2F3 /* AccountListVC.swift */; };
+		1041B68B20A3DFBA0072C423 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1041B68A20A3DFBA0072C423 /* Account.swift */; };
+		1041B68D20A3DFCA0072C423 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1041B68C20A3DFCA0072C423 /* Transaction.swift */; };
+		107676A0208BFB3600949B28 /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1076769F208BFB3600949B28 /* CreateAccountVC.swift */; };
 		10C86EEF20A325A10045FF4D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 10C86EEE20A325A10045FF4D /* GoogleService-Info.plist */; };
 		10FC1A46208958C700BEBAD6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FC1A45208958C700BEBAD6 /* AppDelegate.swift */; };
 		10FC1A4B208958C700BEBAD6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10FC1A49208958C700BEBAD6 /* Main.storyboard */; };
@@ -31,7 +34,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1076769F208BFB3600949B28 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		1016206F20A47C55001BE2F3 /* AccountListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountListVC.swift; sourceTree = "<group>"; };
+		1041B68A20A3DFBA0072C423 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		1041B68C20A3DFCA0072C423 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		1076769F208BFB3600949B28 /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
 		10C86EEE20A325A10045FF4D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		10FC1A42208958C700BEBAD6 /* Balancing Act.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Balancing Act.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		10FC1A45208958C700BEBAD6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +125,8 @@
 		10FC1A68208958D100BEBAD6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				1076769F208BFB3600949B28 /* CreateAccountVC.swift */,
+				1016206F20A47C55001BE2F3 /* AccountListVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -126,7 +134,6 @@
 		10FC1A69208958D700BEBAD6 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				1076769F208BFB3600949B28 /* TestViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -135,6 +142,8 @@
 			isa = PBXGroup;
 			children = (
 				10FC1A742089630300BEBAD6 /* StorageManager.swift */,
+				1041B68A20A3DFBA0072C423 /* Account.swift */,
+				1041B68C20A3DFCA0072C423 /* Transaction.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -171,6 +180,7 @@
 				10FC1A3F208958C700BEBAD6 /* Frameworks */,
 				10FC1A40208958C700BEBAD6 /* Resources */,
 				262F4D14E8F9A54C173A4A96 /* [CP] Embed Pods Frameworks */,
+				0C4E67EB90C93B162510C50C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -260,6 +270,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0C4E67EB90C93B162510C50C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Balancing Act/Pods-Balancing Act-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseGoogleAuthUI.bundle",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseGoogleAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Balancing Act/Pods-Balancing Act-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		262F4D14E8F9A54C173A4A96 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -267,12 +299,18 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Balancing Act/Pods-Balancing Act-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -323,9 +361,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				107676A0208BFB3600949B28 /* TestViewController.swift in Sources */,
+				107676A0208BFB3600949B28 /* CreateAccountVC.swift in Sources */,
+				1041B68B20A3DFBA0072C423 /* Account.swift in Sources */,
 				10FC1A752089630300BEBAD6 /* StorageManager.swift in Sources */,
 				10FC1A46208958C700BEBAD6 /* AppDelegate.swift in Sources */,
+				1016207020A47C55001BE2F3 /* AccountListVC.swift in Sources */,
+				1041B68D20A3DFCA0072C423 /* Transaction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
