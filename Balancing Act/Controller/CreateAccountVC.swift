@@ -23,7 +23,6 @@ class CreateAccountVC: UIViewController {
     super.viewDidLoad()
     ref = Database.database().reference(withPath: "accounts")
     if let account = self.account {
-      // load account details into text fields and change button text/function
       bankField.text = account.bank!
       acctNumberField.text = account.acctNumber!
       nicknameField.text = account.nickname
@@ -41,6 +40,7 @@ class CreateAccountVC: UIViewController {
     let accountRef = self.ref.child(nickname.lowercased())
     accountRef.setValue(account.toAnyObject())
     clearFields()
+    navigationController?.popViewController(animated: true)
   }
   
   func clearFields() {

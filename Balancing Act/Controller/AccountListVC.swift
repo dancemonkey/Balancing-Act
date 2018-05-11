@@ -17,6 +17,7 @@ class AccountListVC: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    self.title = "Accounts"
     ref = Database.database().reference(withPath: "accounts")
     
     ref.observe(.value) { (snapshot) in
@@ -36,10 +37,14 @@ class AccountListVC: UIViewController {
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == "accountEdit" {
-      let destVC = segue.destination as! CreateAccountVC
+    if segue.identifier == "showAccount" {
+      let destVC = segue.destination as! AccountVC
       destVC.account = self.accounts[(sender as! IndexPath).row]
     }
+  }
+  
+  @IBAction func newAccountTapped(sender: UIBarButtonItem) {
+    performSegue(withIdentifier: "newAccount", sender: self)
   }
 
 }
@@ -62,6 +67,6 @@ extension AccountListVC: UITableViewDataSource {
 
 extension AccountListVC: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    performSegue(withIdentifier: "accountEdit", sender: indexPath)
+      performSegue(withIdentifier: "showAccount", sender: indexPath)
   }
 }
