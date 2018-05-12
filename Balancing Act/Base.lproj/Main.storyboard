@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -109,26 +110,46 @@
             </objects>
             <point key="canvasLocation" x="1058" y="35"/>
         </scene>
-        <!--Title-->
+        <!--Account Transactions-->
         <scene sceneID="4db-Vk-pIB">
             <objects>
-                <viewController id="Hil-dz-Ql5" customClass="AccountVC" customModule="Balancing_Act" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Account Transactions" id="Hil-dz-Ql5" customClass="AccountVC" customModule="Balancing_Act" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MJp-cT-xH5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lzG-iX-5aR">
+                                <rect key="frame" x="8" y="124" width="359" height="491"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="9xB-wo-hOb" firstAttribute="trailing" secondItem="lzG-iX-5aR" secondAttribute="trailing" constant="8" id="BWm-js-5BZ"/>
+                            <constraint firstItem="9xB-wo-hOb" firstAttribute="bottom" secondItem="lzG-iX-5aR" secondAttribute="bottom" constant="8" id="O4B-EA-2FJ"/>
+                            <constraint firstItem="lzG-iX-5aR" firstAttribute="leading" secondItem="9xB-wo-hOb" secondAttribute="leading" constant="8" id="TxX-YY-8Bn"/>
+                            <constraint firstItem="lzG-iX-5aR" firstAttribute="top" secondItem="9xB-wo-hOb" secondAttribute="top" constant="8" id="Yno-61-Gj4"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="9xB-wo-hOb"/>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Title" id="e7S-0x-bod">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="yG6-qB-q2J">
-                            <connections>
-                                <action selector="newTransactionWithSender:" destination="Hil-dz-Ql5" id="2vU-2z-eqs"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="yG6-qB-q2J">
+                                <connections>
+                                    <action selector="newTransactionWithSender:" destination="Hil-dz-Ql5" id="2vU-2z-eqs"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="play" id="AhA-Kp-yKv">
+                                <connections>
+                                    <action selector="reconcileModeTappedWithSender:" destination="Hil-dz-Ql5" id="chY-Eg-pau"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="table" destination="lzG-iX-5aR" id="iHv-Jk-bm4"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="accountEdit" id="T3r-j1-Ykc"/>
                     </connections>
                 </viewController>
