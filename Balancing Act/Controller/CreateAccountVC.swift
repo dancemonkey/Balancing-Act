@@ -18,9 +18,11 @@ class CreateAccountVC: UIViewController {
   
   var ref: DatabaseReference!
   var account: Account?
+  var store: Store!
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    self.store = Store()
     ref = Database.database().reference(withPath: "accounts")
     if let account = self.account {
       bankField.text = account.bank!
@@ -36,9 +38,7 @@ class CreateAccountVC: UIViewController {
     let account = Account(bank: bankField.text,
                           acctNumber: acctNumberField.text,
                           nickname: nickname)
-    
-    let accountRef = self.ref.child(nickname.lowercased())
-    accountRef.setValue(account.toAnyObject())
+    store.addNew(account: account)
     clearFields()
     navigationController?.popViewController(animated: true)
   }

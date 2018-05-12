@@ -13,41 +13,29 @@ class AccountVC: UIViewController {
   
   // MARK: Properties
   @IBOutlet weak var table: UITableView!
-  var trxRef: DatabaseReference!
+  var trxRef: DatabaseQuery!
   var transactions: [Transaction] = []
   var unreconciledTrx: [Transaction] = []
   var reconcileMode: Bool = false
   var account: Account?
+  var store: Store!
   
   override func viewDidLoad() {
     super.viewDidLoad()
     self.title = account!.nickname
+    self.store = Store()
+    table.delegate = self
+    table.dataSource = self
     
     let accountsRef = Database.database().reference(withPath: "accounts")
     let thisAccountRef = accountsRef.child(account!.key)
-    trxRef = thisAccountRef.child("transactions")
-    let orderedByDate = thisAccountRef.child("transactions").queryOrdered(byChild: "creation")
-    
-    orderedByDate.observe(.value) { (snapshot) in
-      var newTrx: [Transaction] = []
-      for child in snapshot.children {
-        if let snapshot = child as? DataSnapshot,
-          let trx = Transaction(snapshot: snapshot) {
-          newTrx.append(trx)
-        }
-      }
-      self.transactions = newTrx
-      self.table.reloadData()
-    }
-    
-    table.delegate = self
-    table.dataSource = self
+    trxRef = thisAccountRef.child("transactions").queryOrdered(byChild: "creation")
+    observeChanges()
   }
   
   @IBAction func newTransaction(sender: UIBarButtonItem) {
     let newTrx = Transaction(payee: "Giant Eagle", amount: 99.88)
-    let ref = self.trxRef.child("\(newTrx.creation)")
-    ref.setValue(newTrx.toAnyObject())
+    store.addNew(transaction: newTrx, to: self.account!)
   }
   
   @IBAction func reconcileModeTapped(sender: UIBarButtonItem) {
@@ -81,5 +69,28 @@ extension AccountVC: UITableViewDataSource {
 }
 
 extension AccountVC: UITableViewDelegate {
-  
+  func observeChanges() {
+    trxRef.observe(.value) { (snapshot) in
+      var newTrx: [Transaction] = []
+      for child in snapshot.children {
+        if let snapshot = child as? DataSnapshot,
+          let trx = Transaction(snapshot: snapshot) {
+          newTrx.append(trx)
+        }
+      }
+      self.transactions = newTrx
+      self.table.reloadData()
+    }
+    trxRef.removeAllObservers()
+    
+    trxRef.observe(.childAdded) { (snapshot) in
+      self.transactions.append(Transaction(snapshot: snapshot)!)
+      self.table.insertRows(at: [IndexPath(row: self.transactions.count-1, section: 0)], with: .fade)
+    }
+    trxRef.observe(.childRemoved) { (snapshot) in
+      // get index of removed row
+      // remove that index from transactions (or unreconciledTransactions)
+      // delete that row from the table
+    }
+  }
 }
