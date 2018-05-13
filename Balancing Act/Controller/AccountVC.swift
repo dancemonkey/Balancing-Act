@@ -16,7 +16,19 @@ class AccountVC: UIViewController {
   var trxRef: DatabaseQuery!
   var transactions: [Transaction] = []
   var unreconciledTrx: [Transaction] = []
-  var reconcileMode: Bool = false
+  var reconcileMode: Bool = false {
+    didSet {
+      if reconcileMode {
+        unreconciledTrx = transactions.filter({ (trx) -> Bool in
+          return trx.reconciled == false
+        })
+        table.reloadData()
+        view.backgroundColor = .green
+      } else {
+        view.backgroundColor = .white
+      }
+    }
+  }
   var account: Account?
   var store: Store!
   
@@ -33,17 +45,23 @@ class AccountVC: UIViewController {
     observeChanges()
   }
   
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "editTransaction" {
+      let destVC = segue.destination as! EditTransactionVC
+      destVC.account = self.account!
+      if let index = sender {
+        destVC.transaction = self.transactions[index as! Int]
+        // change array source if in reconcile mode
+      }
+    }
+  }
+  
   @IBAction func newTransaction(sender: UIBarButtonItem) {
-    let newTrx = Transaction(payee: "Giant Eagle", amount: 99.88)
-    store.addNew(transaction: newTrx, to: self.account!)
+    performSegue(withIdentifier: "editTransaction", sender: nil)
   }
   
   @IBAction func reconcileModeTapped(sender: UIBarButtonItem) {
-    unreconciledTrx = transactions.filter({ (trx) -> Bool in
-      return trx.reconciled == false
-    })
     reconcileMode = !reconcileMode
-    table.reloadData()
   }
   
 }
@@ -69,6 +87,11 @@ extension AccountVC: UITableViewDataSource {
 }
 
 extension AccountVC: UITableViewDelegate {
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    performSegue(withIdentifier: "editTransaction", sender: indexPath.row)
+  }
+  
   func observeChanges() {
     trxRef.observe(.value) { (snapshot) in
       var newTrx: [Transaction] = []
@@ -80,17 +103,6 @@ extension AccountVC: UITableViewDelegate {
       }
       self.transactions = newTrx
       self.table.reloadData()
-    }
-    trxRef.removeAllObservers()
-    
-    trxRef.observe(.childAdded) { (snapshot) in
-      self.transactions.append(Transaction(snapshot: snapshot)!)
-      self.table.insertRows(at: [IndexPath(row: self.transactions.count-1, section: 0)], with: .fade)
-    }
-    trxRef.observe(.childRemoved) { (snapshot) in
-      // get index of removed row
-      // remove that index from transactions (or unreconciledTransactions)
-      // delete that row from the table
     }
   }
 }

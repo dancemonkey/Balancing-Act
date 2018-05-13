@@ -14,23 +14,27 @@ class Transaction {
   let key: String
   var payee: String
   var amount: Double
-  var creation: Date
+  var trxDate: Date
+  var category: String
+  var memo: String
   var reconciled: Bool
   var cleared: Bool
   var simpleDate: String {
     let formatter = DateFormatter()
     formatter.dateFormat = "MM/dd/yyyy"
-    return formatter.string(from: creation)
+    return formatter.string(from: trxDate)
   }
   
-  init(payee: String, amount: Double, key: String = "") {
+  init(payee: String, amount: Double, key: String = "", category: String?, memo: String?, date: Date?) {
     self.ref = nil
     self.payee = payee
     self.amount = amount
     self.key = key
-    self.creation = Date()
+    self.trxDate = date ?? Date()
     self.reconciled = false
     self.cleared = false
+    self.memo = memo ?? ""
+    self.category = category ?? ""
   }
   
   init?(snapshot: DataSnapshot) {
@@ -38,8 +42,10 @@ class Transaction {
       let value = snapshot.value as? [String: AnyObject],
       let payee = value["payee"] as? String,
       let amount = value["amount"] as? Double,
-      let creation = value["creation"] as? String,
+      let trxDate = value["trxDate"] as? String,
       let reconciled = value["reconciled"] as? Bool,
+      let memo = value["memo"] as? String,
+      let category = value["category"] as? String,
       let cleared = value["cleared"] as? Bool
       else {
         print("failing out of Transaction guard")
@@ -47,7 +53,7 @@ class Transaction {
     
     let formatter = DateFormatter()
     formatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
-    self.creation = formatter.date(from: creation)!
+    self.trxDate = formatter.date(from: trxDate)!
     
     self.ref = snapshot.ref
     self.key = snapshot.key
@@ -55,15 +61,19 @@ class Transaction {
     self.amount = amount
     self.reconciled = reconciled
     self.cleared = cleared
+    self.category = category
+    self.memo = memo
   }
   
   func toAnyObject() -> Any {
     return [
       "payee": payee,
       "amount": amount,
-      "creation": creation.description,
+      "trxDate": trxDate.description,
       "reconciled": reconciled,
-      "cleared": cleared
+      "cleared": cleared,
+      "memo": memo,
+      "category": category
     ]
   }
   

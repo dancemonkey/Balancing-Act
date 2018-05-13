@@ -15,19 +15,28 @@ class Account {
   var bank: String?
   var acctNumber: String?
   var nickname: String
+  var startingBalance: Double
+  var currentBalance: Double {
+    get {
+      // calculate running total, return startingBalance for now
+      return startingBalance
+    }
+  }
   
-  init(bank: String?, acctNumber: String?, nickname: String, key: String = "") {
+  init(bank: String?, acctNumber: String?, nickname: String, key: String = "", balance: Double) {
     self.ref = nil
     self.key = key
     self.bank = bank
     self.acctNumber = acctNumber
     self.nickname = nickname
+    self.startingBalance = balance
   }
   
   init?(snapshot: DataSnapshot) {
     guard
       let value = snapshot.value as? [String: AnyObject],
-      let nickname = value["nickname"] as? String
+      let nickname = value["nickname"] as? String,
+      let balance = value["startingBalance"] as? Double
       else
     { return nil }
     
@@ -36,13 +45,15 @@ class Account {
     self.nickname = nickname
     self.bank = value["bank"] as? String
     self.acctNumber = value["acctNumber"] as? String
+    self.startingBalance = balance
   }
   
   func toAnyObject() -> Any {
     return [
       "bank": bank,
       "acctNumber": acctNumber,
-      "nickname": nickname
+      "nickname": nickname,
+      "startingBalance": startingBalance
     ]
   }
 }

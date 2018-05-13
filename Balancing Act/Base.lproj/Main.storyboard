@@ -61,7 +61,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="enI-iy-N8a">
-                                <rect key="frame" x="47" y="243.5" width="281" height="180"/>
+                                <rect key="frame" x="47" y="218.5" width="281" height="230"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Bank" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WZt-VW-YVK">
                                         <rect key="frame" x="0.0" y="0.0" width="281" height="30"/>
@@ -81,8 +81,14 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I58-N0-VaM">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Starting Balance (required)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cXT-Mi-8hF">
                                         <rect key="frame" x="0.0" y="150" width="281" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I58-N0-VaM">
+                                        <rect key="frame" x="0.0" y="200" width="281" height="30"/>
                                         <state key="normal" title="Create Account"/>
                                         <connections>
                                             <action selector="createAccountTouchedWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="O3z-fR-4aA"/>
@@ -104,6 +110,7 @@
                         <outlet property="bankField" destination="WZt-VW-YVK" id="Ze0-P3-uYf"/>
                         <outlet property="button" destination="I58-N0-VaM" id="5le-PK-mEC"/>
                         <outlet property="nicknameField" destination="SaK-ht-PH2" id="wtp-pF-HpI"/>
+                        <outlet property="startingBalance" destination="cXT-Mi-8hF" id="swD-Nj-5GF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -151,11 +158,111 @@
                     <connections>
                         <outlet property="table" destination="lzG-iX-5aR" id="iHv-Jk-bm4"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="accountEdit" id="T3r-j1-Ykc"/>
+                        <segue destination="Z6q-o1-Mt3" kind="show" identifier="editTransaction" id="stU-tn-Ei9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ssx-yY-A4w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="276" y="773"/>
+        </scene>
+        <!--Edit TransactionVC-->
+        <scene sceneID="ThY-sa-FC5">
+            <objects>
+                <viewController id="Z6q-o1-Mt3" customClass="EditTransactionVC" customModule="Balancing_Act" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cYi-xN-LTe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4lh-Rb-bFx">
+                                <rect key="frame" x="16" y="580" width="343" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fb-8G-4kw">
+                                        <rect key="frame" x="0.0" y="0.0" width="156.5" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
+                                        <state key="normal" title="Clear"/>
+                                        <connections>
+                                            <action selector="clear" destination="Z6q-o1-Mt3" eventType="touchUpInside" id="X5l-p1-BNV"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T4b-vM-OhD">
+                                        <rect key="frame" x="156.5" y="0.0" width="186.5" height="30"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="DONE"/>
+                                        <connections>
+                                            <action selector="doneWithSender:" destination="Z6q-o1-Mt3" eventType="touchUpInside" id="A9W-VV-ZoZ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="mS8-VF-Wj0">
+                                <rect key="frame" x="8" y="148" width="359" height="400"/>
+                                <subviews>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="AVn-uA-QMu">
+                                        <rect key="frame" x="19.5" y="0.0" width="320" height="216"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="547912391.44786704">
+                                            <!--2018-05-13 13:53:11 +0000-->
+                                        </date>
+                                    </datePicker>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Payee" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wSQ-z6-x5e">
+                                        <rect key="frame" x="16" y="232" width="327" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Amount" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wG9-Qg-guM">
+                                        <rect key="frame" x="16" y="278" width="327" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rMP-MW-t3n">
+                                        <rect key="frame" x="16" y="324" width="327" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Memo" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MdN-0S-WCe">
+                                        <rect key="frame" x="16" y="370" width="327" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="rMP-MW-t3n" secondAttribute="trailing" constant="16" id="7b5-wa-hEe"/>
+                                    <constraint firstItem="wG9-Qg-guM" firstAttribute="leading" secondItem="mS8-VF-Wj0" secondAttribute="leading" constant="16" id="FMN-Ch-aDn"/>
+                                    <constraint firstAttribute="trailing" secondItem="MdN-0S-WCe" secondAttribute="trailing" constant="16" id="Ltz-Rz-gKh"/>
+                                    <constraint firstItem="rMP-MW-t3n" firstAttribute="leading" secondItem="mS8-VF-Wj0" secondAttribute="leading" constant="16" id="Pfu-68-QwY"/>
+                                    <constraint firstItem="MdN-0S-WCe" firstAttribute="leading" secondItem="mS8-VF-Wj0" secondAttribute="leading" constant="16" id="atx-V7-kFg"/>
+                                    <constraint firstAttribute="trailing" secondItem="wSQ-z6-x5e" secondAttribute="trailing" constant="16" id="clR-dw-Dqi"/>
+                                    <constraint firstItem="wSQ-z6-x5e" firstAttribute="leading" secondItem="mS8-VF-Wj0" secondAttribute="leading" constant="16" id="hLE-hQ-YkF"/>
+                                    <constraint firstAttribute="trailing" secondItem="wG9-Qg-guM" secondAttribute="trailing" constant="16" id="zhA-U0-OnQ"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="mS8-VF-Wj0" firstAttribute="top" secondItem="yh3-sF-Ije" secondAttribute="top" constant="32" id="04u-SU-zfS"/>
+                            <constraint firstItem="yh3-sF-Ije" firstAttribute="trailing" secondItem="4lh-Rb-bFx" secondAttribute="trailing" constant="16" id="2y2-Ag-JiV"/>
+                            <constraint firstItem="4lh-Rb-bFx" firstAttribute="top" secondItem="mS8-VF-Wj0" secondAttribute="bottom" constant="32" id="BEC-gT-xfv"/>
+                            <constraint firstItem="mS8-VF-Wj0" firstAttribute="leading" secondItem="yh3-sF-Ije" secondAttribute="leading" constant="8" id="Qvy-g5-r82"/>
+                            <constraint firstItem="yh3-sF-Ije" firstAttribute="trailing" secondItem="mS8-VF-Wj0" secondAttribute="trailing" constant="8" id="aPc-lC-Tdu"/>
+                            <constraint firstItem="4lh-Rb-bFx" firstAttribute="leading" secondItem="yh3-sF-Ije" secondAttribute="leading" constant="16" id="svg-QY-Nl6"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="yh3-sF-Ije"/>
+                    </view>
+                    <connections>
+                        <outlet property="amount" destination="wG9-Qg-guM" id="9jz-Nz-aKv"/>
+                        <outlet property="button" destination="T4b-vM-OhD" id="ftT-Ki-T1G"/>
+                        <outlet property="category" destination="rMP-MW-t3n" id="jbu-bs-Sln"/>
+                        <outlet property="date" destination="AVn-uA-QMu" id="VHq-Dh-Z6Y"/>
+                        <outlet property="memo" destination="MdN-0S-WCe" id="DF9-ou-PFq"/>
+                        <outlet property="payee" destination="wSQ-z6-x5e" id="iFZ-Cj-PpO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mEV-AS-nQV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1057" y="772"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rj5-BO-x0Q">

@@ -21,7 +21,7 @@ class Store {
   func addNew(transaction trx: Transaction, to account: Account) {
     accountRef = allAccountsRef.child(account.key)
     let trxRef = accountRef.child("transactions")
-    let newTrx = trxRef.child("\(trx.creation)")
+    let newTrx = trxRef.child("\(trx.trxDate)")
     newTrx.setValue(trx.toAnyObject())    
   }
   

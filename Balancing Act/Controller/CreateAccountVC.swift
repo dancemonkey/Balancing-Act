@@ -15,6 +15,7 @@ class CreateAccountVC: UIViewController {
   @IBOutlet weak var acctNumberField: UITextField!
   @IBOutlet weak var nicknameField: UITextField!
   @IBOutlet weak var button: UIButton!
+  @IBOutlet weak var startingBalance: UITextField!
   
   var ref: DatabaseReference!
   var account: Account?
@@ -33,11 +34,12 @@ class CreateAccountVC: UIViewController {
   }
   
   @IBAction func createAccountTouched(sender: UIButton) {
-    guard let nickname = nicknameField.text else { return }
+    guard let nickname = nicknameField.text, let balance = startingBalance.text else { return }
     
     let account = Account(bank: bankField.text,
                           acctNumber: acctNumberField.text,
-                          nickname: nickname)
+                          nickname: nickname,
+                          balance: Double(balance)!)
     store.addNew(account: account)
     clearFields()
     navigationController?.popViewController(animated: true)
@@ -47,6 +49,7 @@ class CreateAccountVC: UIViewController {
     bankField.text = ""
     acctNumberField.text = ""
     nicknameField.text = ""
+    startingBalance.text = ""
   }
   
 }
