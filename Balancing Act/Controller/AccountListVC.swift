@@ -18,19 +18,7 @@ class AccountListVC: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     self.title = "Accounts"
-    ref = Database.database().reference(withPath: "accounts")
-    
-    ref.observe(.value) { (snapshot) in
-      var newAccounts: [Account] = []
-      for child in snapshot.children {
-        if let snapshot = child as? DataSnapshot,
-          let account = Account(snapshot: snapshot) {
-          newAccounts.append(account)
-        }
-      }
-      self.accounts = newAccounts
-      self.table.reloadData()
-    }
+    observeChanges()
     
     table.delegate = self
     table.dataSource = self
@@ -45,6 +33,21 @@ class AccountListVC: UIViewController {
   
   @IBAction func newAccountTapped(sender: UIBarButtonItem) {
     performSegue(withIdentifier: "newAccount", sender: self)
+  }
+  
+  func observeChanges() {
+    ref = Database.database().reference(withPath: "accounts")
+    ref.observe(.value) { (snapshot) in
+      var newAccounts: [Account] = []
+      for child in snapshot.children {
+        if let snapshot = child as? DataSnapshot,
+          let account = Account(snapshot: snapshot) {
+          newAccounts.append(account)
+        }
+      }
+      self.accounts = newAccounts
+      self.table.reloadData()
+    }
   }
 
 }

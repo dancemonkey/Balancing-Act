@@ -31,6 +31,7 @@ class AccountVC: UIViewController {
   }
   var account: Account?
   var store: Store!
+  var updateIndex: Int?
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -64,6 +65,32 @@ class AccountVC: UIViewController {
     reconcileMode = !reconcileMode
   }
   
+  func observeChanges() {
+    trxRef.observe(.childAdded) { (snapshot) in
+      self.transactions.append(Transaction(snapshot: snapshot)!)
+      self.table.insertRows(at: [IndexPath(row: self.transactions.count-1, section: 0)], with: .fade)
+    }
+    trxRef.observe(.childRemoved) { (snapshot) in
+      guard let index = self.indexOfTransaction(snapshot: snapshot) else { return }
+      self.transactions.remove(at: index)
+      self.table.deleteRows(at: [IndexPath(row: index, section: 0)], with: .fade)
+    }
+    trxRef.observe(.childChanged) { (snapshot) in
+      guard let updated = self.indexOfTransaction(snapshot: snapshot) else { return }
+      self.transactions[updated] = Transaction(snapshot: snapshot)!
+      self.table.reloadRows(at: [IndexPath(row: updated, section: 0)], with: .fade)
+    }
+  }
+  
+  func indexOfTransaction(snapshot: DataSnapshot) -> Int? {
+    if let trx = Transaction(snapshot: snapshot) {
+      return self.transactions.index(where: { (transaction) -> Bool in
+        return trx.key == transaction.key
+      })
+    }
+    return nil
+  }
+  
 }
 
 extension AccountVC: UITableViewDataSource {
@@ -89,20 +116,8 @@ extension AccountVC: UITableViewDataSource {
 extension AccountVC: UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    updateIndex = indexPath.row
     performSegue(withIdentifier: "editTransaction", sender: indexPath.row)
   }
   
-  func observeChanges() {
-    trxRef.observe(.value) { (snapshot) in
-      var newTrx: [Transaction] = []
-      for child in snapshot.children {
-        if let snapshot = child as? DataSnapshot,
-          let trx = Transaction(snapshot: snapshot) {
-          newTrx.append(trx)
-        }
-      }
-      self.transactions = newTrx
-      self.table.reloadData()
-    }
-  }
 }
