@@ -16,6 +16,7 @@ class Account {
   var acctNumber: String?
   var nickname: String
   var startingBalance: Double
+  var creation: String
   var currentBalance: Double {
     get {
       // calculate running total, return startingBalance for now
@@ -30,6 +31,7 @@ class Account {
     self.acctNumber = acctNumber
     self.nickname = nickname
     self.startingBalance = balance
+    self.creation = Date().description
   }
   
   init?(snapshot: DataSnapshot) {
@@ -46,6 +48,7 @@ class Account {
     self.bank = value["bank"] as? String
     self.acctNumber = value["acctNumber"] as? String
     self.startingBalance = balance
+    self.creation = value["creation"] as! String
   }
   
   func toAnyObject() -> Any {
@@ -53,7 +56,8 @@ class Account {
       "bank": bank,
       "acctNumber": acctNumber,
       "nickname": nickname,
-      "startingBalance": startingBalance
+      "startingBalance": startingBalance,
+      "creation": creation
     ]
   }
 }

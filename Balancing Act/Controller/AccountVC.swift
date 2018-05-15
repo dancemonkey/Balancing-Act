@@ -40,9 +40,8 @@ class AccountVC: UIViewController {
     table.delegate = self
     table.dataSource = self
     
-    let accountsRef = Database.database().reference(withPath: "accounts")
-    let thisAccountRef = accountsRef.child(account!.key)
-    trxRef = thisAccountRef.child("transactions").queryOrdered(byChild: "creation")
+    let thisAccountRef = account!.ref
+    trxRef = thisAccountRef?.child("transactions").queryOrdered(byChild: "creation")
     observeChanges()
   }
   

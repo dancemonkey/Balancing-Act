@@ -26,7 +26,7 @@ class Store {
   }
   
   func addNew(account: Account) {
-    accountRef = allAccountsRef.child(account.nickname.lowercased())
+    accountRef = allAccountsRef.child(account.creation)
     accountRef.setValue(account.toAnyObject())
   }
   

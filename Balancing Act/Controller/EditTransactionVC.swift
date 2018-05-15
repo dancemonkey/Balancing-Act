@@ -40,9 +40,9 @@ class EditTransactionVC: UIViewController {
     let amount = Double(amount.text!)
       else { return }
     
-    if let trx = self.transaction, let acct = self.account {
+    if let trx = self.transaction {
       updating = true
-      let trxRef = Database.database().reference(withPath: "accounts").child("\(acct.nickname.lowercased())").child("transactions/\(trx.key)")
+      let trxRef = trx.ref! 
       trxRef.setValue([
         "payee": payee,
         "amount": amount,
