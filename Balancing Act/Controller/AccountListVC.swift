@@ -11,6 +11,8 @@ import Firebase
 
 class AccountListVC: UIViewController {
   
+  // TODO: custom XIBs for cells
+  
   var ref: DatabaseReference!
   var accounts: [Account] = []
   @IBOutlet weak var table: UITableView!
@@ -62,9 +64,8 @@ extension AccountListVC: UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
-    cell.textLabel?.text = accounts[indexPath.row].nickname
-    cell.detailTextLabel?.text = "$\(accounts[indexPath.row].currentBalance)"
+    let cell = table.dequeueReusableCell(withIdentifier: "accountCell") as! AccountCell
+    cell.configure(with: accounts[indexPath.row])
     return cell
   }
 }
@@ -72,5 +73,9 @@ extension AccountListVC: UITableViewDataSource {
 extension AccountListVC: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
       performSegue(withIdentifier: "showAccount", sender: indexPath)
+  }
+  
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return 55.0
   }
 }

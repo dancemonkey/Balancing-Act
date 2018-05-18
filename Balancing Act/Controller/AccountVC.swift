@@ -11,6 +11,8 @@ import Firebase
 
 class AccountVC: UIViewController {
   
+  // TODO: custom XIBs for cells
+  
   // MARK: Properties
   @IBOutlet weak var table: UITableView!
   var trxRef: DatabaseQuery!

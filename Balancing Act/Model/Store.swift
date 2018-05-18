@@ -18,6 +18,8 @@ class Store {
     allAccountsRef = Database.database().reference(withPath: "accounts")
   }
   
+  // TODO: enum of all FB Refs
+  
   func addNew(transaction trx: Transaction, to account: Account) {
     accountRef = allAccountsRef.child(account.key)
     let trxRef = accountRef.child("transactions")
@@ -32,6 +34,7 @@ class Store {
   
   func getUnreconciledTrx(from account: Account) -> [Transaction] {
     accountRef = allAccountsRef.child(account.key)
+    // filter out the transactions that are reconciled
     return [Transaction]()
   }
   

@@ -12,7 +12,6 @@ import Firebase
 class CreateAccountVC: UIViewController {
   
   @IBOutlet weak var bankField: UITextField!
-  @IBOutlet weak var acctNumberField: UITextField!
   @IBOutlet weak var nicknameField: UITextField!
   @IBOutlet weak var button: UIButton!
   @IBOutlet weak var startingBalance: UITextField!
@@ -27,7 +26,6 @@ class CreateAccountVC: UIViewController {
     ref = Database.database().reference(withPath: "accounts")
     if let account = self.account {
       bankField.text = account.bank!
-      acctNumberField.text = account.acctNumber!
       nicknameField.text = account.nickname
       button.setTitle("Update Account", for: .normal)
     }
@@ -37,7 +35,6 @@ class CreateAccountVC: UIViewController {
     guard let nickname = nicknameField.text, let balance = startingBalance.text else { return }
     
     let account = Account(bank: bankField.text,
-                          acctNumber: acctNumberField.text,
                           nickname: nickname,
                           balance: Double(balance)!)
     store.addNew(account: account)
@@ -47,7 +44,6 @@ class CreateAccountVC: UIViewController {
   
   func clearFields() {
     bankField.text = ""
-    acctNumberField.text = ""
     nicknameField.text = ""
     startingBalance.text = ""
   }

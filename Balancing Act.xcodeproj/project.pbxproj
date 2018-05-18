@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1016207020A47C55001BE2F3 /* AccountListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1016206F20A47C55001BE2F3 /* AccountListVC.swift */; };
+		103CFFEA20AF0540004F753C /* AccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103CFFE920AF0540004F753C /* AccountCell.swift */; };
 		1041B68B20A3DFBA0072C423 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1041B68A20A3DFBA0072C423 /* Account.swift */; };
 		1041B68D20A3DFCA0072C423 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1041B68C20A3DFCA0072C423 /* Transaction.swift */; };
 		107676A0208BFB3600949B28 /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1076769F208BFB3600949B28 /* CreateAccountVC.swift */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		1016206F20A47C55001BE2F3 /* AccountListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountListVC.swift; sourceTree = "<group>"; };
+		103CFFE920AF0540004F753C /* AccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCell.swift; sourceTree = "<group>"; };
 		1041B68A20A3DFBA0072C423 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		1041B68C20A3DFCA0072C423 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		1076769F208BFB3600949B28 /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 		10FC1A69208958D700BEBAD6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				103CFFE920AF0540004F753C /* AccountCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -369,6 +372,7 @@
 			files = (
 				107676A0208BFB3600949B28 /* CreateAccountVC.swift in Sources */,
 				1041B68B20A3DFBA0072C423 /* Account.swift in Sources */,
+				103CFFEA20AF0540004F753C /* AccountCell.swift in Sources */,
 				10FC1A752089630300BEBAD6 /* Store.swift in Sources */,
 				10C8A1AB20A5C06B002FFCCF /* AccountVC.swift in Sources */,
 				10FC1A46208958C700BEBAD6 /* AppDelegate.swift in Sources */,

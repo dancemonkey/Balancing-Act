@@ -13,22 +13,14 @@ class Account {
   let ref: DatabaseReference?
   let key: String
   var bank: String?
-  var acctNumber: String?
   var nickname: String
   var startingBalance: Double
   var creation: String
-  var currentBalance: Double {
-    get {
-      // calculate running total, return startingBalance for now
-      return startingBalance
-    }
-  }
   
-  init(bank: String?, acctNumber: String?, nickname: String, key: String = "", balance: Double) {
+  init(bank: String?, nickname: String, key: String = "", balance: Double) {
     self.ref = nil
     self.key = key
     self.bank = bank
-    self.acctNumber = acctNumber
     self.nickname = nickname
     self.startingBalance = balance
     self.creation = Date().description
@@ -46,7 +38,6 @@ class Account {
     self.key = snapshot.key
     self.nickname = nickname
     self.bank = value["bank"] as? String
-    self.acctNumber = value["acctNumber"] as? String
     self.startingBalance = balance
     self.creation = value["creation"] as! String
   }
@@ -54,10 +45,27 @@ class Account {
   func toAnyObject() -> Any {
     return [
       "bank": bank,
-      "acctNumber": acctNumber,
       "nickname": nickname,
       "startingBalance": startingBalance,
       "creation": creation
     ]
+  }
+  
+  func getCurrentBalance(completion: @escaping (_: Double) -> ()) {
+    let trxRef = self.ref?.child("transactions")
+    
+    trxRef?.observeSingleEvent(of: .value, with: { (snapshot) in
+      var total: Double = self.startingBalance
+      for child in snapshot.children {
+        if let child = child as? DataSnapshot {
+          total = total + (Transaction(snapshot: child)?.amount ?? 0.0)
+        }
+      }
+      completion(total)
+    })
+  }
+  
+  func getReconciledBalance() -> Double {
+    return 1.0
   }
 }
