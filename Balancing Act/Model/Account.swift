@@ -16,6 +16,8 @@ class Account {
   var nickname: String
   var startingBalance: Double
   var creation: String
+  var currentBalance: Double?
+  var reconciledBalance: Double?
   
   init(bank: String?, nickname: String, key: String = "", balance: Double) {
     self.ref = nil
@@ -23,6 +25,8 @@ class Account {
     self.bank = bank
     self.nickname = nickname
     self.startingBalance = balance
+    self.currentBalance = balance
+    self.reconciledBalance = 0.00
     self.creation = Date().description
   }
   
@@ -40,6 +44,8 @@ class Account {
     self.bank = value["bank"] as? String
     self.startingBalance = balance
     self.creation = value["creation"] as! String
+    self.currentBalance = value["currentBalance"] as? Double
+    self.reconciledBalance = value["reconciledBalance"] as? Double
   }
   
   func toAnyObject() -> Any {
@@ -47,25 +53,40 @@ class Account {
       "bank": bank,
       "nickname": nickname,
       "startingBalance": startingBalance,
-      "creation": creation
+      "creation": creation,
+      "currentBalance": currentBalance,
+      "reconciledBalance": reconciledBalance
     ]
   }
   
-  func getCurrentBalance(completion: @escaping (_: Double) -> ()) {
+  func setCurrentBalance() {
     let trxRef = self.ref?.child("transactions")
-    
     trxRef?.observeSingleEvent(of: .value, with: { (snapshot) in
       var total: Double = self.startingBalance
       for child in snapshot.children {
-        if let child = child as? DataSnapshot {
-          total = total + (Transaction(snapshot: child)?.amount ?? 0.0)
+        if let child = child as? DataSnapshot, let trx = Transaction(snapshot: child) {
+          total = total + trx.amount
         }
       }
-      completion(total)
+      self.currentBalance = total
+      self.ref?.updateChildValues(["currentBalance" : self.currentBalance])
     })
   }
   
-  func getReconciledBalance() -> Double {
-    return 1.0
+  func setReconciledBalance() {
+    let trxRef = self.ref?.child("transactions")
+    trxRef?.observeSingleEvent(of: .value, with: { (snapshot) in
+      var total: Double = self.startingBalance
+      for child in snapshot.children {
+        if let child = child as? DataSnapshot, let trx = Transaction(snapshot: child) {
+          if trx.reconciled {
+            total = total + trx.amount
+          }
+        }
+      }
+      self.reconciledBalance = total
+      self.ref?.updateChildValues(["reconciledBalance" : self.reconciledBalance])
+    })
   }
+  
 }

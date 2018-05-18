@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class AccountCell: UITableViewCell {
   
@@ -19,11 +20,17 @@ class AccountCell: UITableViewCell {
   
   func configure(with account: Account) {
     self.accountName.text = account.nickname
-    account.getCurrentBalance { (total) in
-      DispatchQueue.main.async {
-        self.accountBalance.text = Money.format(amount: total)
+    account.ref?.observe(.value, with: { (snapshot) in
+      for child in snapshot.children {
+        if let child = child as? DataSnapshot {
+          if child.key == "currentBalance", let total = child.value as? Double {
+            DispatchQueue.main.async {
+              self.accountBalance.text = Money.format(amount: total)
+            }
+          }
+        }
       }
-    }
+    })
   }
   
 }

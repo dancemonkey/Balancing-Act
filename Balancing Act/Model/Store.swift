@@ -24,7 +24,14 @@ class Store {
     accountRef = allAccountsRef.child(account.key)
     let trxRef = accountRef.child("transactions")
     let newTrx = trxRef.child("\(trx.trxDate)")
-    newTrx.setValue(trx.toAnyObject())    
+    newTrx.setValue(trx.toAnyObject())
+    account.setCurrentBalance()
+  }
+  
+  func update(values: Any?, for trx: Transaction, in account: Account) {
+    let trxRef = trx.ref!
+    trxRef.setValue(values)
+    account.setCurrentBalance()
   }
   
   func addNew(account: Account) {
