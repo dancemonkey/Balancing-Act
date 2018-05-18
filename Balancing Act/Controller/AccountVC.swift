@@ -106,9 +106,8 @@ extension AccountVC: UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let trx = reconcileMode == false ? transactions[indexPath.row] : unreconciledTrx[indexPath.row]
-    let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
-    cell.textLabel?.text = trx.payee
-    cell.detailTextLabel?.text = "\(trx.simpleDate) - " + Money.format(amount: trx.amount)
+    let cell = table.dequeueReusableCell(withIdentifier: "transactionCell") as! TransactionCell
+    cell.configure(with: trx)
     return cell
   }
   
@@ -118,7 +117,15 @@ extension AccountVC: UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     updateIndex = indexPath.row
-    performSegue(withIdentifier: "editTransaction", sender: indexPath.row)
+    if !reconcileMode {
+      performSegue(withIdentifier: "editTransaction", sender: indexPath.row)
+    } else {
+      // mark updateIndex trx as reconciled
+    }
+  }
+  
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return 65.0
   }
   
 }
