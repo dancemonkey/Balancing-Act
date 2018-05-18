@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1016207020A47C55001BE2F3 /* AccountListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1016206F20A47C55001BE2F3 /* AccountListVC.swift */; };
 		103CFFEA20AF0540004F753C /* AccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103CFFE920AF0540004F753C /* AccountCell.swift */; };
+		103CFFED20AF092F004F753C /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103CFFEC20AF092F004F753C /* DoubleExtension.swift */; };
+		103CFFEF20AF09D2004F753C /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103CFFEE20AF09D2004F753C /* Money.swift */; };
 		1041B68B20A3DFBA0072C423 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1041B68A20A3DFBA0072C423 /* Account.swift */; };
 		1041B68D20A3DFCA0072C423 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1041B68C20A3DFCA0072C423 /* Transaction.swift */; };
 		107676A0208BFB3600949B28 /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1076769F208BFB3600949B28 /* CreateAccountVC.swift */; };
@@ -39,6 +41,8 @@
 /* Begin PBXFileReference section */
 		1016206F20A47C55001BE2F3 /* AccountListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountListVC.swift; sourceTree = "<group>"; };
 		103CFFE920AF0540004F753C /* AccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCell.swift; sourceTree = "<group>"; };
+		103CFFEC20AF092F004F753C /* DoubleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
+		103CFFEE20AF09D2004F753C /* Money.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
 		1041B68A20A3DFBA0072C423 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		1041B68C20A3DFCA0072C423 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		1076769F208BFB3600949B28 /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
@@ -83,6 +87,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		103CFFEB20AF091C004F753C /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				103CFFEC20AF092F004F753C /* DoubleExtension.swift */,
+				103CFFEE20AF09D2004F753C /* Money.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		10FC1A39208958C700BEBAD6 = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +119,7 @@
 		10FC1A44208958C700BEBAD6 /* Balancing Act */ = {
 			isa = PBXGroup;
 			children = (
+				103CFFEB20AF091C004F753C /* Util */,
 				10FC1A6A208958E000BEBAD6 /* Model */,
 				10FC1A69208958D700BEBAD6 /* View */,
 				10FC1A68208958D100BEBAD6 /* Controller */,
@@ -370,6 +384,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				103CFFED20AF092F004F753C /* DoubleExtension.swift in Sources */,
+				103CFFEF20AF09D2004F753C /* Money.swift in Sources */,
 				107676A0208BFB3600949B28 /* CreateAccountVC.swift in Sources */,
 				1041B68B20A3DFBA0072C423 /* Account.swift in Sources */,
 				103CFFEA20AF0540004F753C /* AccountCell.swift in Sources */,

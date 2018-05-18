@@ -10,9 +10,7 @@ import UIKit
 import Firebase
 
 class AccountListVC: UIViewController {
-  
-  // TODO: custom XIBs for cells
-  
+    
   var ref: DatabaseReference!
   var accounts: [Account] = []
   @IBOutlet weak var table: UITableView!

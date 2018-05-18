@@ -108,7 +108,7 @@ extension AccountVC: UITableViewDataSource {
     let trx = reconcileMode == false ? transactions[indexPath.row] : unreconciledTrx[indexPath.row]
     let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
     cell.textLabel?.text = trx.payee
-    cell.detailTextLabel?.text = "\(trx.simpleDate) - $\(trx.amount)"
+    cell.detailTextLabel?.text = "\(trx.simpleDate) - " + Money.format(amount: trx.amount)
     return cell
   }
   

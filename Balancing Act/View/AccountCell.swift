@@ -21,7 +21,7 @@ class AccountCell: UITableViewCell {
     self.accountName.text = account.nickname
     account.getCurrentBalance { (total) in
       DispatchQueue.main.async {
-        self.accountBalance.text = "$\(total)"
+        self.accountBalance.text = Money.format(amount: total)
       }
     }
   }
