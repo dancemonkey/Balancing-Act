@@ -88,7 +88,8 @@ class AccountVC: UIViewController {
   
   func indexOfTransaction(snapshot: DataSnapshot) -> Int? {
     if let trx = Transaction(snapshot: snapshot) {
-      return self.transactions.index(where: { (transaction) -> Bool in
+      let targetArray = reconcileMode ? unreconciledTrx : transactions
+      return targetArray.index(where: { (transaction) -> Bool in
         return trx.key == transaction.key
       })
     }
@@ -101,7 +102,7 @@ class AccountVC: UIViewController {
         trx.setReconciled(to: true)
       }
     }
-//    setUnreconciledTrx()
+    setUnreconciledTrx()
     table.reloadData()
   }
   
