@@ -37,12 +37,6 @@ class Store {
     accountRef.setValue(account.toAnyObject())
   }
   
-  func getUnreconciledTrx(from account: Account) -> [Transaction] {
-    accountRef = allAccountsRef.child(account.key)
-    // filter out the transactions that are reconciled
-    return [Transaction]()
-  }
-  
   func removeTransaction(_: Transaction) {
     
   }

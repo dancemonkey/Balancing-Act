@@ -81,7 +81,9 @@ class AccountVC: UIViewController {
     }
     trxRef.observe(.childChanged) { (snapshot) in
       guard let updated = self.indexOfTransaction(snapshot: snapshot) else { return }
-      self.transactions[updated] = Transaction(snapshot: snapshot)!
+      if !self.reconcileMode {
+        self.transactions[updated] = Transaction(snapshot: snapshot)!
+      }
       self.table.reloadRows(at: [IndexPath(row: updated, section: 0)], with: .fade)
     }
   }
