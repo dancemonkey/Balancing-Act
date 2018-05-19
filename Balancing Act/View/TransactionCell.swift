@@ -10,6 +10,8 @@ import UIKit
 
 class TransactionCell: UITableViewCell {
   
+  // TODO: add deposit switch or something
+  
   @IBOutlet weak var payee: UILabel!
   @IBOutlet weak var amount: UILabel!
   @IBOutlet weak var date: UILabel!

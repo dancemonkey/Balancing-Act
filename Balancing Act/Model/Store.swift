@@ -17,9 +17,7 @@ class Store {
   init() {
     allAccountsRef = Database.database().reference(withPath: "accounts")
   }
-  
-  // TODO: enum of all FB Refs
-  
+    
   func addNew(transaction trx: Transaction, to account: Account) {
     accountRef = allAccountsRef.child(account.key)
     let trxRef = accountRef.child("transactions")

@@ -17,8 +17,14 @@ class Transaction {
   var trxDate: Date
   var category: String
   var memo: String
-  var reconciled: Bool
-  var cleared: Bool
+  private var _reconciled: Bool
+  var reconciled: Bool {
+    return self._reconciled
+  }
+  private var _cleared: Bool
+  var cleared: Bool {
+    return self._cleared
+  }
   var simpleDate: String {
     let formatter = DateFormatter()
     formatter.dateFormat = "MM/dd/yyyy"
@@ -31,8 +37,8 @@ class Transaction {
     self.amount = amount
     self.key = key
     self.trxDate = date ?? Date()
-    self.reconciled = false
-    self.cleared = false
+    self._reconciled = false
+    self._cleared = false
     self.memo = memo ?? ""
     self.category = category ?? ""
   }
@@ -59,8 +65,8 @@ class Transaction {
     self.key = snapshot.key
     self.payee = payee
     self.amount = amount
-    self.reconciled = reconciled
-    self.cleared = cleared
+    self._reconciled = reconciled
+    self._cleared = cleared
     self.category = category
     self.memo = memo
   }
@@ -70,11 +76,26 @@ class Transaction {
       "payee": payee,
       "amount": amount,
       "trxDate": trxDate.description,
-      "reconciled": reconciled,
-      "cleared": cleared,
+      "reconciled": _reconciled,
+      "cleared": _cleared,
       "memo": memo,
       "category": category
     ]
+  }
+  
+  func setReconciled(to value: Bool) {
+    self._reconciled = value
+    self.ref!.updateChildValues(["reconciled": self._reconciled])
+  }
+  
+  func setCleared(to value: Bool) {
+    self._cleared = value
+    self.ref!.updateChildValues(["cleared": self._cleared])
+  }
+  
+  func toggleCleared() {
+    self._cleared = !self._cleared
+    self.ref!.updateChildValues(["cleared": self._cleared])
   }
   
 }

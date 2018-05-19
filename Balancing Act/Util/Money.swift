@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Money {
+enum Money {
   
   static func format(amount: Double) -> String {
     let formatter = NumberFormatter()

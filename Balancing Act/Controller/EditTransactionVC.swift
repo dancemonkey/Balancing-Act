@@ -23,6 +23,8 @@ class EditTransactionVC: UIViewController {
   @IBOutlet weak var category: UITextField!
   @IBOutlet weak var memo: UITextField!
   @IBOutlet weak var button: UIButton!
+  @IBOutlet weak var clearSwitch: UISwitch!
+  @IBOutlet weak var reconcileSwitch: UISwitch!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -41,6 +43,11 @@ class EditTransactionVC: UIViewController {
       category.text = trx.category
       memo.text = trx.memo
       button.setTitle("UPDATE", for: .normal)
+      clearSwitch.setOn(trx.cleared, animated: true)
+      reconcileSwitch.setOn(trx.reconciled, animated: true)
+    } else {
+      clearSwitch.setOn(false, animated: true)
+      reconcileSwitch.setOn(false, animated: true)
     }
   }
   
@@ -65,17 +72,6 @@ class EditTransactionVC: UIViewController {
         "reconciled": trx.reconciled
         ] as [String : Any]
       store.update(values: values, for: trx, in: acct)
-//      let trxRef = trx.ref!
-//      trxRef.setValue([
-//        "payee": payee,
-//        "amount": amount,
-//        "trxDate": self.date.date.description,
-//        "category": self.category.text!,
-//        "memo": self.memo.text!,
-//        "cleared": trx.cleared,
-//        "reconciled": trx.reconciled
-//        ])
-//      account?.setCurrentBalance()
     } else {
       self.transaction = Transaction(payee: payee, amount: amount, category: category.text, memo: memo.text, date: date.date)
     }
@@ -97,6 +93,28 @@ class EditTransactionVC: UIViewController {
       }
       date.date = Date()
     }
+  }
+  
+  @IBAction func clearSwitchTapped(sender: UISwitch) {
+    if let trx = self.transaction {
+      trx.setCleared(to: clearSwitch.isOn)
+      if !clearSwitch.isOn {
+        trx.setReconciled(to: clearSwitch.isOn)
+        reconcileSwitch.setOn(clearSwitch.isOn, animated: true)
+      }
+    }
+    account?.setReconciledBalance()
+  }
+  
+  @IBAction func reconcileSwitchTapped(sender: UISwitch) {
+    if let trx = self.transaction {
+      trx.setReconciled(to: reconcileSwitch.isOn)
+      if reconcileSwitch.isOn {
+        clearSwitch.setOn(reconcileSwitch.isOn, animated: true)
+        trx.setCleared(to: reconcileSwitch.isOn)
+      }
+    }
+    account?.setReconciledBalance()
   }
   
 }

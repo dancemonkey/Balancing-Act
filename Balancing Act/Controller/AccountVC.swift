@@ -11,24 +11,25 @@ import Firebase
 
 class AccountVC: UIViewController {
   
-  // TODO: custom XIBs for cells
-  
   // MARK: Properties
   @IBOutlet weak var table: UITableView!
+  @IBOutlet weak var reconcileBtn: UIBarButtonItem!
+  
   var trxRef: DatabaseQuery!
   var transactions: [Transaction] = []
   var unreconciledTrx: [Transaction] = []
   var reconcileMode: Bool = false {
     didSet {
       if reconcileMode {
-        unreconciledTrx = transactions.filter({ (trx) -> Bool in
-          return trx.reconciled == false
-        })
-        table.reloadData()
+        setUnreconciledTrx()
         view.backgroundColor = .green
       } else {
         view.backgroundColor = .white
+        if let acct = self.account {
+          acct.setReconciledBalance()
+        }
       }
+      table.reloadData()
     }
   }
   var account: Account?
@@ -37,6 +38,7 @@ class AccountVC: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    reconcileBtn.isEnabled = false
     self.title = account!.nickname
     self.store = Store()
     table.delegate = self
@@ -53,7 +55,6 @@ class AccountVC: UIViewController {
       destVC.account = self.account!
       if let index = sender {
         destVC.transaction = self.transactions[index as! Int]
-        // change array source if in reconcile mode
       }
     }
   }
@@ -64,11 +65,13 @@ class AccountVC: UIViewController {
   
   @IBAction func reconcileModeTapped(sender: UIBarButtonItem) {
     reconcileMode = !reconcileMode
+    reconcileBtn.isEnabled = reconcileMode
   }
   
   func observeChanges() {
     trxRef.observe(.childAdded) { (snapshot) in
-      self.transactions.append(Transaction(snapshot: snapshot)!)
+      let trx = Transaction(snapshot: snapshot)!
+      self.transactions.append(trx)
       self.table.insertRows(at: [IndexPath(row: self.transactions.count-1, section: 0)], with: .fade)
     }
     trxRef.observe(.childRemoved) { (snapshot) in
@@ -90,6 +93,22 @@ class AccountVC: UIViewController {
       })
     }
     return nil
+  }
+  
+  @IBAction func reconcileCleared() {
+    for trx in transactions {
+      if trx.cleared {
+        trx.setReconciled(to: true)
+      }
+    }
+//    setUnreconciledTrx()
+    table.reloadData()
+  }
+  
+  func setUnreconciledTrx() {
+    unreconciledTrx = transactions.filter({ (trx) -> Bool in
+      return trx.reconciled == false
+    })
   }
   
 }
@@ -116,11 +135,10 @@ extension AccountVC: UITableViewDataSource {
 extension AccountVC: UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    updateIndex = indexPath.row
     if !reconcileMode {
       performSegue(withIdentifier: "editTransaction", sender: indexPath.row)
     } else {
-      // mark updateIndex trx as reconciled
+      unreconciledTrx[indexPath.row].toggleCleared()
     }
   }
   

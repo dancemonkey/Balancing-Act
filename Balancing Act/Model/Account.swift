@@ -26,7 +26,7 @@ class Account {
     self.nickname = nickname
     self.startingBalance = balance
     self.currentBalance = balance
-    self.reconciledBalance = 0.00
+    self.reconciledBalance = balance
     self.creation = Date().description
   }
   
