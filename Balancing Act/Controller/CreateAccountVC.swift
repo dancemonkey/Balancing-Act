@@ -11,25 +11,30 @@ import Firebase
 
 class CreateAccountVC: UIViewController {
   
+  // MARK: Outlets
   @IBOutlet weak var bankField: UITextField!
   @IBOutlet weak var nicknameField: UITextField!
   @IBOutlet weak var button: UIButton!
   @IBOutlet weak var startingBalance: UITextField!
   
+  // MARK: Properties
   var ref: DatabaseReference!
   var account: Account?
   var store: Store!
   
+  // MARK: Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
     self.store = Store()
-    ref = Database.database().reference(withPath: "accounts")
+    ref = store.allAccountsRef 
     if let account = self.account {
       bankField.text = account.bank!
       nicknameField.text = account.nickname
       button.setTitle("Update Account", for: .normal)
     }
   }
+  
+  // MARK: Actions
   
   @IBAction func createAccountTouched(sender: UIButton) {
     guard let nickname = nicknameField.text, let balance = startingBalance.text else { return }
@@ -41,6 +46,8 @@ class CreateAccountVC: UIViewController {
     clearFields()
     navigationController?.popViewController(animated: true)
   }
+  
+  // MARK: Helper Functions
   
   func clearFields() {
     bankField.text = ""

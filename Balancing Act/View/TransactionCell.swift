@@ -11,6 +11,7 @@ import UIKit
 class TransactionCell: UITableViewCell {
   
   // TODO: add deposit switch or something
+  // TODO: need indication that trx is cleared as well as being reconciled
   
   @IBOutlet weak var payee: UILabel!
   @IBOutlet weak var amount: UILabel!
@@ -18,7 +19,6 @@ class TransactionCell: UITableViewCell {
   
   override func awakeFromNib() {
     super.awakeFromNib()
-    // Initialization code
   }
   
   func configure(with trx: Transaction) {

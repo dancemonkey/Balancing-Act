@@ -10,19 +10,27 @@ import UIKit
 import Firebase
 
 class AccountListVC: UIViewController {
-    
+  
+  // MARK: Outlets
+  @IBOutlet weak var table: UITableView!
+
+  // MARK: Properties
   var ref: DatabaseReference!
   var accounts: [Account] = []
-  @IBOutlet weak var table: UITableView!
+  var store: Store?
   
+  // MARK: Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
     self.title = "Accounts"
+    store = Store()
     observeChanges()
     
     table.delegate = self
     table.dataSource = self
   }
+  
+  // MARK: Segues
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "showAccount" {
@@ -31,12 +39,16 @@ class AccountListVC: UIViewController {
     }
   }
   
+  // MARK: Actions
+  
   @IBAction func newAccountTapped(sender: UIBarButtonItem) {
     performSegue(withIdentifier: "newAccount", sender: self)
   }
   
+  // MARK: Helper Functions
+  
   func observeChanges() {
-    ref = Database.database().reference(withPath: "accounts")
+    ref = store?.allAccountsRef
     ref.observe(.value) { (snapshot) in
       var newAccounts: [Account] = []
       for child in snapshot.children {
@@ -51,6 +63,8 @@ class AccountListVC: UIViewController {
   }
 
 }
+
+// MARK: Extensions
 
 extension AccountListVC: UITableViewDataSource {
   func numberOfSections(in tableView: UITableView) -> Int {

@@ -11,10 +11,13 @@ import Firebase
 
 class AccountVC: UIViewController {
   
-  // MARK: Properties
+  // TODO: labels to show updated balance and reconciled balance as you clear transactions
+  
+  // MARK: Outlets
   @IBOutlet weak var table: UITableView!
   @IBOutlet weak var reconcileBtn: UIBarButtonItem!
   
+  // MARK: Properties
   var trxRef: DatabaseQuery!
   var transactions: [Transaction] = []
   var unreconciledTrx: [Transaction] = []
@@ -33,21 +36,22 @@ class AccountVC: UIViewController {
     }
   }
   var account: Account?
-  var store: Store!
   var updateIndex: Int?
+  
+  // MARK: Lifecycle
   
   override func viewDidLoad() {
     super.viewDidLoad()
     reconcileBtn.isEnabled = false
     self.title = account!.nickname
-    self.store = Store()
     table.delegate = self
     table.dataSource = self
     
-    let thisAccountRef = account!.ref
-    trxRef = thisAccountRef?.child("transactions").queryOrdered(byChild: "creation")
+    trxRef = account?.ref?.child("transactions").queryOrdered(byChild: "creation")
     observeChanges()
   }
+  
+  // MARK: Segues
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "editTransaction" {
@@ -59,6 +63,8 @@ class AccountVC: UIViewController {
     }
   }
   
+  // MARK: Actions
+  
   @IBAction func newTransaction(sender: UIBarButtonItem) {
     performSegue(withIdentifier: "editTransaction", sender: nil)
   }
@@ -67,6 +73,18 @@ class AccountVC: UIViewController {
     reconcileMode = !reconcileMode
     reconcileBtn.isEnabled = reconcileMode
   }
+  
+  @IBAction func reconcileCleared() {
+    for trx in transactions {
+      if trx.cleared {
+        trx.setReconciled(to: true)
+      }
+    }
+    setUnreconciledTrx()
+    table.reloadData()
+  }
+  
+  // MARK: UI Updates
   
   func observeChanges() {
     trxRef.observe(.childAdded) { (snapshot) in
@@ -88,6 +106,8 @@ class AccountVC: UIViewController {
     }
   }
   
+  // MARK: Helper Functions
+  
   func indexOfTransaction(snapshot: DataSnapshot) -> Int? {
     if let trx = Transaction(snapshot: snapshot) {
       let targetArray = reconcileMode ? unreconciledTrx : transactions
@@ -98,16 +118,6 @@ class AccountVC: UIViewController {
     return nil
   }
   
-  @IBAction func reconcileCleared() {
-    for trx in transactions {
-      if trx.cleared {
-        trx.setReconciled(to: true)
-      }
-    }
-    setUnreconciledTrx()
-    table.reloadData()
-  }
-  
   func setUnreconciledTrx() {
     unreconciledTrx = transactions.filter({ (trx) -> Bool in
       return trx.reconciled == false
@@ -115,6 +125,8 @@ class AccountVC: UIViewController {
   }
   
 }
+
+// MARK: Extensions
 
 extension AccountVC: UITableViewDataSource {
   

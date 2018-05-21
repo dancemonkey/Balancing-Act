@@ -11,11 +11,7 @@ import Firebase
 
 class EditTransactionVC: UIViewController {
   
-  var transaction: Transaction?
-  var store: Store?
-  var account: Account?
-  var updating: Bool = false
-  var deposit: Bool = false
+  // MARK: Outlets
   
   @IBOutlet weak var payee: UITextField!
   @IBOutlet weak var amount: UITextField!
@@ -25,30 +21,42 @@ class EditTransactionVC: UIViewController {
   @IBOutlet weak var button: UIButton!
   @IBOutlet weak var clearSwitch: UISwitch!
   @IBOutlet weak var reconcileSwitch: UISwitch!
+  @IBOutlet weak var depositSwitch: UISwitch!
+  
+  // MARK: Properties
+  
+  var transaction: Transaction?
+  var store: Store?
+  var account: Account?
+  var updating: Bool = false
+  var deposit: Bool = false
+  var existingAmount: Double = 0
+  
+  // MARK: Lifecycle
   
   override func viewDidLoad() {
     super.viewDidLoad()
     if let trx = transaction {
-      var amount: Double
-      if trx.amount < 0 {
-        // set deposit switch to false
-        amount = -trx.amount
-      } else {
-        // set deposit switch to true
-        amount = trx.amount
-      }
-      payee.text = trx.payee
-      self.amount.text = "\(amount)"
-      date.date = trx.trxDate
-      category.text = trx.category
-      memo.text = trx.memo
-      button.setTitle("UPDATE", for: .normal)
-      clearSwitch.setOn(trx.cleared, animated: true)
-      reconcileSwitch.setOn(trx.reconciled, animated: true)
+      depositSwitch.isOn = trx.isDeposit!
+      setupForExisting(transaction: trx)
     } else {
       clearSwitch.setOn(false, animated: true)
       reconcileSwitch.setOn(false, animated: true)
     }
+  }
+  
+  // MARK: Helper Functions
+  
+  func setupForExisting(transaction trx: Transaction) {
+    payee.text = trx.payee
+    self.amount.text = "\(existingAmount)"
+    date.date = trx.trxDate
+    category.text = trx.category
+    memo.text = trx.memo
+    button.setTitle("UPDATE", for: .normal)
+    clearSwitch.setOn(trx.cleared, animated: true)
+    reconcileSwitch.setOn(trx.reconciled, animated: true)
+    depositSwitch.isOn = trx.isDeposit ?? false
   }
   
   func createTransaction() {
@@ -69,18 +77,24 @@ class EditTransactionVC: UIViewController {
         "category": self.category.text!,
         "memo": self.memo.text!,
         "cleared": trx.cleared,
-        "reconciled": trx.reconciled
+        "reconciled": trx.reconciled,
+        "accountLink": [acct.key : true],
+        "deposit": depositSwitch.isOn
         ] as [String : Any]
-      store.update(values: values, for: trx, in: acct)
+      store.update(values: values, in: trx, for: acct)
     } else {
       self.transaction = Transaction(payee: payee, amount: amount, category: category.text, memo: memo.text, date: date.date)
+      self.transaction?.setDeposit(to: depositSwitch.isOn)
     }
   }
+  
+  // MARK: Actions
   
   @IBAction func done(sender: UIButton) {
     createTransaction()
     if !updating, let trx = self.transaction, let acct = self.account {
       let store = Store()
+      trx.setDeposit(to: depositSwitch.isOn)
       store.addNew(transaction: trx, to: acct)
     }
     navigationController?.popViewController(animated: true)
@@ -115,6 +129,10 @@ class EditTransactionVC: UIViewController {
       }
     }
     account?.setReconciledBalance()
+  }
+  
+  @IBAction func depositSwitched(sender: UISwitch) {
+    
   }
   
 }

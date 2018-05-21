@@ -50,12 +50,12 @@ class Account {
   
   func toAnyObject() -> Any {
     return [
-      "bank": bank,
+      "bank": bank as Any,
       "nickname": nickname,
       "startingBalance": startingBalance,
       "creation": creation,
-      "currentBalance": currentBalance,
-      "reconciledBalance": reconciledBalance
+      "currentBalance": currentBalance as Any,
+      "reconciledBalance": reconciledBalance as Any
     ]
   }
   
@@ -65,11 +65,11 @@ class Account {
       var total: Double = self.startingBalance
       for child in snapshot.children {
         if let child = child as? DataSnapshot, let trx = Transaction(snapshot: child) {
-          total = total + trx.amount
+          total = trx.isDeposit! ? (total + trx.amount) : (total - trx.amount)
         }
       }
       self.currentBalance = total
-      self.ref?.updateChildValues(["currentBalance" : self.currentBalance])
+      self.ref?.updateChildValues(["currentBalance" : self.currentBalance as Any])
     })
   }
   
@@ -80,13 +80,12 @@ class Account {
       for child in snapshot.children {
         if let child = child as? DataSnapshot, let trx = Transaction(snapshot: child) {
           if trx.reconciled {
-            total = total + trx.amount
+            total = trx.isDeposit! ? (total + trx.amount) : (total - trx.amount)
           }
         }
       }
       self.reconciledBalance = total
-      self.ref?.updateChildValues(["reconciledBalance" : self.reconciledBalance])
+      self.ref?.updateChildValues(["reconciledBalance" : self.reconciledBalance as Any])
     })
   }
-  
 }

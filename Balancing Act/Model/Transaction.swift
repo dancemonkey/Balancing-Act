@@ -17,6 +17,11 @@ class Transaction {
   var trxDate: Date
   var category: String
   var memo: String
+  private var _deposit: Bool!
+  var isDeposit: Bool? {
+    return _deposit ?? nil
+  }
+  private var accountLink: [String:Bool]?
   private var _reconciled: Bool
   var reconciled: Bool {
     return self._reconciled
@@ -55,7 +60,8 @@ class Transaction {
       let cleared = value["cleared"] as? Bool
       else {
         print("failing out of Transaction guard")
-        return nil }
+        return nil
+    }
     
     let formatter = DateFormatter()
     formatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
@@ -69,6 +75,8 @@ class Transaction {
     self._cleared = cleared
     self.category = category
     self.memo = memo
+    self.accountLink = value["accountLink"] as? [String : Bool]
+    self._deposit = value["deposit"] as? Bool
   }
   
   func toAnyObject() -> Any {
@@ -79,7 +87,9 @@ class Transaction {
       "reconciled": _reconciled,
       "cleared": _cleared,
       "memo": memo,
-      "category": category
+      "category": category,
+      "accountLink": accountLink as Any,
+      "deposit": _deposit as Any
     ]
   }
   
@@ -96,6 +106,14 @@ class Transaction {
   func toggleCleared() {
     self._cleared = !self._cleared
     self.ref!.updateChildValues(["cleared": self._cleared])
+  }
+  
+  func setAccount(account: Account) {
+    accountLink = [account.key: true]
+  }
+  
+  func setDeposit(to value: Bool) {
+    self._deposit = value
   }
   
 }
