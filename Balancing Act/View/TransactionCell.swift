@@ -23,7 +23,7 @@ class TransactionCell: UITableViewCell {
   
   func configure(with trx: Transaction) {
     self.payee.text = trx.payee
-    self.amount.text = Money.format(amount: trx.amount)
+    self.amount.text = Money.currencyFormat(amount: trx.amount)
     self.date.text = trx.simpleDate
     self.backgroundColor = trx.reconciled ? UIColor.gray : UIColor.white
   }

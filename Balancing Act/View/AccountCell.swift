@@ -26,11 +26,11 @@ class AccountCell: UITableViewCell {
         if let child = child as? DataSnapshot {
           if child.key == "currentBalance", let total = child.value as? Double {
             DispatchQueue.main.async {
-              self.accountBalance.text = "Balance: " + Money.format(amount: total)
+              self.accountBalance.text = "Balance: " + Money.currencyFormat(amount: total)
             }
           } else if child.key == "reconciledBalance", let total = child.value as? Double {
             DispatchQueue.main.async {
-              self.reconciledBalance.text = "Reconciled Balance: " + Money.format(amount: total)
+              self.reconciledBalance.text = "Reconciled Balance: " + Money.currencyFormat(amount: total)
             }
           }
         }

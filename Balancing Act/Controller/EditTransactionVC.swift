@@ -30,7 +30,6 @@ class EditTransactionVC: UIViewController {
   var account: Account?
   var updating: Bool = false
   var deposit: Bool = false
-  var existingAmount: Double = 0
   
   // MARK: Lifecycle
   
@@ -49,7 +48,7 @@ class EditTransactionVC: UIViewController {
   
   func setupForExisting(transaction trx: Transaction) {
     payee.text = trx.payee
-    self.amount.text = "\(existingAmount)"
+    self.amount.text = "\(Money.decimalFormat(amount: trx.amount))"
     date.date = trx.trxDate
     category.text = trx.category
     memo.text = trx.memo
@@ -61,11 +60,8 @@ class EditTransactionVC: UIViewController {
   
   func createTransaction() {
     guard let payee = payee.text,
-    var amount = Double(amount.text!)
+    let amount = Double(amount.text!)
       else { return }
-    if !deposit {
-      amount = -amount
-    }
     
     if let trx = self.transaction, let acct = self.account {
       updating = true

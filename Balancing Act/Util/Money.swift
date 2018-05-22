@@ -10,10 +10,21 @@ import Foundation
 
 enum Money {
   
-  static func format(amount: Double) -> String {
+  static func currencyFormat(amount: Double) -> String {
     let formatter = NumberFormatter()
     formatter.usesGroupingSeparator = true
     formatter.numberStyle = .currency
+    formatter.locale = Locale.current
+    
+    return formatter.string(from: NSNumber(value: amount))!
+  }
+  
+  static func decimalFormat(amount: Double) -> String {
+    let formatter = NumberFormatter()
+    formatter.usesGroupingSeparator = false
+    formatter.numberStyle = .decimal
+    formatter.minimumFractionDigits = 2
+    formatter.maximumFractionDigits = 2
     formatter.locale = Locale.current
     
     return formatter.string(from: NSNumber(value: amount))!
