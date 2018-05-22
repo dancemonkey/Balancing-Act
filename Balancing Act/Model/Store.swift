@@ -41,6 +41,7 @@ class Store {
   func update(values: Any?, in trx: Transaction, for account: Account) {
     let trxRef = trx.ref!
     trxRef.setValue(values)
+    _allTransactionsRef.child(trx.key).setValue(values) 
     account.setCurrentBalance()
   }
   
