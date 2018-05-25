@@ -232,7 +232,14 @@
                                             <rect key="frame" x="20" y="5.6666666666666679" width="366" height="33"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M1X-X3-epC">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BALANCE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="82R-Ww-gca">
+                                                    <rect key="frame" x="0.0" y="0.0" width="366" height="33"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BALANCE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M1X-X3-epC">
                                                     <rect key="frame" x="0.0" y="0.0" width="366" height="33"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -244,11 +251,16 @@
                                             <constraints>
                                                 <constraint firstItem="M1X-X3-epC" firstAttribute="top" secondItem="pap-Ho-gN3" secondAttribute="top" id="0GK-S9-ntc"/>
                                                 <constraint firstAttribute="bottom" secondItem="M1X-X3-epC" secondAttribute="bottom" id="2YO-nd-mQ4"/>
+                                                <constraint firstAttribute="trailing" secondItem="82R-Ww-gca" secondAttribute="trailing" id="59y-MM-0M8"/>
                                                 <constraint firstItem="M1X-X3-epC" firstAttribute="leading" secondItem="pap-Ho-gN3" secondAttribute="leading" id="XLf-L5-tmJ"/>
+                                                <constraint firstItem="82R-Ww-gca" firstAttribute="top" secondItem="pap-Ho-gN3" secondAttribute="top" id="fbW-bZ-eZm"/>
                                                 <constraint firstAttribute="trailing" secondItem="M1X-X3-epC" secondAttribute="trailing" id="vGg-2H-eEY"/>
+                                                <constraint firstAttribute="bottom" secondItem="82R-Ww-gca" secondAttribute="bottom" id="xSx-iW-vYn"/>
+                                                <constraint firstItem="82R-Ww-gca" firstAttribute="leading" secondItem="pap-Ho-gN3" secondAttribute="leading" id="zJJ-e3-9Ne"/>
                                             </constraints>
                                             <connections>
                                                 <outlet property="recBalanceLbl" destination="M1X-X3-epC" id="IJi-NM-qeV"/>
+                                                <outlet property="totalBalance" destination="82R-Ww-gca" id="Wvg-9d-Xkn"/>
                                             </connections>
                                         </view>
                                     </barButtonItem>

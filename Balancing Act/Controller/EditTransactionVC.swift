@@ -30,6 +30,7 @@ class EditTransactionVC: UIViewController {
   var account: Account?
   var updating: Bool = false
   var deposit: Bool = false
+  var delegate: BalanceUpdateDelegate? = nil
   
   // MARK: Lifecycle
   
@@ -95,6 +96,7 @@ class EditTransactionVC: UIViewController {
       trx.setDeposit(to: depositSwitch.isOn)
       store.addNew(transaction: trx, to: acct)
     }
+    delegate?.updateAccountBalance()
     navigationController?.popViewController(animated: true)
   }
   

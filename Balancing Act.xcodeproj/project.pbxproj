@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10022A2B20B8C22100195556 /* BalanceUpdateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10022A2A20B8C22100195556 /* BalanceUpdateDelegate.swift */; };
 		1016207020A47C55001BE2F3 /* AccountListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1016206F20A47C55001BE2F3 /* AccountListVC.swift */; };
 		103CFFEA20AF0540004F753C /* AccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103CFFE920AF0540004F753C /* AccountCell.swift */; };
 		103CFFEF20AF09D2004F753C /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103CFFEE20AF09D2004F753C /* Money.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		10022A2A20B8C22100195556 /* BalanceUpdateDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceUpdateDelegate.swift; sourceTree = "<group>"; };
 		1016206F20A47C55001BE2F3 /* AccountListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountListVC.swift; sourceTree = "<group>"; };
 		103CFFE920AF0540004F753C /* AccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCell.swift; sourceTree = "<group>"; };
 		103CFFEE20AF09D2004F753C /* Money.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				103CFFEE20AF09D2004F753C /* Money.swift */,
+				10022A2A20B8C22100195556 /* BalanceUpdateDelegate.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 				107676A0208BFB3600949B28 /* CreateAccountVC.swift in Sources */,
 				1041B68B20A3DFBA0072C423 /* Account.swift in Sources */,
 				10D320AB20B79F430033DBDD /* InfoView.swift in Sources */,
+				10022A2B20B8C22100195556 /* BalanceUpdateDelegate.swift in Sources */,
 				103CFFEA20AF0540004F753C /* AccountCell.swift in Sources */,
 				10FC1A752089630300BEBAD6 /* Store.swift in Sources */,
 				10C8A1AB20A5C06B002FFCCF /* AccountVC.swift in Sources */,

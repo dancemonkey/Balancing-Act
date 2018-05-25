@@ -60,7 +60,7 @@ class Account {
     ]
   }
   
-  func setCurrentBalance() {
+  func setCurrentBalance(_ completion: ((Double)->())?) {
     let trxRef = self.ref?.child("transactions")
     trxRef?.observeSingleEvent(of: .value, with: { (snapshot) in
       var total: Double = self.startingBalance
@@ -71,6 +71,8 @@ class Account {
       }
       self.currentBalance = total
       self.ref?.updateChildValues(["currentBalance" : self.currentBalance as Any])
+      guard let action = completion else { return }
+      action(total)
     })
   }
   
@@ -96,7 +98,7 @@ class Account {
       var total: Double = 0.0
       for child in snapshot.children {
         if let child = child as? DataSnapshot, let trx = Transaction(snapshot: child) {
-          if trx.cleared {
+          if trx.cleared && !trx.reconciled {
             total = trx.isDeposit! ? (total + trx.amount) : (total-trx.amount)
           }
         }

@@ -11,8 +11,6 @@ import Firebase
 
 class AccountVC: UIViewController {
   
-  // TODO: labels to show updated balance and reconciled balance as you clear transactions
-  
   // MARK: Outlets
   @IBOutlet weak var table: UITableView!
   @IBOutlet weak var infoView: InfoView!
@@ -27,12 +25,13 @@ class AccountVC: UIViewController {
       if reconcileMode {
         setUnreconciledTrx()
         view.backgroundColor = .green
-        toggleInfoView()
         updateInfoView()
+        toggleInfoView()
       } else {
         view.backgroundColor = .white
         if let acct = self.account {
           acct.setReconciledBalance()
+          updateInfoView()
           toggleInfoView()
           acct.resetCleared()
         }
@@ -47,8 +46,8 @@ class AccountVC: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    infoView.isHidden = true
     self.title = account!.nickname
+    reconcileBtn.isEnabled = reconcileMode
     table.delegate = self
     table.dataSource = self
     
@@ -56,11 +55,17 @@ class AccountVC: UIViewController {
     observeChanges()
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    updateInfoView()
+  }
+  
   // MARK: Segues
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "editTransaction" {
       let destVC = segue.destination as! EditTransactionVC
+      destVC.delegate = self
       destVC.account = self.account!
       if let index = sender {
         destVC.transaction = self.transactions[index as! Int]
@@ -131,14 +136,16 @@ class AccountVC: UIViewController {
   }
   
   func toggleInfoView() {
-    infoView.isHidden = !infoView.isHidden
+    infoView.recBalanceLbl.isHidden = !reconcileMode
+    infoView.totalBalance.isHidden = reconcileMode
   }
   
   func updateInfoView() {
     guard let acct = self.account else { return }
+    self.infoView.updateBalance(with: acct.currentBalance!)
     acct.setClearedTotal { (total) in
       DispatchQueue.main.async {
-        self.infoView.update(with: acct.reconciledBalance! + total)
+        self.infoView.updateCleared(with: acct.reconciledBalance! + total)
       }
     }
   }
@@ -181,5 +188,14 @@ extension AccountVC: UITableViewDelegate {
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return 65.0
   }
-  
 }
+
+extension AccountVC: BalanceUpdateDelegate {
+  func updateAccountBalance() {
+    guard let acct = self.account else { return }
+    acct.setCurrentBalance { (total) in
+      self.infoView.updateBalance(with: total)
+    }
+  }
+}
+

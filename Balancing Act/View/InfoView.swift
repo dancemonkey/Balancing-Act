@@ -11,10 +11,16 @@ import UIKit
 class InfoView: UIView {
 
   @IBOutlet weak var recBalanceLbl: UILabel!
+  @IBOutlet weak var totalBalance: UILabel!
   
-  func update(with amount: Double) {
+  func updateCleared(with amount: Double) {
     let amt = Money.currencyFormat(amount: amount)
     recBalanceLbl.text = "Cleared Balance: \(amt)"
+  }
+  
+  func updateBalance(with amount: Double) {
+    let amt = Money.currencyFormat(amount: amount)
+    totalBalance.text = "Balance: \(amt)"
   }
 
 }
