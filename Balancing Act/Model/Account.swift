@@ -90,7 +90,7 @@ class Account {
     })
   }
   
-  func setClearedTotal() {
+  func setClearedTotal(_ completion: @escaping (Double)->()) {
     let trxRef = self.ref?.child("transactions")
     trxRef?.observeSingleEvent(of: .value, with: { (snapshot) in
       var total: Double = 0.0
@@ -102,7 +102,7 @@ class Account {
         }
       }
       self.clearedTotal = total
-      print("total cleared in process = \(total), total cleared in acct = \(self.clearedTotal)")
+      completion(total)
     })
   }
   
@@ -112,7 +112,7 @@ class Account {
     trxRef?.observeSingleEvent(of: .value, with: { (snapshot) in
       for child in snapshot.children {
         if let child = child as? DataSnapshot, let trx = Transaction(snapshot: child) {
-          if trx.cleared {
+          if trx.cleared && !trx.reconciled {
             trx.setCleared(to: false)
           }
         }

@@ -13,7 +13,6 @@ class InfoView: UIView {
   @IBOutlet weak var recBalanceLbl: UILabel!
   
   func update(with amount: Double) {
-    print("updating with \(amount)")
     let amt = Money.currencyFormat(amount: amount)
     recBalanceLbl.text = "Cleared Balance: \(amt)"
   }

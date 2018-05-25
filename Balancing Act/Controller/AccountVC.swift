@@ -136,10 +136,11 @@ class AccountVC: UIViewController {
   
   func updateInfoView() {
     guard let acct = self.account else { return }
-    acct.setClearedTotal()
-    print("reconciled balance before clearing = \(acct.reconciledBalance!)")
-    print("cleared total for acct = \(acct.clearedTotal)")
-    infoView.update(with: acct.reconciledBalance! + acct.clearedTotal)
+    acct.setClearedTotal { (total) in
+      DispatchQueue.main.async {
+        self.infoView.update(with: acct.reconciledBalance! + total)
+      }
+    }
   }
   
 }
@@ -172,7 +173,6 @@ extension AccountVC: UITableViewDelegate {
       performSegue(withIdentifier: "editTransaction", sender: indexPath.row)
     } else {
       let trx = unreconciledTrx[indexPath.row]
-      print("trx amount tapped = \(trx.amount)")
       trx.toggleCleared()
       updateInfoView()
     }
