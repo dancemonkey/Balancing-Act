@@ -38,9 +38,11 @@ class EditTransactionVC: UIViewController {
     if let trx = transaction {
       depositSwitch.isOn = trx.isDeposit!
       setupForExisting(transaction: trx)
+      self.title = trx.payee
     } else {
       clearSwitch.setOn(false, animated: true)
       reconcileSwitch.setOn(false, animated: true)
+      self.title = "New Transaction"
     }
   }
   

@@ -223,13 +223,39 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hBh-ys-1qj">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yUv-JW-3Zq">
                                 <rect key="frame" x="0.0" y="692" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem title="Reconcile" id="aV5-DG-CqZ">
+                                    <barButtonItem style="plain" id="664-xB-hJ6">
+                                        <view key="customView" contentMode="scaleToFill" id="pap-Ho-gN3" customClass="InfoView" customModule="Balancing_Act" customModuleProvider="target">
+                                            <rect key="frame" x="20" y="5.6666666666666679" width="366" height="33"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M1X-X3-epC">
+                                                    <rect key="frame" x="0.0" y="0.0" width="366" height="33"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="M1X-X3-epC" firstAttribute="top" secondItem="pap-Ho-gN3" secondAttribute="top" id="0GK-S9-ntc"/>
+                                                <constraint firstAttribute="bottom" secondItem="M1X-X3-epC" secondAttribute="bottom" id="2YO-nd-mQ4"/>
+                                                <constraint firstItem="M1X-X3-epC" firstAttribute="leading" secondItem="pap-Ho-gN3" secondAttribute="leading" id="XLf-L5-tmJ"/>
+                                                <constraint firstAttribute="trailing" secondItem="M1X-X3-epC" secondAttribute="trailing" id="vGg-2H-eEY"/>
+                                            </constraints>
+                                            <connections>
+                                                <outlet property="recBalanceLbl" destination="M1X-X3-epC" id="IJi-NM-qeV"/>
+                                            </connections>
+                                        </view>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="90G-yr-wiv"/>
+                                    <barButtonItem title="Reconcile" id="Cv2-yc-ODL">
                                         <connections>
-                                            <action selector="reconcileCleared" destination="Hil-dz-Ql5" id="uZj-fd-M6Y"/>
+                                            <action selector="reconcileCleared" destination="Hil-dz-Ql5" id="Qso-hy-9U9"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -261,7 +287,8 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="reconcileBtn" destination="aV5-DG-CqZ" id="gB9-7G-cwD"/>
+                        <outlet property="infoView" destination="pap-Ho-gN3" id="bNC-p5-uvp"/>
+                        <outlet property="reconcileBtn" destination="Cv2-yc-ODL" id="wQR-TV-QhV"/>
                         <outlet property="table" destination="lzG-iX-5aR" id="iHv-Jk-bm4"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="accountEdit" id="T3r-j1-Ykc"/>
                         <segue destination="Z6q-o1-Mt3" kind="show" identifier="editTransaction" id="stU-tn-Ei9"/>
@@ -279,29 +306,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4lh-Rb-bFx">
-                                <rect key="frame" x="16" y="628" width="382" height="30"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fb-8G-4kw">
-                                        <rect key="frame" x="0.0" y="0.0" width="174" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
-                                        <state key="normal" title="Clear"/>
-                                        <connections>
-                                            <action selector="clear" destination="Z6q-o1-Mt3" eventType="touchUpInside" id="X5l-p1-BNV"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T4b-vM-OhD">
-                                        <rect key="frame" x="174" y="0.0" width="208" height="30"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="DONE"/>
-                                        <connections>
-                                            <action selector="doneWithSender:" destination="Z6q-o1-Mt3" eventType="touchUpInside" id="A9W-VV-ZoZ"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="mS8-VF-Wj0">
-                                <rect key="frame" x="8" y="148" width="398" height="448"/>
+                                <rect key="frame" x="8" y="148" width="398" height="498"/>
                                 <subviews>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="AVn-uA-QMu">
                                         <rect key="frame" x="39" y="0.0" width="320" height="216"/>
@@ -394,13 +400,39 @@
                                             </stackView>
                                         </subviews>
                                     </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4lh-Rb-bFx">
+                                        <rect key="frame" x="16" y="464" width="366" height="34"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fb-8G-4kw">
+                                                <rect key="frame" x="0.0" y="0.0" width="183" height="34"/>
+                                                <state key="normal" title="Cancel">
+                                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="clear" destination="Z6q-o1-Mt3" eventType="touchUpInside" id="X5l-p1-BNV"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T4b-vM-OhD">
+                                                <rect key="frame" x="183" y="0.0" width="183" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
+                                                <state key="normal" title="DONE">
+                                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="doneWithSender:" destination="Z6q-o1-Mt3" eventType="touchUpInside" id="A9W-VV-ZoZ"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="rMP-MW-t3n" secondAttribute="trailing" constant="16" id="7b5-wa-hEe"/>
+                                    <constraint firstItem="4lh-Rb-bFx" firstAttribute="leading" secondItem="mS8-VF-Wj0" secondAttribute="leading" constant="16" id="DtJ-5H-r0B"/>
                                     <constraint firstAttribute="trailing" secondItem="MdN-0S-WCe" secondAttribute="trailing" constant="16" id="Ltz-Rz-gKh"/>
                                     <constraint firstItem="ApF-eI-R9l" firstAttribute="leading" secondItem="mS8-VF-Wj0" secondAttribute="leading" constant="16" id="PM7-SR-k5m"/>
                                     <constraint firstItem="Jdm-go-mbt" firstAttribute="leading" secondItem="mS8-VF-Wj0" secondAttribute="leading" constant="8" id="PTq-5r-O0w"/>
                                     <constraint firstItem="rMP-MW-t3n" firstAttribute="leading" secondItem="mS8-VF-Wj0" secondAttribute="leading" constant="16" id="Pfu-68-QwY"/>
+                                    <constraint firstAttribute="trailing" secondItem="4lh-Rb-bFx" secondAttribute="trailing" constant="16" id="Y5w-Cf-1e8"/>
                                     <constraint firstAttribute="trailing" secondItem="Jdm-go-mbt" secondAttribute="trailing" constant="8" id="YNZ-HF-x49"/>
                                     <constraint firstItem="MdN-0S-WCe" firstAttribute="leading" secondItem="mS8-VF-Wj0" secondAttribute="leading" constant="16" id="atx-V7-kFg"/>
                                     <constraint firstAttribute="trailing" secondItem="wSQ-z6-x5e" secondAttribute="trailing" constant="16" id="clR-dw-Dqi"/>
@@ -412,11 +444,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="mS8-VF-Wj0" firstAttribute="top" secondItem="yh3-sF-Ije" secondAttribute="top" constant="32" id="04u-SU-zfS"/>
-                            <constraint firstItem="yh3-sF-Ije" firstAttribute="trailing" secondItem="4lh-Rb-bFx" secondAttribute="trailing" constant="16" id="2y2-Ag-JiV"/>
-                            <constraint firstItem="4lh-Rb-bFx" firstAttribute="top" secondItem="mS8-VF-Wj0" secondAttribute="bottom" constant="32" id="BEC-gT-xfv"/>
                             <constraint firstItem="mS8-VF-Wj0" firstAttribute="leading" secondItem="yh3-sF-Ije" secondAttribute="leading" constant="8" id="Qvy-g5-r82"/>
                             <constraint firstItem="yh3-sF-Ije" firstAttribute="trailing" secondItem="mS8-VF-Wj0" secondAttribute="trailing" constant="8" id="aPc-lC-Tdu"/>
-                            <constraint firstItem="4lh-Rb-bFx" firstAttribute="leading" secondItem="yh3-sF-Ije" secondAttribute="leading" constant="16" id="svg-QY-Nl6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="yh3-sF-Ije"/>
                     </view>
@@ -456,6 +485,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="BWt-pt-pKi"/>
+        <segue reference="T3r-j1-Ykc"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -18,6 +18,7 @@ class Account {
   var creation: String
   var currentBalance: Double?
   var reconciledBalance: Double?
+  var clearedTotal: Double = 0.0
   
   init(bank: String?, nickname: String, key: String = "", balance: Double) {
     self.ref = nil
@@ -88,4 +89,35 @@ class Account {
       self.ref?.updateChildValues(["reconciledBalance" : self.reconciledBalance as Any])
     })
   }
+  
+  func setClearedTotal() {
+    let trxRef = self.ref?.child("transactions")
+    trxRef?.observeSingleEvent(of: .value, with: { (snapshot) in
+      var total: Double = 0.0
+      for child in snapshot.children {
+        if let child = child as? DataSnapshot, let trx = Transaction(snapshot: child) {
+          if trx.cleared {
+            total = trx.isDeposit! ? (total + trx.amount) : (total-trx.amount)
+          }
+        }
+      }
+      self.clearedTotal = total
+      print("total cleared in process = \(total), total cleared in acct = \(self.clearedTotal)")
+    })
+  }
+  
+  func resetCleared() {
+    self.clearedTotal = 0.0
+    let trxRef = self.ref?.child("transactions")
+    trxRef?.observeSingleEvent(of: .value, with: { (snapshot) in
+      for child in snapshot.children {
+        if let child = child as? DataSnapshot, let trx = Transaction(snapshot: child) {
+          if trx.cleared {
+            trx.setCleared(to: false)
+          }
+        }
+      }
+    })
+  }
+  
 }

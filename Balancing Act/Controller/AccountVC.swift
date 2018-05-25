@@ -15,6 +15,7 @@ class AccountVC: UIViewController {
   
   // MARK: Outlets
   @IBOutlet weak var table: UITableView!
+  @IBOutlet weak var infoView: InfoView!
   @IBOutlet weak var reconcileBtn: UIBarButtonItem!
   
   // MARK: Properties
@@ -26,10 +27,14 @@ class AccountVC: UIViewController {
       if reconcileMode {
         setUnreconciledTrx()
         view.backgroundColor = .green
+        toggleInfoView()
+        updateInfoView()
       } else {
         view.backgroundColor = .white
         if let acct = self.account {
           acct.setReconciledBalance()
+          toggleInfoView()
+          acct.resetCleared()
         }
       }
       table.reloadData()
@@ -42,7 +47,7 @@ class AccountVC: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    reconcileBtn.isEnabled = false
+    infoView.isHidden = true
     self.title = account!.nickname
     table.delegate = self
     table.dataSource = self
@@ -81,6 +86,7 @@ class AccountVC: UIViewController {
       }
     }
     setUnreconciledTrx()
+    account?.resetCleared()
     table.reloadData()
   }
   
@@ -124,6 +130,18 @@ class AccountVC: UIViewController {
     })
   }
   
+  func toggleInfoView() {
+    infoView.isHidden = !infoView.isHidden
+  }
+  
+  func updateInfoView() {
+    guard let acct = self.account else { return }
+    acct.setClearedTotal()
+    print("reconciled balance before clearing = \(acct.reconciledBalance!)")
+    print("cleared total for acct = \(acct.clearedTotal)")
+    infoView.update(with: acct.reconciledBalance! + acct.clearedTotal)
+  }
+  
 }
 
 // MARK: Extensions
@@ -153,7 +171,10 @@ extension AccountVC: UITableViewDelegate {
     if !reconcileMode {
       performSegue(withIdentifier: "editTransaction", sender: indexPath.row)
     } else {
-      unreconciledTrx[indexPath.row].toggleCleared()
+      let trx = unreconciledTrx[indexPath.row]
+      print("trx amount tapped = \(trx.amount)")
+      trx.toggleCleared()
+      updateInfoView()
     }
   }
   
