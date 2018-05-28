@@ -171,6 +171,7 @@ extension AccountVC: UITableViewDataSource {
     let trx = reconcileMode == false ? transactions[indexPath.row] : unreconciledTrx[indexPath.row]
     let cell = table.dequeueReusableCell(withIdentifier: "transactionCell") as! TransactionCell
     cell.configure(with: trx)
+    
     return cell
   }
   
@@ -184,6 +185,7 @@ extension AccountVC: UITableViewDelegate {
     } else {
       let trx = unreconciledTrx[indexPath.row]
       trx.toggleCleared()
+      tableView.reloadData()
       updateInfoView()
     }
   }

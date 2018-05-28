@@ -22,7 +22,11 @@ class TransactionCell: UITableViewCell {
     self.payee.text = trx.payee
     self.amount.text = Money.currencyFormat(amount: trx.amount)
     self.date.text = trx.simpleDate
-    self.backgroundColor = trx.reconciled ? UIColor.gray : UIColor.white
+    if trx.cleared && !trx.reconciled {
+      self.backgroundColor = UIColor.yellow
+    } else {
+      self.backgroundColor = trx.reconciled ? UIColor.lightGray : UIColor.white
+    }
   }
   
 }
