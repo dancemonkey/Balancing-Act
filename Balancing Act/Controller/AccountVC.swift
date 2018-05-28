@@ -142,10 +142,13 @@ class AccountVC: UIViewController {
   
   func updateInfoView() {
     guard let acct = self.account else { return }
-    self.infoView.updateBalance(with: acct.currentBalance!)
-    acct.setClearedTotal { (total) in
-      DispatchQueue.main.async {
-        self.infoView.updateCleared(with: acct.reconciledBalance! + total)
+    if !reconcileMode {
+      self.infoView.updateBalance(with: acct.currentBalance!)
+    } else {
+      acct.setClearedTotal { (total) in
+        DispatchQueue.main.async {
+          self.infoView.updateCleared(with: acct.reconciledBalance! + total)
+        }
       }
     }
   }
