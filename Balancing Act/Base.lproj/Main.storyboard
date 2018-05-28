@@ -21,7 +21,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="neq-FD-jai">
-                                <rect key="frame" x="8" y="124" width="398" height="604"/>
+                                <rect key="frame" x="8" y="72" width="398" height="656"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="accountCell" rowHeight="55" id="FUM-9z-5h8" customClass="AccountCell" customModule="Balancing_Act" customModuleProvider="target">
@@ -160,6 +160,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1058" y="35"/>
+        </scene>
+        <!--Login-->
+        <scene sceneID="N1b-7E-xTl">
+            <objects>
+                <viewController title="Login" id="dbe-Tg-fuF" customClass="LoginVC" customModule="Balancing_Act" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vw8-rR-DbH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DpP-BS-Phz">
+                                <rect key="frame" x="174.66666666666666" y="353" width="65" height="30"/>
+                                <state key="normal" title="Accounts"/>
+                                <connections>
+                                    <action selector="accountsPressedWithSender:" destination="dbe-Tg-fuF" eventType="touchUpInside" id="Yxa-eY-CNR"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="DpP-BS-Phz" firstAttribute="centerX" secondItem="vw8-rR-DbH" secondAttribute="centerX" id="2FF-KO-9XX"/>
+                            <constraint firstItem="DpP-BS-Phz" firstAttribute="centerY" secondItem="vw8-rR-DbH" secondAttribute="centerY" id="ook-Y4-OBh"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="686-9u-oaU"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Login" id="xQR-GL-lft"/>
+                    <connections>
+                        <outlet property="accountsBtn" destination="DpP-BS-Phz" id="1HW-sE-qYe"/>
+                        <segue destination="V4V-0p-x82" kind="show" identifier="showAccounts" id="XFL-2m-La0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MQW-MP-2L0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-664" y="787"/>
         </scene>
         <!--Account Transactions-->
         <scene sceneID="4db-Vk-pIB">
@@ -488,7 +521,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="V4V-0p-x82" kind="relationship" relationship="rootViewController" id="tvK-KT-sCD"/>
+                        <segue destination="dbe-Tg-fuF" kind="relationship" relationship="rootViewController" id="gxc-96-IfX"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Dz-jx-8iY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -497,6 +530,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="T3r-j1-Ykc"/>
+        <segue reference="0Cm-8B-otv"/>
     </inferredMetricsTieBreakers>
 </document>

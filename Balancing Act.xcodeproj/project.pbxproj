@@ -20,6 +20,7 @@
 		10C86EEF20A325A10045FF4D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 10C86EEE20A325A10045FF4D /* GoogleService-Info.plist */; };
 		10C8A1AB20A5C06B002FFCCF /* AccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C8A1AA20A5C06B002FFCCF /* AccountVC.swift */; };
 		10D320AB20B79F430033DBDD /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D320AA20B79F430033DBDD /* InfoView.swift */; };
+		10D5229C20BBA38500A07E52 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D5229B20BBA38500A07E52 /* LoginVC.swift */; };
 		10FC1A46208958C700BEBAD6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FC1A45208958C700BEBAD6 /* AppDelegate.swift */; };
 		10FC1A4B208958C700BEBAD6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10FC1A49208958C700BEBAD6 /* Main.storyboard */; };
 		10FC1A50208958C900BEBAD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10FC1A4F208958C900BEBAD6 /* Assets.xcassets */; };
@@ -54,6 +55,7 @@
 		10C86EEE20A325A10045FF4D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		10C8A1AA20A5C06B002FFCCF /* AccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountVC.swift; sourceTree = "<group>"; };
 		10D320AA20B79F430033DBDD /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		10D5229B20BBA38500A07E52 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		10FC1A42208958C700BEBAD6 /* Balancing Act.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Balancing Act.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		10FC1A45208958C700BEBAD6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10FC1A4A208958C700BEBAD6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				1016206F20A47C55001BE2F3 /* AccountListVC.swift */,
 				10C8A1AA20A5C06B002FFCCF /* AccountVC.swift */,
 				10A44E4C20A876A800029725 /* EditTransactionVC.swift */,
+				10D5229B20BBA38500A07E52 /* LoginVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Balancing Act/Pods-Balancing Act-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleAPIClientForREST/GoogleAPIClientForREST.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -341,6 +345,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleAPIClientForREST.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -395,6 +400,7 @@
 			files = (
 				103CFFEF20AF09D2004F753C /* Money.swift in Sources */,
 				103CFFF120AF0B38004F753C /* TransactionCell.swift in Sources */,
+				10D5229C20BBA38500A07E52 /* LoginVC.swift in Sources */,
 				107676A0208BFB3600949B28 /* CreateAccountVC.swift in Sources */,
 				1041B68B20A3DFBA0072C423 /* Account.swift in Sources */,
 				10D320AB20B79F430033DBDD /* InfoView.swift in Sources */,
