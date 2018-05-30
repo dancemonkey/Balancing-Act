@@ -22,6 +22,7 @@ class EditTransactionVC: UIViewController {
   @IBOutlet weak var clearSwitch: UISwitch!
   @IBOutlet weak var reconcileSwitch: UISwitch!
   @IBOutlet weak var depositSwitch: UISwitch!
+  @IBOutlet weak var scrollView: UIScrollView!
   
   // MARK: Properties
   
@@ -32,10 +33,15 @@ class EditTransactionVC: UIViewController {
   var deposit: Bool = false
   var delegate: BalanceUpdateDelegate? = nil
   
+  let notificationCenter = NotificationCenter.default
+  
   // MARK: Lifecycle
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
+
     if let trx = transaction {
       depositSwitch.isOn = trx.isDeposit!
       setupForExisting(transaction: trx)
@@ -87,6 +93,21 @@ class EditTransactionVC: UIViewController {
     }
   }
   
+  @objc func adjustForKeyboard(notification: NSNotification) {
+    let userInfo = notification.userInfo!
+    
+    let keyboardScreenEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+    let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
+    
+    if notification.name == Notification.Name.UIKeyboardWillHide {
+      scrollView.contentInset = UIEdgeInsets.zero
+    } else {
+      scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height, right: 0)
+    }
+    
+    scrollView.scrollIndicatorInsets = scrollView.contentInset
+  }
+  
   // MARK: Actions
   
   @IBAction func done(sender: UIButton) {
@@ -97,6 +118,10 @@ class EditTransactionVC: UIViewController {
       store.addNew(transaction: trx, to: acct)
     }
     delegate?.updateAccountBalance()
+    navigationController?.popViewController(animated: true)
+  }
+  
+  @IBAction func cancel(sender: UIButton) {
     navigationController?.popViewController(animated: true)
   }
   
@@ -134,5 +159,4 @@ class EditTransactionVC: UIViewController {
   @IBAction func depositSwitched(sender: UISwitch) {
     
   }
-  
 }

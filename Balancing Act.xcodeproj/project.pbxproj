@@ -15,6 +15,7 @@
 		1041B68B20A3DFBA0072C423 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1041B68A20A3DFBA0072C423 /* Account.swift */; };
 		1041B68D20A3DFCA0072C423 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1041B68C20A3DFCA0072C423 /* Transaction.swift */; };
 		107676A0208BFB3600949B28 /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1076769F208BFB3600949B28 /* CreateAccountVC.swift */; };
+		108B977020BF712C009D6F93 /* KeyboardDoneExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108B976F20BF712C009D6F93 /* KeyboardDoneExtension.swift */; };
 		10A44E4D20A876A800029725 /* EditTransactionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A44E4C20A876A800029725 /* EditTransactionVC.swift */; };
 		10C310F320B23D2C001F14C5 /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = 10C310F220B23D2B001F14C5 /* credentials.plist */; };
 		10C86EEF20A325A10045FF4D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 10C86EEE20A325A10045FF4D /* GoogleService-Info.plist */; };
@@ -50,6 +51,7 @@
 		1041B68A20A3DFBA0072C423 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		1041B68C20A3DFCA0072C423 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		1076769F208BFB3600949B28 /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
+		108B976F20BF712C009D6F93 /* KeyboardDoneExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardDoneExtension.swift; sourceTree = "<group>"; };
 		10A44E4C20A876A800029725 /* EditTransactionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTransactionVC.swift; sourceTree = "<group>"; };
 		10C310F220B23D2B001F14C5 /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
 		10C86EEE20A325A10045FF4D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -99,6 +101,7 @@
 			children = (
 				103CFFEE20AF09D2004F753C /* Money.swift */,
 				10022A2A20B8C22100195556 /* BalanceUpdateDelegate.swift */,
+				108B976F20BF712C009D6F93 /* KeyboardDoneExtension.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 			files = (
 				103CFFEF20AF09D2004F753C /* Money.swift in Sources */,
 				103CFFF120AF0B38004F753C /* TransactionCell.swift in Sources */,
+				108B977020BF712C009D6F93 /* KeyboardDoneExtension.swift in Sources */,
 				10D5229C20BBA38500A07E52 /* LoginVC.swift in Sources */,
 				107676A0208BFB3600949B28 /* CreateAccountVC.swift in Sources */,
 				1041B68B20A3DFBA0072C423 /* Account.swift in Sources */,
