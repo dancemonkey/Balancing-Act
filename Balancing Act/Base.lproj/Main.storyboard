@@ -169,7 +169,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DpP-BS-Phz">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DpP-BS-Phz">
                                 <rect key="frame" x="174.66666666666666" y="353" width="65" height="30"/>
                                 <state key="normal" title="Accounts"/>
                                 <connections>
@@ -184,9 +184,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="686-9u-oaU"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Login" id="xQR-GL-lft"/>
+                    <navigationItem key="navigationItem" title="Login" id="xQR-GL-lft">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="I8F-U9-lRB">
+                            <connections>
+                                <action selector="signoutWithSender:" destination="dbe-Tg-fuF" id="aa5-TX-VRk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="accountsBtn" destination="DpP-BS-Phz" id="1HW-sE-qYe"/>
+                        <outlet property="logoutBtn" destination="I8F-U9-lRB" id="NCm-lQ-3sl"/>
                         <segue destination="V4V-0p-x82" kind="show" identifier="showAccounts" id="XFL-2m-La0"/>
                     </connections>
                 </viewController>
@@ -393,7 +400,7 @@
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="iconText" value="$"/>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="iconMarginBottom">
-                                                                <real key="value" value="-2"/>
+                                                                <real key="value" value="2"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>

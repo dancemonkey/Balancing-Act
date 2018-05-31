@@ -8,7 +8,7 @@
 
 import UIKit
 import Firebase
-import GoogleSignIn
+import FirebaseGoogleAuthUI
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,28 +19,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Override point for customization after application launch.
     FirebaseApp.configure()
     Database.database().isPersistenceEnabled = true
-    
-    GIDSignIn.sharedInstance().clientID = "799672803458-980lqkv3n2rruml2k127mnam1pusfbqe.apps.googleusercontent.com"
+
     return true
   }
   
-  func application(_ application: UIApplication,
-                   open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-    return GIDSignIn.sharedInstance().handle(url,
-                                             sourceApplication: sourceApplication,
-                                             annotation: annotation)
-  }
-  
-  @available(iOS 9.0, *)
   func application(_ app: UIApplication, open url: URL,
                    options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
-    let sourceApplication = options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String
-    let annotation = options[UIApplicationOpenURLOptionsKey.annotation]
-    return GIDSignIn.sharedInstance().handle(url,
-                                             sourceApplication: sourceApplication,
-                                             annotation: annotation)
+    let sourceApplication = options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String?
+    if FUIAuth.defaultAuthUI()?.handleOpen(url, sourceApplication: sourceApplication) ?? false {
+      return true
+    }
+    // other URL handling goes here.
+    return false
   }
-
 
   func applicationWillResignActive(_ application: UIApplication) {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

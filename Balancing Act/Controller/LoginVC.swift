@@ -9,83 +9,68 @@
 import GoogleAPIClientForREST
 import GoogleSignIn
 import UIKit
+import FirebaseGoogleAuthUI
 
-class LoginVC: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
+class LoginVC: UIViewController, FUIAuthDelegate {
   
+  // TODO: Now back to integrating google sheets access so I can append/export data
+  // QUESTION: Or just offer CSV export/backup, keep it simple?
   
-  // If modifying these scopes, delete your previously saved credentials by
-  // resetting the iOS simulator or uninstall the app.
+  // MARK: Auth Properties
+  private let providers: [FUIAuthProvider] = [
+    FUIGoogleAuth()
+  ]
+  var authController: UINavigationController!
+  var authUI: FUIAuth!
   
-  // TODO: Use FBUI work flow?:
-  // https://firebase.google.com/docs/auth/ios/firebaseui?authuser=0
-  // https://firebase.google.com/docs/auth/users
-  // TODO: show list of my spreadsheets in table, let me select one
-  // TODO: add arbitrary data to last row of selected sheet
-  // TODO: integrate all of the amazing skills I've learned into Balancing Act
-  
-  private let scopes = [kGTLRAuthScopeSheetsSpreadsheetsReadonly]
-  
-  private let service = GTLRSheetsService()
-  var signInButton: GIDSignInButton?
+  // MARK: Outlets
   @IBOutlet weak var accountsBtn: UIButton!
+  @IBOutlet weak var logoutBtn: UIBarButtonItem!
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    accountsBtn.isHidden = true
+    authUI = FUIAuth.defaultAuthUI()
+    authUI.delegate = self
+    authUI.providers = self.providers
     
-    // Configure Google Sign-in.
-    GIDSignIn.sharedInstance().delegate = self
-    GIDSignIn.sharedInstance().uiDelegate = self
-    GIDSignIn.sharedInstance().scopes = scopes
-    if GIDSignIn.sharedInstance().hasAuthInKeychain() {
-      GIDSignIn.sharedInstance().signInSilently()
-      accountsBtn.isHidden = false
+    authController = authUI!.authViewController()
+    if Auth.auth().currentUser == nil {
+      accountsBtn.isEnabled = false
+      logoutBtn.title = "Login"
+      present(authController, animated: true, completion: nil)
     } else {
-      setupGIDButton()
+      accountsBtn.isEnabled = true
+      logoutBtn.title = "Logout"
     }
-  }
-  
-  func setupGIDButton() {
-    signInButton = GIDSignInButton(frame: CGRect(x: view.center.x - 122/2, y: view.center.y - 48/2, width: 122.0, height: 48.0))
-    view.addSubview(signInButton!)
-  }
-  
-  func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,
-            withError error: Error!) {
-    if let error = error {
-      showAlert(title: "Authentication Error", message: error.localizedDescription)
-      self.service.authorizer = nil
-    } else {
-      self.signInButton?.isHidden = true
-      self.service.authorizer = user.authentication.fetcherAuthorizer()
-      accountsBtn.isHidden = false
-      let store = Store()
-      store.setUserID(to: user.userID)
-    }
-  }
-  
-  // Helper for showing an alert
-  func showAlert(title : String, message: String) {
-    let alert = UIAlertController(
-      title: title,
-      message: message,
-      preferredStyle: UIAlertControllerStyle.alert
-    )
-    let ok = UIAlertAction(
-      title: "OK",
-      style: UIAlertActionStyle.default,
-      handler: nil
-    )
-    alert.addAction(ok)
-    present(alert, animated: true, completion: nil)
+    
   }
   
   @IBAction func accountsPressed(sender: UIButton) {
     performSegue(withIdentifier: "showAccounts", sender: self)
   }
   
-  @IBAction func signOut(sender: UIButton) {
-    
+  // MARK: Auth Delegate
+  func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
+    if let err = error {
+      print(err)
+    } else {
+      let store = Store()
+      store.setUserID(to: user!.uid)
+      accountsBtn.isEnabled = true
+      logoutBtn.title = "Logout"
+    }
+  }
+  
+  // MARK: Actions
+  @IBAction func signout(sender: UIBarButtonItem) {
+    do {
+      try authUI.signOut()
+      accountsBtn.isEnabled = false
+      logoutBtn.title = "Login"
+      present(authController!, animated: true, completion: nil)
+    } catch {
+      print(error)
+    }
   }
 }
