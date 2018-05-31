@@ -8,12 +8,13 @@
 
 import UIKit
 import Firebase
+import SkyFloatingLabelTextField
 
 class EditTransactionVC: UIViewController {
   
   // MARK: Outlets
   
-  @IBOutlet weak var payee: UITextField!
+  @IBOutlet weak var payee: SkyFloatingLabelTextField!
   @IBOutlet weak var amount: UITextField!
   @IBOutlet weak var date: UIDatePicker!
   @IBOutlet weak var category: UITextField!

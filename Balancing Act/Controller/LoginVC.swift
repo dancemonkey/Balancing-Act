@@ -16,6 +16,9 @@ class LoginVC: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
   // If modifying these scopes, delete your previously saved credentials by
   // resetting the iOS simulator or uninstall the app.
   
+  // TODO: Use FBUI work flow?:
+  // https://firebase.google.com/docs/auth/ios/firebaseui?authuser=0
+  // https://firebase.google.com/docs/auth/users
   // TODO: show list of my spreadsheets in table, let me select one
   // TODO: add arbitrary data to last row of selected sheet
   // TODO: integrate all of the amazing skills I've learned into Balancing Act
@@ -57,6 +60,9 @@ class LoginVC: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
       self.signInButton?.isHidden = true
       self.service.authorizer = user.authentication.fetcherAuthorizer()
       accountsBtn.isHidden = false
+      
+      // QUESTION: use as FB user key for storage? Or revert all to above-linked FBUI login flow?
+      // var token = user.userID
     }
   }
   
@@ -78,5 +84,9 @@ class LoginVC: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
   
   @IBAction func accountsPressed(sender: UIButton) {
     performSegue(withIdentifier: "showAccounts", sender: self)
+  }
+  
+  @IBAction func signOut(sender: UIButton) {
+    
   }
 }
