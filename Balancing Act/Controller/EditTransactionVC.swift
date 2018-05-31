@@ -15,10 +15,10 @@ class EditTransactionVC: UIViewController {
   // MARK: Outlets
   
   @IBOutlet weak var payee: SkyFloatingLabelTextField!
-  @IBOutlet weak var amount: UITextField!
+  @IBOutlet weak var amount: SkyFloatingLabelTextFieldWithIcon!
   @IBOutlet weak var date: UIDatePicker!
-  @IBOutlet weak var category: UITextField!
-  @IBOutlet weak var memo: UITextField!
+  @IBOutlet weak var category: SkyFloatingLabelTextField!
+  @IBOutlet weak var memo: SkyFloatingLabelTextField!
   @IBOutlet weak var button: UIButton!
   @IBOutlet weak var clearSwitch: UISwitch!
   @IBOutlet weak var reconcileSwitch: UISwitch!
@@ -43,6 +43,12 @@ class EditTransactionVC: UIViewController {
     notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
 
+    amount.iconFont = UIFont.systemFont(ofSize: 18.0)
+    amount.iconText = "$"
+    amount.placeholder = ""
+    amount.title = ""
+    amount.selectedTitle = ""
+    
     if let trx = transaction {
       depositSwitch.isOn = trx.isDeposit!
       setupForExisting(transaction: trx)

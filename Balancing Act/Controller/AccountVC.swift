@@ -15,6 +15,7 @@ class AccountVC: UIViewController {
   @IBOutlet weak var table: UITableView!
   @IBOutlet weak var infoView: InfoView!
   @IBOutlet weak var reconcileBtn: UIBarButtonItem!
+  @IBOutlet weak var newTransaction: UIBarButtonItem!
   
   // MARK: Properties
   var trxRef: DatabaseQuery!
@@ -82,6 +83,7 @@ class AccountVC: UIViewController {
   @IBAction func reconcileModeTapped(sender: UIBarButtonItem) {
     reconcileMode = !reconcileMode
     reconcileBtn.isEnabled = reconcileMode
+    newTransaction.isEnabled = !reconcileMode
   }
   
   @IBAction func reconcileCleared() {

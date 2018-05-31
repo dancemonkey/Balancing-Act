@@ -20,10 +20,11 @@ class Store {
     return _allTransactionsRef
   }
   private var _accountRef: DatabaseReference!
-
+  
   init() {
-    _allAccountsRef = Database.database().reference(withPath: "accounts")
-    _allTransactionsRef = Database.database().reference(withPath: "transactions")
+    guard let userID = self.getUserID() else { return }
+    _allAccountsRef = Database.database().reference(withPath: "\(userID)/accounts")
+    _allTransactionsRef = Database.database().reference(withPath: "\(userID)/transactions")
   }
     
   func addNew(transaction trx: Transaction, to account: Account) {
@@ -60,6 +61,17 @@ class Store {
     // -- save trx twice: once under acct and again under separate trx child under root
     // probably can't return values because async, accept array and populate instead
     return [Transaction]()
+  }
+  
+  func setUserID(to userID: String) {
+    let defaults = UserDefaults.standard
+    defaults.set(userID, forKey: "userID")
+  }
+  
+  func getUserID() -> String? {
+    let defaults = UserDefaults.standard
+    guard let userID = defaults.value(forKey: "userID") else { return nil }
+    return (userID as! String)
   }
   
 }

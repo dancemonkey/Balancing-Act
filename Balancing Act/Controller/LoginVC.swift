@@ -60,9 +60,8 @@ class LoginVC: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
       self.signInButton?.isHidden = true
       self.service.authorizer = user.authentication.fetcherAuthorizer()
       accountsBtn.isHidden = false
-      
-      // QUESTION: use as FB user key for storage? Or revert all to above-linked FBUI login flow?
-      // var token = user.userID
+      let store = Store()
+      store.setUserID(to: user.userID)
     }
   }
   
