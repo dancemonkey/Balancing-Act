@@ -20,6 +20,8 @@ class AccountCell: UITableViewCell {
   }
   
   func configure(with account: Account) {
+    account.setCurrentBalance(nil)
+    account.setReconciledBalance()
     self.accountName.text = account.nickname
     account.ref?.observe(.value, with: { (snapshot) in
       for child in snapshot.children {

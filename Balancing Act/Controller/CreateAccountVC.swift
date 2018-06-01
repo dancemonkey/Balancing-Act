@@ -40,8 +40,6 @@ class CreateAccountVC: UIViewController {
   @IBAction func createAccountTouched(sender: UIButton) {
     guard let nickname = nicknameField.text, let balance = startingBalance.text else { return }
     if let existingAccount = self.account {
-      existingAccount.setCurrentBalance(nil)
-      existingAccount.setReconciledBalance()
       let values = [
         "bank" : bankField.text as Any,
         "nickname" : nickname,
