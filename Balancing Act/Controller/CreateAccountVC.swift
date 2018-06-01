@@ -30,6 +30,7 @@ class CreateAccountVC: UIViewController {
     if let account = self.account {
       bankField.text = account.bank!
       nicknameField.text = account.nickname
+      startingBalance.text = Money.decimalFormat(amount: account.startingBalance)
       button.setTitle("Update Account", for: .normal)
     }
   }
@@ -38,11 +39,23 @@ class CreateAccountVC: UIViewController {
   
   @IBAction func createAccountTouched(sender: UIButton) {
     guard let nickname = nicknameField.text, let balance = startingBalance.text else { return }
-    
-    let account = Account(bank: bankField.text,
-                          nickname: nickname,
-                          balance: Double(balance)!)
-    store.addNew(account: account)
+    if let existingAccount = self.account {
+      existingAccount.setCurrentBalance(nil)
+      existingAccount.setReconciledBalance()
+      let values = [
+        "bank" : bankField.text as Any,
+        "nickname" : nickname,
+        "startingBalance" : Double(balance) as Any,
+        "currentBalance": existingAccount.clearedTotal as Any,
+        "reconciledBalance": existingAccount.reconciledBalance as Any
+        ] as [String : Any]
+      store.update(values: values, in: existingAccount)
+    } else {
+      let account = Account(bank: bankField.text,
+                            nickname: nickname,
+                            balance: Double(balance)!)
+      store.addNew(account: account)
+    }
     clearFields()
     navigationController?.popViewController(animated: true)
   }

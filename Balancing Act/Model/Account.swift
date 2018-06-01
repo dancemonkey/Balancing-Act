@@ -37,7 +37,8 @@ class Account {
       let nickname = value["nickname"] as? String,
       let balance = value["startingBalance"] as? Double
       else
-    { return nil }
+    { print("failing out of account snap guard")
+      return nil }
     
     self.ref = snapshot.ref
     self.key = snapshot.key

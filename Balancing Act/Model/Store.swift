@@ -44,6 +44,10 @@ class Store {
     _allTransactionsRef.child(trx.key).setValue(values) 
   }
   
+  func update(values: [AnyHashable: Any], in acct: Account) {
+    _allAccountsRef.child(acct.key).updateChildValues(values)
+  }
+  
   func addNew(account: Account) {
     _allAccountsRef.child(account.creation).setValue(account.toAnyObject())
   }

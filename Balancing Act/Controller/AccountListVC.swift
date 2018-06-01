@@ -25,9 +25,13 @@ class AccountListVC: UIViewController {
     self.title = "Accounts"
     store = Store()
     observeChanges()
-    
+
     table.delegate = self
     table.dataSource = self
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
   }
   
   // MARK: Segues
@@ -36,6 +40,9 @@ class AccountListVC: UIViewController {
     if segue.identifier == "showAccount" {
       let destVC = segue.destination as! AccountVC
       destVC.account = self.accounts[(sender as! IndexPath).row]
+    } else if segue.identifier == "accountEdit" {
+      let destVC = segue.destination as! CreateAccountVC
+      destVC.account = (sender as! Account)
     }
   }
   
@@ -49,11 +56,15 @@ class AccountListVC: UIViewController {
   
   func observeChanges() {
     ref = store?.allAccountsRef
+    print("ref: \(ref)")
     ref.observe(.value) { (snapshot) in
+      print("value observed")
       var newAccounts: [Account] = []
       for child in snapshot.children {
+        print("child: \(child)")
         if let snapshot = child as? DataSnapshot,
           let account = Account(snapshot: snapshot) {
+          print("account: \(account)")
           newAccounts.append(account)
         }
       }
@@ -89,5 +100,18 @@ extension AccountListVC: UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return 55.0
+  }
+  
+  func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+    let delete = UITableViewRowAction(style: .destructive, title: "delete") { (action, indexPath) in
+      let store = Store()
+      store.remove(account: self.accounts[indexPath.row])
+    }
+    
+    let edit = UITableViewRowAction(style: .normal, title: "edit") { (action, indexPath) in
+      self.performSegue(withIdentifier: "accountEdit", sender: self.accounts[indexPath.row])
+    }
+    
+    return [delete, edit]
   }
 }
