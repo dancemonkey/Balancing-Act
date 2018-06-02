@@ -132,13 +132,25 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I58-N0-VaM">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="nuF-KN-1qd">
                                         <rect key="frame" x="0.0" y="150" width="310.66666666666669" height="30"/>
-                                        <state key="normal" title="Create Account"/>
-                                        <connections>
-                                            <action selector="createAccountTouchedWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="O3z-fR-4aA"/>
-                                        </connections>
-                                    </button>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ik-QC-942" customClass="CancelBtn" customModule="Balancing_Act" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="147.33333333333334" height="30"/>
+                                                <state key="normal" title="Cancel"/>
+                                                <connections>
+                                                    <action selector="cancelWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lm5-vT-SrP"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I58-N0-VaM" customClass="MainBtn" customModule="Balancing_Act" customModuleProvider="target">
+                                                <rect key="frame" x="163.33333333333331" y="0.0" width="147.33333333333331" height="30"/>
+                                                <state key="normal" title="DONE"/>
+                                                <connections>
+                                                    <action selector="createAccountTouchedWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="O3z-fR-4aA"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -169,8 +181,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DpP-BS-Phz">
-                                <rect key="frame" x="174.66666666666666" y="353" width="65" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DpP-BS-Phz" customClass="MainBtn" customModule="Balancing_Act" customModuleProvider="target">
+                                <rect key="frame" x="50" y="343" width="314" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="eXt-e3-eIL"/>
+                                </constraints>
                                 <state key="normal" title="Accounts"/>
                                 <connections>
                                     <action selector="accountsPressedWithSender:" destination="dbe-Tg-fuF" eventType="touchUpInside" id="Yxa-eY-CNR"/>
@@ -179,8 +194,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="DpP-BS-Phz" firstAttribute="centerX" secondItem="vw8-rR-DbH" secondAttribute="centerX" id="2FF-KO-9XX"/>
+                            <constraint firstItem="DpP-BS-Phz" firstAttribute="leading" secondItem="686-9u-oaU" secondAttribute="leading" constant="50" id="Deb-gT-TFu"/>
                             <constraint firstItem="DpP-BS-Phz" firstAttribute="centerY" secondItem="vw8-rR-DbH" secondAttribute="centerY" id="ook-Y4-OBh"/>
+                            <constraint firstItem="686-9u-oaU" firstAttribute="trailing" secondItem="DpP-BS-Phz" secondAttribute="trailing" constant="50" id="p4J-kh-jwx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="686-9u-oaU"/>
                     </view>
@@ -388,7 +404,7 @@
                                                     <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value="Payee"/>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="ApF-eI-R9l">
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="16" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ApF-eI-R9l">
                                                 <rect key="frame" x="16" y="278" width="350" height="31"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Amount" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wG9-Qg-guM" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextField">
@@ -399,9 +415,6 @@
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="iconText" value="$"/>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="iconMarginBottom">
-                                                                <real key="value" value="2"/>
-                                                            </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="8db-en-LYY">
@@ -484,11 +497,11 @@
                                                     </stackView>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4lh-Rb-bFx">
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4lh-Rb-bFx">
                                                 <rect key="frame" x="16" y="464" width="350" height="112"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fb-8G-4kw">
-                                                        <rect key="frame" x="0.0" y="39" width="175" height="34"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fb-8G-4kw" customClass="CancelBtn" customModule="Balancing_Act" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="39" width="171" height="34"/>
                                                         <state key="normal" title="Cancel">
                                                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
@@ -497,8 +510,8 @@
                                                             <action selector="clear" destination="Z6q-o1-Mt3" eventType="touchUpInside" id="X5l-p1-BNV"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T4b-vM-OhD">
-                                                        <rect key="frame" x="175" y="39" width="175" height="34"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T4b-vM-OhD" customClass="MainBtn" customModule="Balancing_Act" customModuleProvider="target">
+                                                        <rect key="frame" x="179" y="39" width="171" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
                                                         <state key="normal" title="DONE">
                                                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -582,6 +595,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="BWt-pt-pKi"/>
+        <segue reference="T3r-j1-Ykc"/>
     </inferredMetricsTieBreakers>
 </document>

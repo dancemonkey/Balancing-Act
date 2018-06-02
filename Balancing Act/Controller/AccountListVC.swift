@@ -56,15 +56,11 @@ class AccountListVC: UIViewController {
   
   func observeChanges() {
     ref = store?.allAccountsRef
-    print("ref: \(ref)")
     ref.observe(.value) { (snapshot) in
-      print("value observed")
       var newAccounts: [Account] = []
       for child in snapshot.children {
-        print("child: \(child)")
         if let snapshot = child as? DataSnapshot,
           let account = Account(snapshot: snapshot) {
-          print("account: \(account)")
           newAccounts.append(account)
         }
       }

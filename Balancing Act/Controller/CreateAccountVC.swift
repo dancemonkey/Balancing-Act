@@ -31,7 +31,7 @@ class CreateAccountVC: UIViewController {
       bankField.text = account.bank!
       nicknameField.text = account.nickname
       startingBalance.text = Money.decimalFormat(amount: account.startingBalance)
-      button.setTitle("Update Account", for: .normal)
+      button.setTitle("UPDATE", for: .normal)
     }
   }
   
@@ -55,6 +55,10 @@ class CreateAccountVC: UIViewController {
       store.addNew(account: account)
     }
     clearFields()
+    navigationController?.popViewController(animated: true)
+  }
+  
+  @IBAction func cancel(sender: UIButton) {
     navigationController?.popViewController(animated: true)
   }
   
