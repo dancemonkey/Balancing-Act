@@ -195,6 +195,19 @@ extension AccountVC: UITableViewDelegate {
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return 65.0
   }
+  
+  func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+    guard reconcileMode == false else { return nil }
+    
+    let delete = UITableViewRowAction(style: .destructive, title: "delete") { (action, indexPath) in
+      let store = Store()
+      store.remove(transaction: self.transactions[indexPath.row])
+      self.updateAccountBalance()
+    }
+    
+    return [delete]
+  }
+  
 }
 
 extension AccountVC: BalanceUpdateDelegate {

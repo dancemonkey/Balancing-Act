@@ -124,7 +124,7 @@ class EditTransactionVC: UIViewController {
       trx.setDeposit(to: depositSwitch.isOn)
       store.addNew(transaction: trx, to: acct)
     }
-//    delegate?.updateAccountBalance()
+    delegate?.updateAccountBalance()
     navigationController?.popViewController(animated: true)
   }
   
