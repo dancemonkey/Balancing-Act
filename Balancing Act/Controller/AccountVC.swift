@@ -196,16 +196,20 @@ extension AccountVC: UITableViewDelegate {
     return 65.0
   }
   
-  func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-    guard reconcileMode == false else { return nil }
-    
-    let delete = UITableViewRowAction(style: .destructive, title: "delete") { (action, indexPath) in
+  func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    if editingStyle == .delete {
       let store = Store()
-      store.remove(transaction: self.transactions[indexPath.row])
+      store.remove(transaction: transactions[indexPath.row])
       self.updateAccountBalance()
     }
-    
-    return [delete]
+  }
+  
+  func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+    if reconcileMode {
+      return UITableViewCellEditingStyle.none
+    } else {
+      return UITableViewCellEditingStyle.delete
+    }
   }
   
 }
