@@ -42,6 +42,7 @@ class LoginVC: UIViewController, FUIAuthDelegate {
     } else {
       accountsBtn.isEnabled = true
       logoutBtn.title = "Logout"
+      performSegue(withIdentifier: "showAccounts", sender: self)
     }
     
   }
@@ -59,6 +60,7 @@ class LoginVC: UIViewController, FUIAuthDelegate {
       store.setUserID(to: user!.uid)
       accountsBtn.isEnabled = true
       logoutBtn.title = "Logout"
+      performSegue(withIdentifier: "showAccounts", sender: self)
     }
   }
   
@@ -68,6 +70,8 @@ class LoginVC: UIViewController, FUIAuthDelegate {
       try authUI.signOut()
       accountsBtn.isEnabled = false
       logoutBtn.title = "Login"
+      let store = Store()
+      store.setUserID(to: "")
       present(authController!, animated: true, completion: nil)
     } catch {
       print(error)

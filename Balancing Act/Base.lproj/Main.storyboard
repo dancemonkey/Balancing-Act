@@ -420,9 +420,9 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="8db-en-LYY">
                                                         <rect key="frame" x="244" y="0.0" width="106" height="31"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deposit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fU1-F4-kHL">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fU1-F4-kHL">
                                                                 <rect key="frame" x="0.0" y="0.0" width="53" height="31"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -524,18 +524,18 @@
                                             </stackView>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="ApF-eI-R9l" secondAttribute="trailing" constant="16" id="11F-ZJ-lRP"/>
                                             <constraint firstAttribute="trailing" secondItem="rMP-MW-t3n" secondAttribute="trailing" constant="16" id="7b5-wa-hEe"/>
                                             <constraint firstItem="4lh-Rb-bFx" firstAttribute="leading" secondItem="mS8-VF-Wj0" secondAttribute="leading" constant="16" id="DtJ-5H-r0B"/>
                                             <constraint firstAttribute="trailing" secondItem="MdN-0S-WCe" secondAttribute="trailing" constant="16" id="Ltz-Rz-gKh"/>
-                                            <constraint firstItem="ApF-eI-R9l" firstAttribute="leading" secondItem="mS8-VF-Wj0" secondAttribute="leading" constant="16" id="PM7-SR-k5m"/>
                                             <constraint firstItem="Jdm-go-mbt" firstAttribute="leading" secondItem="mS8-VF-Wj0" secondAttribute="leading" constant="8" id="PTq-5r-O0w"/>
                                             <constraint firstItem="rMP-MW-t3n" firstAttribute="leading" secondItem="mS8-VF-Wj0" secondAttribute="leading" constant="16" id="Pfu-68-QwY"/>
                                             <constraint firstAttribute="trailing" secondItem="4lh-Rb-bFx" secondAttribute="trailing" constant="16" id="Y5w-Cf-1e8"/>
                                             <constraint firstAttribute="trailing" secondItem="Jdm-go-mbt" secondAttribute="trailing" constant="8" id="YNZ-HF-x49"/>
                                             <constraint firstItem="MdN-0S-WCe" firstAttribute="leading" secondItem="mS8-VF-Wj0" secondAttribute="leading" constant="16" id="atx-V7-kFg"/>
                                             <constraint firstAttribute="trailing" secondItem="wSQ-z6-x5e" secondAttribute="trailing" constant="16" id="clR-dw-Dqi"/>
+                                            <constraint firstItem="ApF-eI-R9l" firstAttribute="leading" secondItem="mS8-VF-Wj0" secondAttribute="leading" constant="16" id="coX-mg-sww"/>
                                             <constraint firstItem="wSQ-z6-x5e" firstAttribute="leading" secondItem="mS8-VF-Wj0" secondAttribute="leading" constant="16" id="hLE-hQ-YkF"/>
-                                            <constraint firstAttribute="trailing" secondItem="ApF-eI-R9l" secondAttribute="trailing" constant="16" id="r5P-Au-AGf"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
