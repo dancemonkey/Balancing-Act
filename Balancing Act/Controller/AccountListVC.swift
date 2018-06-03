@@ -75,24 +75,66 @@ class AccountListVC: UIViewController {
     let path = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(fileName)
     
     var csvText: String = "Starting Balance: \(account.startingBalance)\n"
-    csvText.append("Date,Payee,Category,Memo,Cleared,Debit,Credit")
+    csvText.append("Date,Payee,Category,Memo,Cleared,Debit,Credit\n")
     
-    // get list of trx from FB for this account
-    var transactions: [Transaction] = []
-    observeTransactions(for: account) { (trx) in
-      transactions.append(trx)
+    observeAndWriteTransactions(for: account) { (trx) in
+      // get list of trx from FB for this account
+      let transactions: [Transaction] = trx
+      
+      // write trx data to text file
+      let count = transactions.count
+      
+      if count > 0 {
+        for trx in transactions {
+          csvText.append(
+            "\(trx.simpleDate),\(trx.payee),\(trx.category),\(trx.memo),\(trx.cleared),"
+          )
+          let deposit: Bool = trx.isDeposit ?? false
+          if !deposit {
+            csvText.append("\(trx.amount),\n")
+          } else {
+            csvText.append(",\(trx.amount)\n")
+          }
+        }
+        
+        // save text file to temp directory and share with ActivityVC
+        do {
+          try csvText.write(to: path, atomically: true, encoding: String.Encoding.utf8)
+          let vc = UIActivityViewController(activityItems: [path], applicationActivities: [])
+          vc.excludedActivityTypes = [
+            UIActivityType.assignToContact,
+            UIActivityType.saveToCameraRoll,
+            UIActivityType.postToVimeo,
+            UIActivityType.postToWeibo,
+            UIActivityType.postToFlickr,
+            UIActivityType.postToTwitter,
+            UIActivityType.postToFacebook,
+            UIActivityType.postToTencentWeibo,
+            UIActivityType.openInIBooks
+          ]
+          DispatchQueue.main.async {
+            self.present(vc, animated: true, completion: nil)
+          }
+        } catch {
+          print("failed to create file")
+          print(error)
+        }
+      } else {
+        print("no data to export")
+      }
     }
-    
-    // write trx data to text file
-    // save text file to temp directory
-    // present activityVC to export file wherever
     
   }
   
-  func observeTransactions(for account: Account, completion: @escaping (Transaction) -> ()) {
+  func observeAndWriteTransactions(for account: Account, completion: @escaping ([Transaction]) -> ()) {
+    var trx: [Transaction] = []
     let trxRef: DatabaseQuery? = account.ref?.child("transactions").queryOrdered(byChild: "creation")
     trxRef?.observeSingleEvent(of: .value, with: { (snapshot) in
-      guard let trx = Transaction(snapshot: snapshot) else { return }
+      for child in snapshot.children {
+        guard let snap = child as? DataSnapshot else { return }
+        let transaction = Transaction(snapshot: snap)
+        trx.append(transaction!)
+      }
       completion(trx)
     })
   }
@@ -135,6 +177,11 @@ extension AccountListVC: UITableViewDelegate {
       self.performSegue(withIdentifier: "accountEdit", sender: self.accounts[indexPath.row])
     }
     
-    return [delete, edit]
+    let exportAction = UITableViewRowAction(style: .normal, title: "export") { (action, indexPath) in
+      self.export(sender: indexPath)
+    }
+    exportAction.backgroundColor = .blue
+    
+    return [delete, edit, exportAction]
   }
 }

@@ -20,7 +20,8 @@ class TransactionCell: UITableViewCell {
   
   func configure(with trx: Transaction) {
     self.payee.text = trx.payee
-    self.amount.text = Money.currencyFormat(amount: trx.amount)
+    let deposit: Bool = trx.isDeposit ?? false
+    self.amount.text = deposit ? Money.currencyFormat(amount: trx.amount) : Money.currencyFormat(amount: -trx.amount)
     self.date.text = trx.simpleDate
     if trx.cleared && !trx.reconciled {
       self.backgroundColor = UIColor.yellow
