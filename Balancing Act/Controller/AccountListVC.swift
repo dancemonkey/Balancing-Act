@@ -167,21 +167,24 @@ extension AccountListVC: UITableViewDelegate {
     return 55.0
   }
   
-  func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-    let delete = UITableViewRowAction(style: .destructive, title: "delete") { (action, indexPath) in
+  func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    let delete = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completion) in
       let store = Store()
       store.remove(account: self.accounts[indexPath.row])
     }
+    delete.image = UIImage(named: "trash3")!
     
-    let edit = UITableViewRowAction(style: .normal, title: "edit") { (action, indexPath) in
+    let edit = UIContextualAction(style: .normal, title: "Edit") { (action, view, completion) in
       self.performSegue(withIdentifier: "accountEdit", sender: self.accounts[indexPath.row])
     }
+    edit.image = UIImage(named: "edit")!
     
-    let exportAction = UITableViewRowAction(style: .normal, title: "export") { (action, indexPath) in
+    let exportAction = UIContextualAction(style: .normal, title: "Export") { (action, view, completion) in
       self.export(sender: indexPath)
     }
     exportAction.backgroundColor = .blue
+    exportAction.image = UIImage(named: "export")!
     
-    return [delete, edit, exportAction]
+    return UISwipeActionsConfiguration(actions: [exportAction, edit, delete])
   }
 }
