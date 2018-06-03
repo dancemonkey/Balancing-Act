@@ -68,7 +68,34 @@ class AccountListVC: UIViewController {
       self.table.reloadData()
     }
   }
-
+  
+  func export(sender: IndexPath) {
+    let account = self.accounts[sender.row]
+    let fileName = "\(account.nickname).csv"
+    let path = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(fileName)
+    
+    var csvText: String = "Starting Balance: \(account.startingBalance)\n"
+    csvText.append("Date,Payee,Category,Memo,Cleared,Debit,Credit")
+    
+    // get list of trx from FB for this account
+    var transactions: [Transaction] = []
+    observeTransactions(for: account) { (trx) in
+      transactions.append(trx)
+    }
+    
+    // write trx data to text file
+    // save text file to temp directory
+    // present activityVC to export file wherever
+    
+  }
+  
+  func observeTransactions(for account: Account, completion: @escaping (Transaction) -> ()) {
+    let trxRef: DatabaseQuery? = account.ref?.child("transactions").queryOrdered(byChild: "creation")
+    trxRef?.observeSingleEvent(of: .value, with: { (snapshot) in
+      guard let trx = Transaction(snapshot: snapshot) else { return }
+      completion(trx)
+    })
+  }
 }
 
 // MARK: Extensions
