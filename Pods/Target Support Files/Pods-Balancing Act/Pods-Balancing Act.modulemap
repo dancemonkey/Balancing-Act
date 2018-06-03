@@ -1,0 +1,6 @@
+framework module Pods_Balancing_Act {
+  umbrella header "Pods-Balancing Act-umbrella.h"
+
+  export *
+  module * { export * }
+}
