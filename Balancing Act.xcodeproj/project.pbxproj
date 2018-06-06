@@ -47,6 +47,7 @@
 /* Begin PBXFileReference section */
 		10022A2A20B8C22100195556 /* BalanceUpdateDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceUpdateDelegate.swift; sourceTree = "<group>"; };
 		1016206F20A47C55001BE2F3 /* AccountListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountListVC.swift; sourceTree = "<group>"; };
+		1018E8AC20C7571C007ED1E2 /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
 		103CFFE920AF0540004F753C /* AccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCell.swift; sourceTree = "<group>"; };
 		103CFFEE20AF09D2004F753C /* Money.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
 		103CFFF020AF0B38004F753C /* TransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
@@ -144,6 +145,7 @@
 				10FC1A54208958C900BEBAD6 /* Info.plist */,
 				10C86EEE20A325A10045FF4D /* GoogleService-Info.plist */,
 				10C310F220B23D2B001F14C5 /* credentials.plist */,
+				1018E8AC20C7571C007ED1E2 /* Readme.md */,
 			);
 			path = "Balancing Act";
 			sourceTree = "<group>";

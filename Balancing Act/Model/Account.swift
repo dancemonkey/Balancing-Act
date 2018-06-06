@@ -12,7 +12,6 @@ import Firebase
 class Account {
   let ref: DatabaseReference?
   let key: String
-  var bank: String?
   var nickname: String
   var startingBalance: Double
   var creation: String
@@ -20,10 +19,9 @@ class Account {
   var reconciledBalance: Double?
   var clearedTotal: Double = 0.0
   
-  init(bank: String?, nickname: String, key: String = "", balance: Double) {
+  init(nickname: String, key: String = "", balance: Double) {
     self.ref = nil
     self.key = key
-    self.bank = bank
     self.nickname = nickname
     self.startingBalance = balance
     self.currentBalance = balance
@@ -43,7 +41,6 @@ class Account {
     self.ref = snapshot.ref
     self.key = snapshot.key
     self.nickname = nickname
-    self.bank = value["bank"] as? String
     self.startingBalance = balance
     self.creation = value["creation"] as! String
     self.currentBalance = value["currentBalance"] as? Double
@@ -52,7 +49,6 @@ class Account {
   
   func toAnyObject() -> Any {
     return [
-      "bank": bank as Any,
       "nickname": nickname,
       "startingBalance": startingBalance,
       "creation": creation,

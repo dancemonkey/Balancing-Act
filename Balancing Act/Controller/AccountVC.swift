@@ -196,12 +196,15 @@ extension AccountVC: UITableViewDelegate {
     return 65.0
   }
   
-  func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-    if editingStyle == .delete {
+  func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    let delete = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completion) in
       let store = Store()
-      store.remove(transaction: transactions[indexPath.row])
+      store.remove(transaction: self.transactions[indexPath.row])
       self.updateAccountBalance()
     }
+    delete.image = UIImage(named: "trash3")
+    
+    return UISwipeActionsConfiguration(actions: [delete])
   }
   
   func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
