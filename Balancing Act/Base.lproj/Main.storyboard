@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14112" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KY9-Kr-hJj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KY9-Kr-hJj">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -400,7 +400,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="16" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ApF-eI-R9l">
                                                 <rect key="frame" x="16" y="278" width="350" height="31"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Amount" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wG9-Qg-guM" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextField">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Amount" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wG9-Qg-guM" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
                                                         <rect key="frame" x="0.0" y="0.0" width="264" height="31"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -408,6 +408,8 @@
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="iconText" value="$"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value="$ Amount"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="$ Amount"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="8db-en-LYY">
@@ -428,6 +430,10 @@
                                                         </subviews>
                                                     </stackView>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="8db-en-LYY" secondAttribute="trailing" id="XBi-m7-tXG"/>
+                                                    <constraint firstItem="8db-en-LYY" firstAttribute="leading" secondItem="wG9-Qg-guM" secondAttribute="trailing" id="ueb-JQ-znT"/>
+                                                </constraints>
                                             </stackView>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rMP-MW-t3n" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
                                                 <rect key="frame" x="16" y="325" width="350" height="30"/>
@@ -534,10 +540,8 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="mS8-VF-Wj0" secondAttribute="trailing" constant="16" id="2Ca-1l-c1Q"/>
-                                    <constraint firstItem="mS8-VF-Wj0" firstAttribute="centerY" secondItem="GNj-zP-zNd" secondAttribute="centerY" id="DIg-kb-U5V"/>
-                                    <constraint firstItem="mS8-VF-Wj0" firstAttribute="top" secondItem="GNj-zP-zNd" secondAttribute="top" id="Hxl-6o-Co2"/>
-                                    <constraint firstAttribute="bottom" secondItem="mS8-VF-Wj0" secondAttribute="bottom" id="KcP-bL-fxa"/>
-                                    <constraint firstItem="mS8-VF-Wj0" firstAttribute="centerX" secondItem="GNj-zP-zNd" secondAttribute="centerX" id="V4H-c6-CYg"/>
+                                    <constraint firstAttribute="bottom" secondItem="mS8-VF-Wj0" secondAttribute="bottom" id="Ej3-OI-gVh"/>
+                                    <constraint firstItem="mS8-VF-Wj0" firstAttribute="top" secondItem="GNj-zP-zNd" secondAttribute="top" id="JKZ-ut-1LW"/>
                                     <constraint firstItem="mS8-VF-Wj0" firstAttribute="leading" secondItem="GNj-zP-zNd" secondAttribute="leading" constant="16" id="qur-lx-Bqc"/>
                                 </constraints>
                             </scrollView>

@@ -52,7 +52,7 @@ class AccountVC: UIViewController {
     table.delegate = self
     table.dataSource = self
     
-    trxRef = account?.ref?.child("transactions").queryOrdered(byChild: "creation")
+    trxRef = account?.ref?.child("transactions").queryOrdered(byChild: "trxDate")
     observeChanges()
   }
   
@@ -173,7 +173,6 @@ extension AccountVC: UITableViewDataSource {
     let trx = reconcileMode == false ? transactions[indexPath.row] : unreconciledTrx[indexPath.row]
     let cell = table.dequeueReusableCell(withIdentifier: "transactionCell") as! TransactionCell
     cell.configure(with: trx)
-    
     return cell
   }
   
