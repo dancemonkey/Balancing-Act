@@ -380,13 +380,13 @@
                                                     <!--2018-05-13 13:53:11 +0000-->
                                                 </date>
                                             </datePicker>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Payee" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wSQ-z6-x5e" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                                <rect key="frame" x="16" y="232" width="350" height="30"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Payee" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wSQ-z6-x5e">
+                                                <rect key="frame" x="16" y="232" width="350" height="17"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="NO"/>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="10"/>
                                                     </userDefinedRuntimeAttribute>
@@ -398,15 +398,15 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="16" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ApF-eI-R9l">
-                                                <rect key="frame" x="16" y="278" width="350" height="31"/>
+                                                <rect key="frame" x="16" y="265" width="350" height="31"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Amount" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wG9-Qg-guM" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="$ Amount" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wG9-Qg-guM">
                                                         <rect key="frame" x="0.0" y="0.0" width="264" height="31"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                         <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="NO"/>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="iconText" value="$"/>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value="$ Amount"/>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="$ Amount"/>
@@ -432,33 +432,32 @@
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="8db-en-LYY" secondAttribute="trailing" id="XBi-m7-tXG"/>
-                                                    <constraint firstItem="8db-en-LYY" firstAttribute="leading" secondItem="wG9-Qg-guM" secondAttribute="trailing" id="ueb-JQ-znT"/>
                                                 </constraints>
                                             </stackView>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rMP-MW-t3n" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                                <rect key="frame" x="16" y="325" width="350" height="30"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rMP-MW-t3n">
+                                                <rect key="frame" x="16" y="312" width="350" height="17"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="NO"/>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Category"/>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value="Category"/>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Memo" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MdN-0S-WCe" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                                <rect key="frame" x="16" y="371" width="350" height="30"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Memo" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MdN-0S-WCe">
+                                                <rect key="frame" x="16" y="345" width="350" height="17"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="NO"/>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Memo"/>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value="Memo"/>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Jdm-go-mbt">
-                                                <rect key="frame" x="8" y="417" width="366" height="31"/>
+                                                <rect key="frame" x="0.0" y="378" width="382" height="31"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="j53-Ib-v9E">
                                                         <rect key="frame" x="0.0" y="0.0" width="107" height="31"/>
@@ -478,7 +477,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="OU1-cq-RVa">
-                                                        <rect key="frame" x="237.66666666666669" y="0.0" width="128.33333333333331" height="31"/>
+                                                        <rect key="frame" x="253.66666666666669" y="0.0" width="128.33333333333331" height="31"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reconciled" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rIc-4a-Hyh">
                                                                 <rect key="frame" x="0.0" y="0.0" width="71.333333333333329" height="31"/>
@@ -497,10 +496,10 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4lh-Rb-bFx">
-                                                <rect key="frame" x="16" y="464" width="350" height="112"/>
+                                                <rect key="frame" x="16" y="425" width="350" height="151"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fb-8G-4kw" customClass="CancelBtn" customModule="Balancing_Act" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="39" width="171" height="34"/>
+                                                        <rect key="frame" x="0.0" y="58.666666666666629" width="171" height="34"/>
                                                         <state key="normal" title="Cancel">
                                                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
@@ -510,7 +509,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T4b-vM-OhD" customClass="MainBtn" customModule="Balancing_Act" customModuleProvider="target">
-                                                        <rect key="frame" x="179" y="39" width="171" height="34"/>
+                                                        <rect key="frame" x="179" y="58.666666666666629" width="171" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
                                                         <state key="normal" title="DONE">
                                                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -527,10 +526,10 @@
                                             <constraint firstAttribute="trailing" secondItem="rMP-MW-t3n" secondAttribute="trailing" constant="16" id="7b5-wa-hEe"/>
                                             <constraint firstItem="4lh-Rb-bFx" firstAttribute="leading" secondItem="mS8-VF-Wj0" secondAttribute="leading" constant="16" id="DtJ-5H-r0B"/>
                                             <constraint firstAttribute="trailing" secondItem="MdN-0S-WCe" secondAttribute="trailing" constant="16" id="Ltz-Rz-gKh"/>
-                                            <constraint firstItem="Jdm-go-mbt" firstAttribute="leading" secondItem="mS8-VF-Wj0" secondAttribute="leading" constant="8" id="PTq-5r-O0w"/>
+                                            <constraint firstItem="Jdm-go-mbt" firstAttribute="leading" secondItem="mS8-VF-Wj0" secondAttribute="leading" id="PTq-5r-O0w"/>
                                             <constraint firstItem="rMP-MW-t3n" firstAttribute="leading" secondItem="mS8-VF-Wj0" secondAttribute="leading" constant="16" id="Pfu-68-QwY"/>
                                             <constraint firstAttribute="trailing" secondItem="4lh-Rb-bFx" secondAttribute="trailing" constant="16" id="Y5w-Cf-1e8"/>
-                                            <constraint firstAttribute="trailing" secondItem="Jdm-go-mbt" secondAttribute="trailing" constant="8" id="YNZ-HF-x49"/>
+                                            <constraint firstAttribute="trailing" secondItem="Jdm-go-mbt" secondAttribute="trailing" id="YNZ-HF-x49"/>
                                             <constraint firstItem="MdN-0S-WCe" firstAttribute="leading" secondItem="mS8-VF-Wj0" secondAttribute="leading" constant="16" id="atx-V7-kFg"/>
                                             <constraint firstAttribute="trailing" secondItem="wSQ-z6-x5e" secondAttribute="trailing" constant="16" id="clR-dw-Dqi"/>
                                             <constraint firstItem="ApF-eI-R9l" firstAttribute="leading" secondItem="mS8-VF-Wj0" secondAttribute="leading" constant="16" id="coX-mg-sww"/>
@@ -539,10 +538,12 @@
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="mS8-VF-Wj0" secondAttribute="trailing" constant="16" id="2Ca-1l-c1Q"/>
+                                    <constraint firstAttribute="trailing" secondItem="mS8-VF-Wj0" secondAttribute="trailing" constant="16" id="9sA-0c-5Ny"/>
                                     <constraint firstAttribute="bottom" secondItem="mS8-VF-Wj0" secondAttribute="bottom" id="Ej3-OI-gVh"/>
+                                    <constraint firstItem="mS8-VF-Wj0" firstAttribute="centerY" secondItem="GNj-zP-zNd" secondAttribute="centerY" id="IYa-2J-SyD"/>
                                     <constraint firstItem="mS8-VF-Wj0" firstAttribute="top" secondItem="GNj-zP-zNd" secondAttribute="top" id="JKZ-ut-1LW"/>
-                                    <constraint firstItem="mS8-VF-Wj0" firstAttribute="leading" secondItem="GNj-zP-zNd" secondAttribute="leading" constant="16" id="qur-lx-Bqc"/>
+                                    <constraint firstItem="mS8-VF-Wj0" firstAttribute="centerX" secondItem="GNj-zP-zNd" secondAttribute="centerX" id="OZs-Zz-sZL"/>
+                                    <constraint firstItem="mS8-VF-Wj0" firstAttribute="leading" secondItem="GNj-zP-zNd" secondAttribute="leading" constant="16" id="dZw-Pl-qxd"/>
                                 </constraints>
                             </scrollView>
                         </subviews>

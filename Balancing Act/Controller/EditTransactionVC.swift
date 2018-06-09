@@ -42,6 +42,8 @@ class EditTransactionVC: UIViewController {
     super.viewDidLoad()
     notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
+    
+    addInputAccessoryForTextFields(textFields: [payee, amount, category, memo], dismissable: false, previousNextable: true)
 
 //    amount.iconFont = UIFont.systemFont(ofSize: 18.0)
 //    amount.iconText = "$"

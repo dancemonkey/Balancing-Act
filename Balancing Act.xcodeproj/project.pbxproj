@@ -15,7 +15,7 @@
 		1041B68B20A3DFBA0072C423 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1041B68A20A3DFBA0072C423 /* Account.swift */; };
 		1041B68D20A3DFCA0072C423 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1041B68C20A3DFCA0072C423 /* Transaction.swift */; };
 		107676A0208BFB3600949B28 /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1076769F208BFB3600949B28 /* CreateAccountVC.swift */; };
-		108B977020BF712C009D6F93 /* KeyboardDoneExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108B976F20BF712C009D6F93 /* KeyboardDoneExtension.swift */; };
+		109165E020CB4AB600BC79E3 /* TextFieldInputExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109165DF20CB4AB600BC79E3 /* TextFieldInputExtension.swift */; };
 		10A44E4D20A876A800029725 /* EditTransactionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A44E4C20A876A800029725 /* EditTransactionVC.swift */; };
 		10B03BE820C246A200E31D57 /* MainBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B03BE720C246A200E31D57 /* MainBtn.swift */; };
 		10B03BEA20C24D5000E31D57 /* CancelBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B03BE920C24D5000E31D57 /* CancelBtn.swift */; };
@@ -54,7 +54,7 @@
 		1041B68A20A3DFBA0072C423 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		1041B68C20A3DFCA0072C423 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		1076769F208BFB3600949B28 /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
-		108B976F20BF712C009D6F93 /* KeyboardDoneExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardDoneExtension.swift; sourceTree = "<group>"; };
+		109165DF20CB4AB600BC79E3 /* TextFieldInputExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldInputExtension.swift; sourceTree = "<group>"; };
 		10A44E4C20A876A800029725 /* EditTransactionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTransactionVC.swift; sourceTree = "<group>"; };
 		10B03BE720C246A200E31D57 /* MainBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBtn.swift; sourceTree = "<group>"; };
 		10B03BE920C24D5000E31D57 /* CancelBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelBtn.swift; sourceTree = "<group>"; };
@@ -106,7 +106,7 @@
 			children = (
 				103CFFEE20AF09D2004F753C /* Money.swift */,
 				10022A2A20B8C22100195556 /* BalanceUpdateDelegate.swift */,
-				108B976F20BF712C009D6F93 /* KeyboardDoneExtension.swift */,
+				109165DF20CB4AB600BC79E3 /* TextFieldInputExtension.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -414,13 +414,13 @@
 				10B03BE820C246A200E31D57 /* MainBtn.swift in Sources */,
 				103CFFEF20AF09D2004F753C /* Money.swift in Sources */,
 				103CFFF120AF0B38004F753C /* TransactionCell.swift in Sources */,
-				108B977020BF712C009D6F93 /* KeyboardDoneExtension.swift in Sources */,
 				10D5229C20BBA38500A07E52 /* LoginVC.swift in Sources */,
 				107676A0208BFB3600949B28 /* CreateAccountVC.swift in Sources */,
 				1041B68B20A3DFBA0072C423 /* Account.swift in Sources */,
 				10D320AB20B79F430033DBDD /* InfoView.swift in Sources */,
 				10022A2B20B8C22100195556 /* BalanceUpdateDelegate.swift in Sources */,
 				103CFFEA20AF0540004F753C /* AccountCell.swift in Sources */,
+				109165E020CB4AB600BC79E3 /* TextFieldInputExtension.swift in Sources */,
 				10FC1A752089630300BEBAD6 /* Store.swift in Sources */,
 				10C8A1AB20A5C06B002FFCCF /* AccountVC.swift in Sources */,
 				10B03BEA20C24D5000E31D57 /* CancelBtn.swift in Sources */,
