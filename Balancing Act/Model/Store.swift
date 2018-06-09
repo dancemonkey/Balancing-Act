@@ -57,6 +57,16 @@ class Store {
   }
   
   func remove(account: Account) {
+    var transactionsToDelete: [Transaction] = []
+    allTransactionRef.observe(.value) { (snapshot) in
+      for child in snapshot.children {
+        guard let trx = Transaction(snapshot: child as! DataSnapshot) else { return }
+        if let acct = trx.getAccountLink(), acct.keys.first! == account.key {
+          trx.ref?.removeValue()
+        }
+      }
+    }
+    
     account.ref?.removeValue()
   }
   

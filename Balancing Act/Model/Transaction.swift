@@ -116,4 +116,12 @@ class Transaction {
     self._deposit = value
   }
   
+  func getAccountLink() -> [String: Bool]? {
+    if let acct = self.accountLink {
+      return acct
+    } else {
+      return nil
+    }
+  }
+  
 }
