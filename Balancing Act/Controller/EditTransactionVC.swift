@@ -44,12 +44,6 @@ class EditTransactionVC: UIViewController {
     notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
     
     addInputAccessoryForTextFields(textFields: [payee, amount, category, memo], dismissable: false, previousNextable: true)
-
-//    amount.iconFont = UIFont.systemFont(ofSize: 18.0)
-//    amount.iconText = "$"
-//    amount.placeholder = ""
-//    amount.title = ""
-//    amount.selectedTitle = ""
     
     if let trx = transaction {
       depositSwitch.isOn = trx.isDeposit!

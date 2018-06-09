@@ -31,6 +31,8 @@ class CreateAccountVC: UIViewController {
       startingBalance.text = Money.decimalFormat(amount: account.startingBalance)
       button.setTitle("UPDATE", for: .normal)
     }
+    
+    addInputAccessoryForTextFields(textFields: [nicknameField, startingBalance], dismissable: false, previousNextable: true)
   }
   
   // MARK: Actions

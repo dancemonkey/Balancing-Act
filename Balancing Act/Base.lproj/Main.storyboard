@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -218,9 +219,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lzG-iX-5aR">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="never" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lzG-iX-5aR">
                                 <rect key="frame" x="8" y="124" width="398" height="560"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="scrollIndicatorInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="44"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="transactionCell" rowHeight="65" id="pVu-71-g3v" customClass="TransactionCell" customModule="Balancing_Act" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="398" height="65"/>
@@ -375,42 +377,32 @@
                                         <rect key="frame" x="16" y="0.0" width="382" height="576"/>
                                         <subviews>
                                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="AVn-uA-QMu">
-                                                <rect key="frame" x="31" y="0.0" width="320" height="216"/>
+                                                <rect key="frame" x="80" y="0.0" width="222" height="150"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="150" id="RaP-bt-UOB"/>
+                                                    <constraint firstAttribute="width" secondItem="AVn-uA-QMu" secondAttribute="height" multiplier="40:27" id="YEf-Vr-QUk"/>
+                                                </constraints>
                                                 <date key="date" timeIntervalSinceReferenceDate="547912391.44786704">
                                                     <!--2018-05-13 13:53:11 +0000-->
                                                 </date>
                                             </datePicker>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Payee" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wSQ-z6-x5e">
-                                                <rect key="frame" x="16" y="232" width="350" height="17"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Payee" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wSQ-z6-x5e">
+                                                <rect key="frame" x="16" y="166" width="350" height="31"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="31" id="ViK-IJ-Ffr"/>
+                                                </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="NO"/>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="10"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="height">
-                                                        <real key="value" value="50"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Payee (required)"/>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value="Payee"/>
-                                                </userDefinedRuntimeAttributes>
                                             </textField>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="16" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ApF-eI-R9l">
-                                                <rect key="frame" x="16" y="265" width="350" height="31"/>
+                                                <rect key="frame" x="16" y="213" width="350" height="31"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="$ Amount" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wG9-Qg-guM">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="$ Amount" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wG9-Qg-guM">
                                                         <rect key="frame" x="0.0" y="0.0" width="264" height="31"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="NO"/>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="iconText" value="$"/>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value="$ Amount"/>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="$ Amount"/>
-                                                        </userDefinedRuntimeAttributes>
                                                     </textField>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="8db-en-LYY">
                                                         <rect key="frame" x="280" y="0.0" width="70" height="31"/>
@@ -434,30 +426,26 @@
                                                     <constraint firstAttribute="trailing" secondItem="8db-en-LYY" secondAttribute="trailing" id="XBi-m7-tXG"/>
                                                 </constraints>
                                             </stackView>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rMP-MW-t3n">
-                                                <rect key="frame" x="16" y="312" width="350" height="17"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rMP-MW-t3n">
+                                                <rect key="frame" x="16" y="260" width="350" height="31"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="31" id="K7X-Ar-QzJ"/>
+                                                </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="NO"/>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Category"/>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value="Category"/>
-                                                </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Memo" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MdN-0S-WCe">
-                                                <rect key="frame" x="16" y="345" width="350" height="17"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Memo" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MdN-0S-WCe">
+                                                <rect key="frame" x="16" y="307" width="350" height="31"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="31" id="bSu-7F-D3x"/>
+                                                </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="NO"/>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Memo"/>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value="Memo"/>
-                                                </userDefinedRuntimeAttributes>
                                             </textField>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Jdm-go-mbt">
-                                                <rect key="frame" x="0.0" y="378" width="382" height="31"/>
+                                                <rect key="frame" x="0.0" y="354" width="382" height="31"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="j53-Ib-v9E">
                                                         <rect key="frame" x="0.0" y="0.0" width="107" height="31"/>
@@ -496,10 +484,10 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4lh-Rb-bFx">
-                                                <rect key="frame" x="16" y="425" width="350" height="151"/>
+                                                <rect key="frame" x="16" y="401" width="350" height="175"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fb-8G-4kw" customClass="CancelBtn" customModule="Balancing_Act" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="58.666666666666629" width="171" height="34"/>
+                                                        <rect key="frame" x="0.0" y="70.666666666666629" width="171" height="34"/>
                                                         <state key="normal" title="Cancel">
                                                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
@@ -509,7 +497,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T4b-vM-OhD" customClass="MainBtn" customModule="Balancing_Act" customModuleProvider="target">
-                                                        <rect key="frame" x="179" y="58.666666666666629" width="171" height="34"/>
+                                                        <rect key="frame" x="179" y="70.666666666666629" width="171" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
                                                         <state key="normal" title="DONE">
                                                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -593,6 +581,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="0Cm-8B-otv"/>
+        <segue reference="T3r-j1-Ykc"/>
     </inferredMetricsTieBreakers>
 </document>
