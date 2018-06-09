@@ -100,23 +100,36 @@ class AccountVC: UIViewController {
   // MARK: UI Updates
   
   func observeChanges() {
-    trxRef.observe(.childAdded) { (snapshot) in
-      let trx = Transaction(snapshot: snapshot)!
-      self.transactions.append(trx)
-      self.table.insertRows(at: [IndexPath(row: self.transactions.count-1, section: 0)], with: .fade)
-    }
-    trxRef.observe(.childRemoved) { (snapshot) in
-      guard let index = self.indexOfTransaction(snapshot: snapshot) else { return }
-      self.transactions.remove(at: index)
-      self.table.deleteRows(at: [IndexPath(row: index, section: 0)], with: .fade)
-    }
-    trxRef.observe(.childChanged) { (snapshot) in
-      guard let updated = self.indexOfTransaction(snapshot: snapshot) else { return }
-      if !self.reconcileMode {
-        self.transactions[updated] = Transaction(snapshot: snapshot)!
+    
+    trxRef.observe(.value) { (snapshot) in
+      var newTrx: [Transaction] = []
+      for child in snapshot.children {
+        if let snapshot = child as? DataSnapshot,
+          let trx = Transaction(snapshot: snapshot) {
+          newTrx.append(trx)
+        }
       }
-      self.table.reloadRows(at: [IndexPath(row: updated, section: 0)], with: .fade)
+      self.transactions = newTrx.reversed()
+      self.table.reloadData()
     }
+    
+//    trxRef.observe(.childAdded) { (snapshot) in
+//      let trx = Transaction(snapshot: snapshot)!
+//      self.transactions.append(trx)
+//      self.table.insertRows(at: [IndexPath(row: self.transactions.count-1, section: 0)], with: .fade)
+//    }
+//    trxRef.observe(.childRemoved) { (snapshot) in
+//      guard let index = self.indexOfTransaction(snapshot: snapshot) else { return }
+//      self.transactions.remove(at: index)
+//      self.table.deleteRows(at: [IndexPath(row: index, section: 0)], with: .fade)
+//    }
+//    trxRef.observe(.childChanged) { (snapshot) in
+//      guard let updated = self.indexOfTransaction(snapshot: snapshot) else { return }
+//      if !self.reconcileMode {
+//        self.transactions[updated] = Transaction(snapshot: snapshot)!
+//      }
+//      self.table.reloadRows(at: [IndexPath(row: updated, section: 0)], with: .fade)
+//    }
   }
   
   // MARK: Helper Functions
