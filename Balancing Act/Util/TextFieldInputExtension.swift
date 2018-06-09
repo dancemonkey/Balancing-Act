@@ -16,7 +16,7 @@ extension UIViewController {
       
       var items = [UIBarButtonItem]()
       if previousNextable {
-        let previousButton = UIBarButtonItem(image: UIImage(named: "Back Arrow"), style: .plain, target: nil, action: nil)
+        let previousButton = UIBarButtonItem(image: UIImage(named: "BackArrow"), style: .plain, target: nil, action: nil)
         previousButton.width = 30
         if textField == textFields.first {
           previousButton.isEnabled = false
@@ -25,7 +25,7 @@ extension UIViewController {
           previousButton.action = #selector(UITextField.becomeFirstResponder)
         }
         
-        let nextButton = UIBarButtonItem(image: UIImage(named: "Forward Arrow"), style: .plain, target: nil, action: nil)
+        let nextButton = UIBarButtonItem(image: UIImage(named: "ForwardArrow"), style: .plain, target: nil, action: nil)
         nextButton.width = 30
         if textField == textFields.last {
           nextButton.isEnabled = false
