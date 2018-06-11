@@ -37,10 +37,10 @@ class AccountListVC: UIViewController {
   // MARK: Segues
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == "showAccount" {
+    if segue.identifier == Constants.SegueIDs.showAccount.rawValue {
       let destVC = segue.destination as! AccountVC
       destVC.account = self.accounts[(sender as! IndexPath).row]
-    } else if segue.identifier == "accountEdit" {
+    } else if segue.identifier == Constants.SegueIDs.accountEdit.rawValue {
       let destVC = segue.destination as! CreateAccountVC
       destVC.account = (sender as! Account)
     }
@@ -49,7 +49,7 @@ class AccountListVC: UIViewController {
   // MARK: Actions
   
   @IBAction func newAccountTapped(sender: UIBarButtonItem) {
-    performSegue(withIdentifier: "newAccount", sender: self)
+    performSegue(withIdentifier: Constants.SegueIDs.newAccount.rawValue, sender: self)
   }
   
   // MARK: Helper Functions
@@ -128,7 +128,9 @@ class AccountListVC: UIViewController {
   
   func observeAndWriteTransactions(for account: Account, completion: @escaping ([Transaction]) -> ()) {
     var trx: [Transaction] = []
-    let trxRef: DatabaseQuery? = account.ref?.child("transactions").queryOrdered(byChild: "creation")
+    let trxRef: DatabaseQuery? = account.ref?.child(Constants.FBPaths.transactions.rawValue).queryOrdered(byChild: "creation")
+    // TODO: Transactions don't HAVE a creation field, what is this?
+    
     trxRef?.observeSingleEvent(of: .value, with: { (snapshot) in
       for child in snapshot.children {
         guard let snap = child as? DataSnapshot else { return }
@@ -152,7 +154,7 @@ extension AccountListVC: UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = table.dequeueReusableCell(withIdentifier: "accountCell") as! AccountCell
+    let cell = table.dequeueReusableCell(withIdentifier: Constants.CellIDs.accountCell.rawValue) as! AccountCell
     cell.configure(with: accounts[indexPath.row])
     return cell
   }
@@ -160,7 +162,7 @@ extension AccountListVC: UITableViewDataSource {
 
 extension AccountListVC: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-      performSegue(withIdentifier: "showAccount", sender: indexPath)
+      performSegue(withIdentifier: Constants.SegueIDs.showAccount.rawValue, sender: indexPath)
   }
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -175,7 +177,7 @@ extension AccountListVC: UITableViewDelegate {
     delete.image = UIImage(named: "trash3")!
     
     let edit = UIContextualAction(style: .normal, title: "Edit") { (action, view, completion) in
-      self.performSegue(withIdentifier: "accountEdit", sender: self.accounts[indexPath.row])
+      self.performSegue(withIdentifier: Constants.SegueIDs.accountEdit.rawValue, sender: self.accounts[indexPath.row])
     }
     edit.image = UIImage(named: "edit")!
     

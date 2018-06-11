@@ -79,15 +79,15 @@ class EditTransactionVC: UIViewController {
       updating = true
       let store = Store()
       let values = [
-        "payee": payee,
-        "amount": amount,
-        "trxDate": self.date.date.description,
-        "category": self.category.text!,
-        "memo": self.memo.text!,
-        "cleared": trx.cleared,
-        "reconciled": trx.reconciled,
-        "accountLink": [acct.key : true],
-        "deposit": depositSwitch.isOn
+        Constants.TrxKeys.payee.rawValue: payee,
+        Constants.TrxKeys.amount.rawValue: amount,
+        Constants.TrxKeys.trxDate.rawValue: self.date.date.description,
+        Constants.TrxKeys.category.rawValue: self.category.text!,
+        Constants.TrxKeys.memo.rawValue: self.memo.text!,
+        Constants.TrxKeys.cleared.rawValue: trx.cleared,
+        Constants.TrxKeys.reconciled.rawValue: trx.reconciled,
+        Constants.TrxKeys.accountLink.rawValue: [acct.key : true],
+        Constants.TrxKeys.deposit.rawValue: depositSwitch.isOn
         ] as [String : Any]
       store.update(values: values, in: trx, for: acct)
     } else {

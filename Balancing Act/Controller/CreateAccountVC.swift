@@ -41,10 +41,10 @@ class CreateAccountVC: UIViewController {
     guard let nickname = nicknameField.text, let balance = startingBalance.text else { return }
     if let existingAccount = self.account {
       let values = [
-        "nickname" : nickname,
-        "startingBalance" : Double(balance) as Any,
-        "currentBalance": existingAccount.clearedTotal as Any,
-        "reconciledBalance": existingAccount.reconciledBalance as Any
+        Constants.AccountKeys.nickname.rawValue : nickname,
+        Constants.AccountKeys.startingBalance.rawValue : Double(balance) as Any,
+        Constants.AccountKeys.currentBalance.rawValue : existingAccount.clearedTotal as Any,
+        Constants.AccountKeys.reconciledBalance.rawValue : existingAccount.reconciledBalance as Any
         ] as [String : Any]
       store.update(values: values, in: existingAccount)
     } else {

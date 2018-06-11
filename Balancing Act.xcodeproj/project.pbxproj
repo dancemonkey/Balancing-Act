@@ -24,6 +24,7 @@
 		10C8A1AB20A5C06B002FFCCF /* AccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C8A1AA20A5C06B002FFCCF /* AccountVC.swift */; };
 		10D320AB20B79F430033DBDD /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D320AA20B79F430033DBDD /* InfoView.swift */; };
 		10D5229C20BBA38500A07E52 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D5229B20BBA38500A07E52 /* LoginVC.swift */; };
+		10D844F720CECF780024E6FF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D844F620CECF780024E6FF /* Constants.swift */; };
 		10FC1A46208958C700BEBAD6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FC1A45208958C700BEBAD6 /* AppDelegate.swift */; };
 		10FC1A4B208958C700BEBAD6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10FC1A49208958C700BEBAD6 /* Main.storyboard */; };
 		10FC1A50208958C900BEBAD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10FC1A4F208958C900BEBAD6 /* Assets.xcassets */; };
@@ -63,6 +64,7 @@
 		10C8A1AA20A5C06B002FFCCF /* AccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountVC.swift; sourceTree = "<group>"; };
 		10D320AA20B79F430033DBDD /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		10D5229B20BBA38500A07E52 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		10D844F620CECF780024E6FF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		10FC1A42208958C700BEBAD6 /* Balancing Act.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Balancing Act.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		10FC1A45208958C700BEBAD6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10FC1A4A208958C700BEBAD6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				103CFFEE20AF09D2004F753C /* Money.swift */,
 				10022A2A20B8C22100195556 /* BalanceUpdateDelegate.swift */,
 				109165DF20CB4AB600BC79E3 /* TextFieldInputExtension.swift */,
+				10D844F620CECF780024E6FF /* Constants.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -428,6 +431,7 @@
 				1016207020A47C55001BE2F3 /* AccountListVC.swift in Sources */,
 				1041B68D20A3DFCA0072C423 /* Transaction.swift in Sources */,
 				10A44E4D20A876A800029725 /* EditTransactionVC.swift in Sources */,
+				10D844F720CECF780024E6FF /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

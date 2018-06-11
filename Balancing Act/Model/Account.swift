@@ -32,8 +32,8 @@ class Account {
   init?(snapshot: DataSnapshot) {
     guard
       let value = snapshot.value as? [String: AnyObject],
-      let nickname = value["nickname"] as? String,
-      let balance = value["startingBalance"] as? Double
+      let nickname = value[Constants.AccountKeys.nickname.rawValue] as? String,
+      let balance = value[Constants.AccountKeys.startingBalance.rawValue] as? Double
       else
     { print("failing out of account snap guard")
       return nil }
@@ -42,23 +42,23 @@ class Account {
     self.key = snapshot.key
     self.nickname = nickname
     self.startingBalance = balance
-    self.creation = value["creation"] as! String
-    self.currentBalance = value["currentBalance"] as? Double
-    self.reconciledBalance = value["reconciledBalance"] as? Double
+    self.creation = value[Constants.AccountKeys.startingBalance.rawValue] as! String
+    self.currentBalance = value[Constants.AccountKeys.currentBalance.rawValue] as? Double
+    self.reconciledBalance = value[Constants.AccountKeys.reconciledBalance.rawValue] as? Double
   }
   
   func toAnyObject() -> Any {
     return [
-      "nickname": nickname,
-      "startingBalance": startingBalance,
-      "creation": creation,
-      "currentBalance": currentBalance as Any,
-      "reconciledBalance": reconciledBalance as Any
+      Constants.AccountKeys.nickname.rawValue: nickname,
+      Constants.AccountKeys.startingBalance.rawValue: startingBalance,
+      Constants.AccountKeys.creation.rawValue: creation,
+      Constants.AccountKeys.currentBalance.rawValue: currentBalance as Any,
+      Constants.AccountKeys.reconciledBalance.rawValue: reconciledBalance as Any
     ]
   }
   
   func setCurrentBalance(_ completion: ((Double)->())?) {
-    let trxRef = self.ref?.child("transactions")
+    let trxRef = self.ref?.child(Constants.FBPaths.transactions.rawValue)
     trxRef?.observeSingleEvent(of: .value, with: { (snapshot) in
       var total: Double = self.startingBalance
       for child in snapshot.children {
@@ -67,14 +67,14 @@ class Account {
         }
       }
       self.currentBalance = total
-      self.ref?.updateChildValues(["currentBalance" : self.currentBalance as Any])
+      self.ref?.updateChildValues([Constants.AccountKeys.currentBalance.rawValue : self.currentBalance as Any])
       guard let action = completion else { return }
       action(total)
     })
   }
   
   func setReconciledBalance() {
-    let trxRef = self.ref?.child("transactions")
+    let trxRef = self.ref?.child(Constants.FBPaths.transactions.rawValue)
     trxRef?.observeSingleEvent(of: .value, with: { (snapshot) in
       var total: Double = self.startingBalance
       for child in snapshot.children {
@@ -85,12 +85,12 @@ class Account {
         }
       }
       self.reconciledBalance = total
-      self.ref?.updateChildValues(["reconciledBalance" : self.reconciledBalance as Any])
+      self.ref?.updateChildValues([Constants.AccountKeys.reconciledBalance.rawValue : self.reconciledBalance as Any])
     })
   }
   
   func setClearedTotal(_ completion: @escaping (Double)->()) {
-    let trxRef = self.ref?.child("transactions")
+    let trxRef = self.ref?.child(Constants.FBPaths.transactions.rawValue)
     trxRef?.observeSingleEvent(of: .value, with: { (snapshot) in
       var total: Double = 0.0
       for child in snapshot.children {
@@ -107,7 +107,7 @@ class Account {
   
   func resetCleared() {
     self.clearedTotal = 0.0
-    let trxRef = self.ref?.child("transactions")
+    let trxRef = self.ref?.child(Constants.FBPaths.transactions.rawValue)
     trxRef?.observeSingleEvent(of: .value, with: { (snapshot) in
       for child in snapshot.children {
         if let child = child as? DataSnapshot, let trx = Transaction(snapshot: child) {

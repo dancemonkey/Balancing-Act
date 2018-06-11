@@ -51,13 +51,13 @@ class Transaction {
   init?(snapshot: DataSnapshot) {
     guard
       let value = snapshot.value as? [String: AnyObject],
-      let payee = value["payee"] as? String,
-      let amount = value["amount"] as? Double,
-      let trxDate = value["trxDate"] as? String,
-      let reconciled = value["reconciled"] as? Bool,
-      let memo = value["memo"] as? String,
-      let category = value["category"] as? String,
-      let cleared = value["cleared"] as? Bool
+      let payee = value[Constants.TrxKeys.payee.rawValue] as? String,
+      let amount = value[Constants.TrxKeys.amount.rawValue] as? Double,
+      let trxDate = value[Constants.TrxKeys.trxDate.rawValue] as? String,
+      let reconciled = value[Constants.TrxKeys.reconciled.rawValue] as? Bool,
+      let memo = value[Constants.TrxKeys.memo.rawValue] as? String,
+      let category = value[Constants.TrxKeys.category.rawValue] as? String,
+      let cleared = value[Constants.TrxKeys.cleared.rawValue] as? Bool
       else {
         print("failing out of Transaction guard")
         return nil
@@ -75,37 +75,37 @@ class Transaction {
     self._cleared = cleared
     self.category = category
     self.memo = memo
-    self.accountLink = value["accountLink"] as? [String : Bool]
-    self._deposit = value["deposit"] as? Bool
+    self.accountLink = value[Constants.TrxKeys.accountLink.rawValue] as? [String : Bool]
+    self._deposit = value[Constants.TrxKeys.deposit.rawValue] as? Bool
   }
   
   func toAnyObject() -> Any {
     return [
-      "payee": payee,
-      "amount": amount,
-      "trxDate": trxDate.description,
-      "reconciled": _reconciled,
-      "cleared": _cleared,
-      "memo": memo,
-      "category": category,
-      "accountLink": accountLink as Any,
-      "deposit": _deposit as Any
+      Constants.TrxKeys.payee.rawValue: payee,
+      Constants.TrxKeys.amount.rawValue: amount,
+      Constants.TrxKeys.trxDate.rawValue: trxDate.description,
+      Constants.TrxKeys.reconciled.rawValue: _reconciled,
+      Constants.TrxKeys.cleared.rawValue: _cleared,
+      Constants.TrxKeys.memo.rawValue: memo,
+      Constants.TrxKeys.category.rawValue: category,
+      Constants.TrxKeys.accountLink.rawValue: accountLink as Any,
+      Constants.TrxKeys.deposit.rawValue: _deposit as Any
     ]
   }
   
   func setReconciled(to value: Bool) {
     self._reconciled = value
-    self.ref!.updateChildValues(["reconciled": self._reconciled])
+    self.ref!.updateChildValues([Constants.TrxKeys.reconciled.rawValue: self._reconciled])
   }
   
   func setCleared(to value: Bool) {
     self._cleared = value
-    self.ref!.updateChildValues(["cleared": self._cleared])
+    self.ref!.updateChildValues([Constants.TrxKeys.cleared.rawValue: self._cleared])
   }
   
   func toggleCleared() {
     self._cleared = !self._cleared
-    self.ref!.updateChildValues(["cleared": self._cleared])
+    self.ref!.updateChildValues([Constants.TrxKeys.cleared.rawValue: self._cleared])
   }
   
   func setAccount(account: Account) {

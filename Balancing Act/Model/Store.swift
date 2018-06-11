@@ -23,15 +23,15 @@ class Store {
   
   init() {
     guard let userID = self.getUserID() else { return }
-    _allAccountsRef = Database.database().reference(withPath: "\(userID)/accounts")
-    _allTransactionsRef = Database.database().reference(withPath: "\(userID)/transactions")
+    _allAccountsRef = Database.database().reference(withPath: "\(userID)/\(Constants.FBPaths.accounts.rawValue)")
+    _allTransactionsRef = Database.database().reference(withPath: "\(userID)/\(Constants.FBPaths.transactions.rawValue)")
   }
     
   func addNew(transaction trx: Transaction, to account: Account) {
     guard let accountRef = account.ref else { return }
     trx.setAccount(account: account)
     
-    let newTrx = accountRef.child("transactions").child("\(trx.trxDate)")
+    let newTrx = accountRef.child(Constants.FBPaths.transactions.rawValue).child("\(trx.trxDate)")
     newTrx.setValue(trx.toAnyObject())
     
     let newRootTrx = _allTransactionsRef.child("\(trx.trxDate)")
@@ -57,7 +57,6 @@ class Store {
   }
   
   func remove(account: Account) {
-    var transactionsToDelete: [Transaction] = []
     allTransactionRef.observe(.value) { (snapshot) in
       for child in snapshot.children {
         guard let trx = Transaction(snapshot: child as! DataSnapshot) else { return }
@@ -66,7 +65,6 @@ class Store {
         }
       }
     }
-    
     account.ref?.removeValue()
   }
   
@@ -79,12 +77,12 @@ class Store {
   
   func setUserID(to userID: String) {
     let defaults = UserDefaults.standard
-    defaults.set(userID, forKey: "userID")
+    defaults.set(userID, forKey: Constants.UserDefaultKeys.userID.rawValue)
   }
   
   func getUserID() -> String? {
     let defaults = UserDefaults.standard
-    guard let userID = defaults.value(forKey: "userID") else { return nil }
+    guard let userID = defaults.value(forKey: Constants.UserDefaultKeys.userID.rawValue) else { return nil }
     return (userID as! String)
   }
   

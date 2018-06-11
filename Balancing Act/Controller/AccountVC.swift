@@ -52,7 +52,7 @@ class AccountVC: UIViewController {
     table.delegate = self
     table.dataSource = self
     
-    trxRef = account?.ref?.child("transactions").queryOrdered(byChild: "trxDate")
+    trxRef = account?.ref?.child(Constants.FBPaths.transactions.rawValue).queryOrdered(byChild: Constants.TrxKeys.trxDate.rawValue)
     observeChanges()
   }
   
@@ -64,7 +64,7 @@ class AccountVC: UIViewController {
   // MARK: Segues
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == "editTransaction" {
+    if segue.identifier == Constants.SegueIDs.editTransaction.rawValue {
       let destVC = segue.destination as! EditTransactionVC
       destVC.delegate = self
       destVC.account = self.account!
@@ -77,7 +77,7 @@ class AccountVC: UIViewController {
   // MARK: Actions
   
   @IBAction func newTransaction(sender: UIBarButtonItem) {
-    performSegue(withIdentifier: "editTransaction", sender: nil)
+    performSegue(withIdentifier: Constants.SegueIDs.editTransaction.rawValue, sender: nil)
   }
   
   @IBAction func reconcileModeTapped(sender: UIBarButtonItem) {
@@ -184,7 +184,7 @@ extension AccountVC: UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let trx = reconcileMode == false ? transactions[indexPath.row] : unreconciledTrx[indexPath.row]
-    let cell = table.dequeueReusableCell(withIdentifier: "transactionCell") as! TransactionCell
+    let cell = table.dequeueReusableCell(withIdentifier: Constants.CellIDs.transactionCell.rawValue) as! TransactionCell
     cell.configure(with: trx)
     return cell
   }
@@ -195,7 +195,7 @@ extension AccountVC: UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     if !reconcileMode {
-      performSegue(withIdentifier: "editTransaction", sender: indexPath.row)
+      performSegue(withIdentifier: Constants.SegueIDs.editTransaction.rawValue, sender: indexPath.row)
     } else {
       let trx = unreconciledTrx[indexPath.row]
       trx.toggleCleared()
