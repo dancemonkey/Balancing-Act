@@ -42,7 +42,7 @@ class Account {
     self.key = snapshot.key
     self.nickname = nickname
     self.startingBalance = balance
-    self.creation = value[Constants.AccountKeys.startingBalance.rawValue] as! String
+    self.creation = value[Constants.AccountKeys.creation.rawValue] as! String
     self.currentBalance = value[Constants.AccountKeys.currentBalance.rawValue] as? Double
     self.reconciledBalance = value[Constants.AccountKeys.reconciledBalance.rawValue] as? Double
   }

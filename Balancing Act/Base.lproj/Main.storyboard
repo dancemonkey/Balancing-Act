@@ -273,9 +273,8 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yUv-JW-3Zq">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yUv-JW-3Zq">
                                 <rect key="frame" x="0.0" y="692" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem style="plain" id="664-xB-hJ6">
                                         <view key="customView" contentMode="scaleToFill" id="pap-Ho-gN3" customClass="InfoView" customModule="Balancing_Act" customModuleProvider="target">
@@ -325,10 +324,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="yUv-JW-3Zq" firstAttribute="leading" secondItem="MJp-cT-xH5" secondAttribute="leading" id="3Xi-t9-UsG"/>
+                            <constraint firstAttribute="bottom" secondItem="yUv-JW-3Zq" secondAttribute="bottom" id="8SL-6Z-v78"/>
                             <constraint firstItem="9xB-wo-hOb" firstAttribute="trailing" secondItem="lzG-iX-5aR" secondAttribute="trailing" constant="8" id="BWm-js-5BZ"/>
-                            <constraint firstItem="9xB-wo-hOb" firstAttribute="bottom" secondItem="lzG-iX-5aR" secondAttribute="bottom" constant="8" id="O4B-EA-2FJ"/>
                             <constraint firstItem="lzG-iX-5aR" firstAttribute="leading" secondItem="9xB-wo-hOb" secondAttribute="leading" constant="8" id="TxX-YY-8Bn"/>
                             <constraint firstItem="lzG-iX-5aR" firstAttribute="top" secondItem="9xB-wo-hOb" secondAttribute="top" constant="8" id="Yno-61-Gj4"/>
+                            <constraint firstAttribute="trailing" secondItem="yUv-JW-3Zq" secondAttribute="trailing" id="dpn-WH-kus"/>
+                            <constraint firstItem="yUv-JW-3Zq" firstAttribute="top" secondItem="lzG-iX-5aR" secondAttribute="bottom" constant="8" id="uH7-7v-GPj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9xB-wo-hOb"/>
                     </view>
