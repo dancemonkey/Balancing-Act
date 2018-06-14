@@ -342,7 +342,7 @@
                                     <action selector="newTransactionWithSender:" destination="Hil-dz-Ql5" id="2vU-2z-eqs"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem systemItem="play" id="AhA-Kp-yKv">
+                            <barButtonItem title=" " image="dollarSign" id="AhA-Kp-yKv">
                                 <connections>
                                     <action selector="reconcileModeTappedWithSender:" destination="Hil-dz-Ql5" id="chY-Eg-pau"/>
                                 </connections>
@@ -354,6 +354,7 @@
                         <outlet property="infoView" destination="pap-Ho-gN3" id="bNC-p5-uvp"/>
                         <outlet property="newTransaction" destination="yG6-qB-q2J" id="2uG-6B-BIN"/>
                         <outlet property="reconcileBtn" destination="Cv2-yc-ODL" id="wQR-TV-QhV"/>
+                        <outlet property="reconcileModeBtn" destination="AhA-Kp-yKv" id="MED-gK-hyG"/>
                         <outlet property="table" destination="lzG-iX-5aR" id="iHv-Jk-bm4"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="accountEdit" id="T3r-j1-Ykc"/>
                         <segue destination="Z6q-o1-Mt3" kind="show" identifier="editTransaction" id="stU-tn-Ei9"/>
@@ -587,6 +588,9 @@
             <point key="canvasLocation" x="-663.20000000000005" y="34.632683658170919"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="dollarSign" width="24" height="24"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="T3r-j1-Ykc"/>
     </inferredMetricsTieBreakers>
