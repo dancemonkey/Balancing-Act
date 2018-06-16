@@ -16,7 +16,7 @@ class EditTransactionVC: UIViewController {
   
   @IBOutlet weak var payee: SkyFloatingLabelTextField!
   @IBOutlet weak var amount: SkyFloatingLabelTextField!
-  @IBOutlet weak var date: UIDatePicker!
+  @IBOutlet weak var dateBtn: UIButton!
   @IBOutlet weak var category: SkyFloatingLabelTextField!
   @IBOutlet weak var memo: SkyFloatingLabelTextField!
   @IBOutlet weak var button: UIButton!
@@ -33,6 +33,7 @@ class EditTransactionVC: UIViewController {
   var updating: Bool = false
   var deposit: Bool = false
   var delegate: BalanceUpdateDelegate? = nil
+  var rawDate: Date?
   
   let notificationCenter = NotificationCenter.default
   
@@ -53,6 +54,8 @@ class EditTransactionVC: UIViewController {
       clearSwitch.setOn(false, animated: true)
       reconcileSwitch.setOn(false, animated: true)
       self.title = "New Transaction"
+      self.rawDate = Date()
+      self.dateBtn.setTitle(simpleDate(from: Date()), for: .normal)
     }
   }
   
@@ -61,7 +64,8 @@ class EditTransactionVC: UIViewController {
   func setupForExisting(transaction trx: Transaction) {
     payee.text = trx.payee
     self.amount.text = "\(Money.decimalFormat(amount: trx.amount))"
-    date.date = trx.trxDate
+    dateBtn.setTitle(trx.simpleDate, for: .normal)
+    rawDate = trx.trxDate
     category.text = trx.category
     memo.text = trx.memo
     button.setTitle("UPDATE", for: .normal)
@@ -81,7 +85,7 @@ class EditTransactionVC: UIViewController {
       let values = [
         Constants.TrxKeys.payee.rawValue: payee,
         Constants.TrxKeys.amount.rawValue: amount,
-        Constants.TrxKeys.trxDate.rawValue: self.date.date.description,
+        Constants.TrxKeys.trxDate.rawValue: self.rawDate?.description ?? Date().description,
         Constants.TrxKeys.category.rawValue: self.category.text!,
         Constants.TrxKeys.memo.rawValue: self.memo.text!,
         Constants.TrxKeys.cleared.rawValue: trx.cleared,
@@ -91,7 +95,7 @@ class EditTransactionVC: UIViewController {
         ] as [String : Any]
       store.update(values: values, in: trx, for: acct)
     } else {
-      self.transaction = Transaction(payee: payee, amount: amount, category: category.text, memo: memo.text, date: date.date)
+      self.transaction = Transaction(payee: payee, amount: amount, category: category.text, memo: memo.text, date: rawDate ?? Date())
       self.transaction?.setDeposit(to: depositSwitch.isOn)
     }
   }
@@ -111,6 +115,22 @@ class EditTransactionVC: UIViewController {
     scrollView.scrollIndicatorInsets = scrollView.contentInset
   }
   
+  func simpleDate(from date: Date) -> String {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "MM/dd/yyyy"
+    return formatter.string(from: date)
+  }
+  
+  // MARK: Segues
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == Constants.SegueIDs.showDatePicker.rawValue {
+      let destVC = segue.destination as! DatePickerVC
+      destVC.date = rawDate ?? Date()
+      destVC.delegate = self
+    }
+  }
+  
   // MARK: Actions
   
   @IBAction func done(sender: UIButton) {
@@ -126,15 +146,6 @@ class EditTransactionVC: UIViewController {
   
   @IBAction func cancel(sender: UIButton) {
     navigationController?.popViewController(animated: true)
-  }
-  
-  @IBAction func clear() {
-    for view in view.subviews {
-      if view is UITextField {
-        (view as! UITextField).text = ""
-      }
-      date.date = Date()
-    }
   }
   
   @IBAction func clearSwitchTapped(sender: UISwitch) {
@@ -159,7 +170,20 @@ class EditTransactionVC: UIViewController {
     account?.setReconciledBalance()
   }
   
+  @IBAction func setDatePressed(sender: UIButton) {
+    performSegue(withIdentifier: Constants.SegueIDs.showDatePicker.rawValue, sender: self)
+  }
+  
   @IBAction func depositSwitched(sender: UISwitch) {
     
+  }
+}
+
+// MARK: Extensions
+
+extension EditTransactionVC: DateSelectDelegate {
+  func save(date: Date) {
+    self.rawDate = date
+    self.dateBtn.setTitle(simpleDate(from: date), for: .normal)
   }
 }

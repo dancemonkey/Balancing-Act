@@ -376,19 +376,23 @@
                                 <rect key="frame" x="0.0" y="116" width="414" height="576"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="mS8-VF-Wj0">
-                                        <rect key="frame" x="16" y="0.0" width="382" height="576"/>
+                                        <rect key="frame" x="16" y="8" width="382" height="560"/>
                                         <subviews>
-                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="AVn-uA-QMu">
-                                                <rect key="frame" x="31" y="0.0" width="320" height="150"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nQt-as-tsT">
+                                                <rect key="frame" x="16" y="0.0" width="350" height="45"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="150" id="RaP-bt-UOB"/>
+                                                    <constraint firstAttribute="height" constant="45" id="moB-rf-N4f"/>
                                                 </constraints>
-                                                <date key="date" timeIntervalSinceReferenceDate="547912391.44786704">
-                                                    <!--2018-05-13 13:53:11 +0000-->
-                                                </date>
-                                            </datePicker>
+                                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="24"/>
+                                                <state key="normal" title="Select Date">
+                                                    <color key="titleColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="setDatePressedWithSender:" destination="Z6q-o1-Mt3" eventType="touchUpInside" id="SO1-2c-pTD"/>
+                                                </connections>
+                                            </button>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Payee" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wSQ-z6-x5e">
-                                                <rect key="frame" x="16" y="166" width="350" height="45"/>
+                                                <rect key="frame" x="16" y="61" width="350" height="45"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="GtJ-Db-ojq"/>
@@ -398,7 +402,7 @@
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="yes" spellCheckingType="no"/>
                                             </textField>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="16" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ApF-eI-R9l">
-                                                <rect key="frame" x="16" y="227" width="350" height="45"/>
+                                                <rect key="frame" x="16" y="122" width="350" height="45"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="$ Amount" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wG9-Qg-guM">
                                                         <rect key="frame" x="0.0" y="0.0" width="264" height="45"/>
@@ -433,7 +437,7 @@
                                                 </constraints>
                                             </stackView>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rMP-MW-t3n">
-                                                <rect key="frame" x="16" y="288" width="350" height="45"/>
+                                                <rect key="frame" x="16" y="183" width="350" height="45"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="Su4-6F-cvM"/>
@@ -443,7 +447,7 @@
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="yes"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Memo" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MdN-0S-WCe">
-                                                <rect key="frame" x="16" y="349" width="350" height="45"/>
+                                                <rect key="frame" x="16" y="244" width="350" height="45"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="ELs-9N-a4o"/>
@@ -453,7 +457,7 @@
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes"/>
                                             </textField>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Jdm-go-mbt">
-                                                <rect key="frame" x="0.0" y="410" width="382" height="31"/>
+                                                <rect key="frame" x="0.0" y="305" width="382" height="31"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="j53-Ib-v9E">
                                                         <rect key="frame" x="0.0" y="0.0" width="107" height="31"/>
@@ -492,20 +496,19 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4lh-Rb-bFx">
-                                                <rect key="frame" x="16" y="457" width="350" height="119"/>
+                                                <rect key="frame" x="16" y="352" width="350" height="208"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fb-8G-4kw" customClass="CancelBtn" customModule="Balancing_Act" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="42.666666666666629" width="171" height="34"/>
+                                                        <rect key="frame" x="0.0" y="87" width="171" height="34"/>
                                                         <state key="normal" title="Cancel">
                                                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="cancelWithSender:" destination="Z6q-o1-Mt3" eventType="touchUpInside" id="fav-dh-CND"/>
-                                                            <action selector="clear" destination="Z6q-o1-Mt3" eventType="touchUpInside" id="X5l-p1-BNV"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T4b-vM-OhD" customClass="MainBtn" customModule="Balancing_Act" customModuleProvider="target">
-                                                        <rect key="frame" x="179" y="42.666666666666629" width="171" height="34"/>
+                                                        <rect key="frame" x="179" y="87" width="171" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
                                                         <state key="normal" title="DONE">
                                                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -519,6 +522,7 @@
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="ApF-eI-R9l" secondAttribute="trailing" constant="16" id="11F-ZJ-lRP"/>
+                                            <constraint firstAttribute="trailing" secondItem="nQt-as-tsT" secondAttribute="trailing" constant="16" id="5Ii-Pf-DVh"/>
                                             <constraint firstAttribute="trailing" secondItem="rMP-MW-t3n" secondAttribute="trailing" constant="16" id="7b5-wa-hEe"/>
                                             <constraint firstItem="4lh-Rb-bFx" firstAttribute="leading" secondItem="mS8-VF-Wj0" secondAttribute="leading" constant="16" id="DtJ-5H-r0B"/>
                                             <constraint firstAttribute="trailing" secondItem="MdN-0S-WCe" secondAttribute="trailing" constant="16" id="Ltz-Rz-gKh"/>
@@ -530,6 +534,7 @@
                                             <constraint firstAttribute="trailing" secondItem="wSQ-z6-x5e" secondAttribute="trailing" constant="16" id="clR-dw-Dqi"/>
                                             <constraint firstItem="ApF-eI-R9l" firstAttribute="leading" secondItem="mS8-VF-Wj0" secondAttribute="leading" constant="16" id="coX-mg-sww"/>
                                             <constraint firstItem="wSQ-z6-x5e" firstAttribute="leading" secondItem="mS8-VF-Wj0" secondAttribute="leading" constant="16" id="hLE-hQ-YkF"/>
+                                            <constraint firstItem="nQt-as-tsT" firstAttribute="leading" secondItem="mS8-VF-Wj0" secondAttribute="leading" constant="16" id="zNb-VT-CRu"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
@@ -537,7 +542,7 @@
                                     <constraint firstAttribute="trailing" secondItem="mS8-VF-Wj0" secondAttribute="trailing" constant="16" id="9sA-0c-5Ny"/>
                                     <constraint firstAttribute="bottom" secondItem="mS8-VF-Wj0" secondAttribute="bottom" id="Ej3-OI-gVh"/>
                                     <constraint firstItem="mS8-VF-Wj0" firstAttribute="centerY" secondItem="GNj-zP-zNd" secondAttribute="centerY" id="IYa-2J-SyD"/>
-                                    <constraint firstItem="mS8-VF-Wj0" firstAttribute="top" secondItem="GNj-zP-zNd" secondAttribute="top" id="JKZ-ut-1LW"/>
+                                    <constraint firstItem="mS8-VF-Wj0" firstAttribute="top" secondItem="GNj-zP-zNd" secondAttribute="top" constant="8" id="JKZ-ut-1LW"/>
                                     <constraint firstItem="mS8-VF-Wj0" firstAttribute="centerX" secondItem="GNj-zP-zNd" secondAttribute="centerX" id="OZs-Zz-sZL"/>
                                     <constraint firstItem="mS8-VF-Wj0" firstAttribute="leading" secondItem="GNj-zP-zNd" secondAttribute="leading" constant="16" id="dZw-Pl-qxd"/>
                                 </constraints>
@@ -557,17 +562,80 @@
                         <outlet property="button" destination="T4b-vM-OhD" id="ftT-Ki-T1G"/>
                         <outlet property="category" destination="rMP-MW-t3n" id="jbu-bs-Sln"/>
                         <outlet property="clearSwitch" destination="RHt-IH-DAX" id="Jfi-VV-qKu"/>
-                        <outlet property="date" destination="AVn-uA-QMu" id="VHq-Dh-Z6Y"/>
+                        <outlet property="dateBtn" destination="nQt-as-tsT" id="Een-N1-zdw"/>
                         <outlet property="depositSwitch" destination="LOj-LF-baj" id="UeU-DR-j94"/>
                         <outlet property="memo" destination="MdN-0S-WCe" id="DF9-ou-PFq"/>
                         <outlet property="payee" destination="wSQ-z6-x5e" id="iFZ-Cj-PpO"/>
                         <outlet property="reconcileSwitch" destination="fpJ-aa-gNM" id="rjI-H5-g5x"/>
                         <outlet property="scrollView" destination="GNj-zP-zNd" id="xP0-NZ-ms8"/>
+                        <segue destination="FX3-sJ-ssH" kind="show" identifier="showDatePicker" id="GHY-w5-pbk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mEV-AS-nQV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1057" y="772"/>
+        </scene>
+        <!--Date PickerVC-->
+        <scene sceneID="f0r-2i-aqr">
+            <objects>
+                <viewController id="FX3-sJ-ssH" customClass="DatePickerVC" customModule="Balancing_Act" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5Ee-t0-cKr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="cfp-5U-2MK">
+                                <rect key="frame" x="16" y="342" width="382" height="34"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PBA-GX-Zd8" customClass="CancelBtn" customModule="Balancing_Act" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="187" height="34"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cancelWithSender:" destination="FX3-sJ-ssH" eventType="touchUpInside" id="ZWS-pI-oqX"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="66i-mf-hOU" customClass="MainBtn" customModule="Balancing_Act" customModuleProvider="target">
+                                        <rect key="frame" x="195" y="0.0" width="187" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
+                                        <state key="normal" title="DONE">
+                                            <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="doneWithSender:" destination="Z6q-o1-Mt3" eventType="touchUpInside" id="33W-v9-Wig"/>
+                                            <action selector="saveWithSender:" destination="FX3-sJ-ssH" eventType="touchUpInside" id="05h-2A-pIC"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Fah-Nr-V2d">
+                                <rect key="frame" x="16" y="148" width="382" height="162"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="162" id="vRq-wW-zLF"/>
+                                </constraints>
+                                <date key="date" timeIntervalSinceReferenceDate="550814362.25006402">
+                                    <!--2018-06-16 03:59:22 +0000-->
+                                </date>
+                            </datePicker>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Fah-Nr-V2d" firstAttribute="top" secondItem="83M-gQ-3W1" secondAttribute="top" constant="32" id="7UA-65-qEJ"/>
+                            <constraint firstItem="83M-gQ-3W1" firstAttribute="trailing" secondItem="Fah-Nr-V2d" secondAttribute="trailing" constant="16" id="94a-Yb-Mim"/>
+                            <constraint firstItem="Fah-Nr-V2d" firstAttribute="leading" secondItem="83M-gQ-3W1" secondAttribute="leading" constant="16" id="MLB-oy-m5d"/>
+                            <constraint firstItem="cfp-5U-2MK" firstAttribute="leading" secondItem="83M-gQ-3W1" secondAttribute="leading" constant="16" id="aBf-og-nfh"/>
+                            <constraint firstItem="cfp-5U-2MK" firstAttribute="top" secondItem="Fah-Nr-V2d" secondAttribute="bottom" constant="32" id="iLM-Js-bhe"/>
+                            <constraint firstItem="83M-gQ-3W1" firstAttribute="trailing" secondItem="cfp-5U-2MK" secondAttribute="trailing" constant="16" id="ozN-zK-8xY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="83M-gQ-3W1"/>
+                    </view>
+                    <connections>
+                        <outlet property="datePicker" destination="Fah-Nr-V2d" id="pS0-rt-iel"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2rQ-Yx-mKY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1800.0000000000002" y="770.38043478260875"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rj5-BO-x0Q">

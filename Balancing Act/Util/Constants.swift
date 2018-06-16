@@ -35,7 +35,7 @@ struct Constants {
   }
   
   enum SegueIDs: String {
-    case newAccount, showAccount, accountEdit, editTransaction, showAccounts
+    case newAccount, showAccount, accountEdit, editTransaction, showAccounts, showDatePicker
     // two are similar, rename/rethink
   }
   
