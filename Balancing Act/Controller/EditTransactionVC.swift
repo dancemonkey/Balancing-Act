@@ -34,6 +34,7 @@ class EditTransactionVC: UIViewController {
   var deposit: Bool = false
   var delegate: BalanceUpdateDelegate? = nil
   var rawDate: Date?
+  var textFields: [UITextField]?
   
   let notificationCenter = NotificationCenter.default
   
@@ -41,10 +42,13 @@ class EditTransactionVC: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    textFields = [payee, amount, category, memo]
+    setupTextFieldDelegates(for: textFields!)
+    
     notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
     
-    addInputAccessoryForTextFields(textFields: [payee, amount, category, memo], dismissable: false, previousNextable: true)
+    addInputAccessoryForTextFields(textFields: self.textFields!, dismissable: false, previousNextable: true)
     
     if let trx = transaction {
       depositSwitch.isOn = trx.isDeposit!
@@ -57,6 +61,7 @@ class EditTransactionVC: UIViewController {
       self.rawDate = Date()
       self.dateBtn.setTitle(simpleDate(from: Date()), for: .normal)
     }
+    
   }
   
   // MARK: Helper Functions
@@ -177,6 +182,7 @@ class EditTransactionVC: UIViewController {
   @IBAction func depositSwitched(sender: UISwitch) {
     
   }
+
 }
 
 // MARK: Extensions
@@ -185,5 +191,23 @@ extension EditTransactionVC: DateSelectDelegate {
   func save(date: Date) {
     self.rawDate = date
     self.dateBtn.setTitle(simpleDate(from: date), for: .normal)
+  }
+}
+
+extension EditTransactionVC: UITextFieldDelegate {
+  func setupTextFieldDelegates(for fields: [UITextField]) {
+    for field in fields {
+      field.delegate = self
+    }
+  }
+  
+  func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+    textField.highlight()
+    return true
+  }
+  
+  func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+    textField.removeHighlight()
+    return true
   }
 }
