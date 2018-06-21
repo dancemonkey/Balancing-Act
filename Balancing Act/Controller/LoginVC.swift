@@ -13,9 +13,6 @@ import FirebaseGoogleAuthUI
 
 class LoginVC: UIViewController, FUIAuthDelegate {
   
-  // TODO: Now back to integrating google sheets access so I can append/export data
-  // QUESTION: Or just offer CSV export/backup, keep it simple?
-  
   // MARK: Auth Properties
   private let providers: [FUIAuthProvider] = [
     FUIGoogleAuth()
@@ -33,6 +30,8 @@ class LoginVC: UIViewController, FUIAuthDelegate {
     authUI = FUIAuth.defaultAuthUI()
     authUI.delegate = self
     authUI.providers = self.providers
+    
+    accountsBtn.backgroundColor = UIColor(named: Constants.Colors.primary.rawValue)
     
     authController = authUI!.authViewController()
     if Auth.auth().currentUser == nil {

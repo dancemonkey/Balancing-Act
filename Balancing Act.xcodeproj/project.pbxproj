@@ -18,6 +18,7 @@
 		1041B68D20A3DFCA0072C423 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1041B68C20A3DFCA0072C423 /* Transaction.swift */; };
 		1061A75F20D9703600E06DFC /* HighlightTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1061A75E20D9703600E06DFC /* HighlightTextField.swift */; };
 		107676A0208BFB3600949B28 /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1076769F208BFB3600949B28 /* CreateAccountVC.swift */; };
+		1089016B20D9CE8B00987B9F /* FontStyleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1089016A20D9CE8B00987B9F /* FontStyleExtension.swift */; };
 		109165E020CB4AB600BC79E3 /* TextFieldInputExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109165DF20CB4AB600BC79E3 /* TextFieldInputExtension.swift */; };
 		10A44E4D20A876A800029725 /* EditTransactionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A44E4C20A876A800029725 /* EditTransactionVC.swift */; };
 		10B03BE820C246A200E31D57 /* MainBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B03BE720C246A200E31D57 /* MainBtn.swift */; };
@@ -61,6 +62,7 @@
 		1041B68C20A3DFCA0072C423 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		1061A75E20D9703600E06DFC /* HighlightTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightTextField.swift; sourceTree = "<group>"; };
 		1076769F208BFB3600949B28 /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
+		1089016A20D9CE8B00987B9F /* FontStyleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontStyleExtension.swift; sourceTree = "<group>"; };
 		109165DF20CB4AB600BC79E3 /* TextFieldInputExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldInputExtension.swift; sourceTree = "<group>"; };
 		10A44E4C20A876A800029725 /* EditTransactionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTransactionVC.swift; sourceTree = "<group>"; };
 		10B03BE720C246A200E31D57 /* MainBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBtn.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				10D844F620CECF780024E6FF /* Constants.swift */,
 				10308AB720D4C7420010AD3F /* DateSelectDelegate.swift */,
 				1061A75E20D9703600E06DFC /* HighlightTextField.swift */,
+				1089016A20D9CE8B00987B9F /* FontStyleExtension.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -439,6 +442,7 @@
 				10308AB620D4C38E0010AD3F /* DatePickerVC.swift in Sources */,
 				10C8A1AB20A5C06B002FFCCF /* AccountVC.swift in Sources */,
 				10B03BEA20C24D5000E31D57 /* CancelBtn.swift in Sources */,
+				1089016B20D9CE8B00987B9F /* FontStyleExtension.swift in Sources */,
 				10FC1A46208958C700BEBAD6 /* AppDelegate.swift in Sources */,
 				1016207020A47C55001BE2F3 /* AccountListVC.swift in Sources */,
 				1041B68D20A3DFCA0072C423 /* Transaction.swift in Sources */,

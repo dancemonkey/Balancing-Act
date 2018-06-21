@@ -30,9 +30,14 @@ class CreateAccountVC: UIViewController {
       nicknameField.text = account.nickname
       startingBalance.text = Money.decimalFormat(amount: account.startingBalance)
       button.setTitle("UPDATE", for: .normal)
+      self.title = account.nickname
+    } else {
+      self.title = "New Account"
     }
     
     addInputAccessoryForTextFields(textFields: [nicknameField, startingBalance], dismissable: false, previousNextable: true)
+    
+    setUIColors()
   }
   
   // MARK: Actions
@@ -65,6 +70,13 @@ class CreateAccountVC: UIViewController {
   func clearFields() {
     nicknameField.text = ""
     startingBalance.text = ""
+  }
+  
+  func setUIColors() {
+    let altBlack = UIColor(named: Constants.Colors.altBlack.rawValue)
+    button.backgroundColor = UIColor(named: Constants.Colors.primary.rawValue)
+    nicknameField.textColor = altBlack
+    startingBalance.textColor = altBlack
   }
   
 }

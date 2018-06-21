@@ -26,7 +26,7 @@ class AccountVC: UIViewController {
     didSet {
       if reconcileMode {
         setUnreconciledTrx()
-        view.backgroundColor = .green
+        view.backgroundColor = UIColor(named: Constants.Colors.depositColor.rawValue)
         updateInfoView()
         toggleInfoView()
       } else {

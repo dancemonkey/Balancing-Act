@@ -6,7 +6,7 @@
 //  Copyright © 2018 Drew Lanning. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 // Constants
 // + Firebase paths
@@ -43,4 +43,7 @@ struct Constants {
     case accountCell, transactionCell
   }
   
+  enum Colors: String {
+    case depositColor, reconciledColor, primary, secondary, accentSuccess, accentWarning, accentError, altBlack
+  }
 }

@@ -19,6 +19,7 @@ class DatePickerVC: UIViewController {
     super.viewDidLoad()
     guard let existingDate = date else { return }
     datePicker.setDate(existingDate, animated: true)
+    self.title = "Select Date"
   }
   
   @IBAction func save(sender: UIButton) {

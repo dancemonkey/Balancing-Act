@@ -16,7 +16,6 @@ class EditTransactionVC: UIViewController {
   
   @IBOutlet weak var payee: SkyFloatingLabelTextField!
   @IBOutlet weak var amount: SkyFloatingLabelTextField!
-  @IBOutlet weak var dateBtn: UIButton!
   @IBOutlet weak var category: SkyFloatingLabelTextField!
   @IBOutlet weak var memo: SkyFloatingLabelTextField!
   @IBOutlet weak var button: UIButton!
@@ -24,6 +23,7 @@ class EditTransactionVC: UIViewController {
   @IBOutlet weak var reconcileSwitch: UISwitch!
   @IBOutlet weak var depositSwitch: UISwitch!
   @IBOutlet weak var scrollView: UIScrollView!
+  @IBOutlet weak var dateField: UITextField!
   
   // MARK: Properties
   
@@ -36,13 +36,14 @@ class EditTransactionVC: UIViewController {
   var rawDate: Date?
   var textFields: [UITextField]?
   
+  let datePickerTag: Int = 9
   let notificationCenter = NotificationCenter.default
   
   // MARK: Lifecycle
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    textFields = [payee, amount, category, memo]
+    textFields = [dateField, payee, amount, category, memo]
     setupTextFieldDelegates(for: textFields!)
     
     notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
@@ -59,8 +60,10 @@ class EditTransactionVC: UIViewController {
       reconcileSwitch.setOn(false, animated: true)
       self.title = "New Transaction"
       self.rawDate = Date()
-      self.dateBtn.setTitle(simpleDate(from: Date()), for: .normal)
+      dateField.text = simpleDate(from: Date())
     }
+    
+    setUIColors()
     
   }
   
@@ -69,7 +72,7 @@ class EditTransactionVC: UIViewController {
   func setupForExisting(transaction trx: Transaction) {
     payee.text = trx.payee
     self.amount.text = "\(Money.decimalFormat(amount: trx.amount))"
-    dateBtn.setTitle(trx.simpleDate, for: .normal)
+    dateField.text = trx.simpleDate
     rawDate = trx.trxDate
     category.text = trx.category
     memo.text = trx.memo
@@ -77,6 +80,22 @@ class EditTransactionVC: UIViewController {
     clearSwitch.setOn(trx.cleared, animated: true)
     reconcileSwitch.setOn(trx.reconciled, animated: true)
     depositSwitch.isOn = trx.isDeposit ?? false
+    dateField.text = trx.simpleDate
+  }
+  
+  func setUIColors() {
+    let altBlack = UIColor(named: Constants.Colors.altBlack.rawValue)
+    button.backgroundColor = UIColor(named: Constants.Colors.primary.rawValue)
+    
+    for sw in [clearSwitch, reconcileSwitch, depositSwitch] {
+      sw?.onTintColor = UIColor(named: Constants.Colors.primary.rawValue)
+    }
+    
+    if let fields = textFields {
+      for field in fields {
+        field.textColor = altBlack
+      }
+    }
   }
   
   func createTransaction() {
@@ -190,7 +209,9 @@ class EditTransactionVC: UIViewController {
 extension EditTransactionVC: DateSelectDelegate {
   func save(date: Date) {
     self.rawDate = date
-    self.dateBtn.setTitle(simpleDate(from: date), for: .normal)
+    self.dateField.text = simpleDate(from: date)
+    dateField.removeHighlight()
+    dateField.resignFirstResponder()
   }
 }
 
@@ -203,6 +224,10 @@ extension EditTransactionVC: UITextFieldDelegate {
   
   func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
     textField.highlight()
+    if textField.tag == datePickerTag {
+      performSegue(withIdentifier: Constants.SegueIDs.showDatePicker.rawValue, sender: self)
+      return false
+    }
     return true
   }
   
@@ -210,4 +235,5 @@ extension EditTransactionVC: UITextFieldDelegate {
     textField.removeHighlight()
     return true
   }
+  
 }

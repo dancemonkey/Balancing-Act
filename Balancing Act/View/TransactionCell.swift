@@ -22,18 +22,26 @@ class TransactionCell: UITableViewCell {
     self.payee.text = trx.payee
     let deposit: Bool = trx.isDeposit ?? false
     self.amount.text = deposit ? Money.currencyFormat(amount: trx.amount) : Money.currencyFormat(amount: -trx.amount)
-    setColors(for: [payee, amount, date], isDeposit: deposit)
+    setLabelStyle(for: [payee, amount, date], isDeposit: deposit)
     self.date.text = trx.simpleDate
     if trx.cleared && !trx.reconciled {
-      self.backgroundColor = UIColor.yellow
+      self.backgroundColor = UIColor(named: Constants.Colors.accentSuccess.rawValue)
     } else {
-      self.backgroundColor = trx.reconciled ? UIColor(named: "reconciledColor") : UIColor.white
+      self.backgroundColor = trx.reconciled ? UIColor(named: Constants.Colors.accentSuccess.rawValue) : UIColor.white
     }
   }
   
-  private func setColors(for labels: [UILabel], isDeposit: Bool) {
+  private func setLabelStyle(for labels: [UILabel], isDeposit: Bool) {
     for label in labels {
-      label.textColor = isDeposit ? UIColor(named: "depositColor") : UIColor.darkText
+      if isDeposit {
+        let traits = label.font.withTraits(traits: .traitBold)
+        label.font = traits
+        label.textColor = UIColor(named: Constants.Colors.accentWarning.rawValue)
+      } else {
+        let font = UIFont.systemFont(ofSize: label.font.pointSize)
+        label.font = font
+        label.textColor = UIColor(named: Constants.Colors.altBlack.rawValue)
+      }
     }
   }
   
