@@ -30,7 +30,7 @@ class AccountVC: UIViewController {
         updateInfoView()
         toggleInfoView()
       } else {
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(named: Constants.Colors.reconciledColor.rawValue)
         if let acct = self.account {
           acct.setReconciledBalance()
           updateInfoView()
@@ -50,6 +50,7 @@ class AccountVC: UIViewController {
     super.viewDidLoad()
     self.title = account!.nickname
     reconcileBtn.isEnabled = reconcileMode
+    view.backgroundColor = UIColor(named: Constants.Colors.primary.rawValue)
     table.delegate = self
     table.dataSource = self
     

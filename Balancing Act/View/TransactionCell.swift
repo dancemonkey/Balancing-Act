@@ -13,6 +13,7 @@ class TransactionCell: UITableViewCell {
   @IBOutlet weak var payee: UILabel!
   @IBOutlet weak var amount: UILabel!
   @IBOutlet weak var date: UILabel!
+  @IBOutlet weak var container: UIView!
   
   override func awakeFromNib() {
     super.awakeFromNib()
@@ -24,11 +25,14 @@ class TransactionCell: UITableViewCell {
     self.amount.text = deposit ? Money.currencyFormat(amount: trx.amount) : Money.currencyFormat(amount: -trx.amount)
     setLabelStyle(for: [payee, amount, date], isDeposit: deposit)
     self.date.text = trx.simpleDate
+    container.layer.cornerRadius = 4.0
+    self.backgroundColor = UIColor(named: Constants.Colors.primary.rawValue)
     if trx.cleared && !trx.reconciled {
-      self.backgroundColor = UIColor(named: Constants.Colors.accentSuccess.rawValue)
+      self.container.backgroundColor = UIColor(named: Constants.Colors.accentSuccess.rawValue)
     } else {
-      self.backgroundColor = trx.reconciled ? UIColor(named: Constants.Colors.accentSuccess.rawValue) : UIColor.white
+      self.container.backgroundColor = trx.reconciled ? UIColor(named: Constants.Colors.accentSuccess.rawValue) : UIColor.white
     }
+    self.selectionStyle = .none
   }
   
   private func setLabelStyle(for labels: [UILabel], isDeposit: Bool) {

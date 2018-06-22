@@ -11,6 +11,8 @@ import UIKit
 class DatePickerVC: UIViewController {
   
   @IBOutlet weak var datePicker: UIDatePicker!
+  @IBOutlet weak var doneBtn: UIButton!
+  @IBOutlet weak var cancelBtn: UIButton!
   
   var date: Date?
   var delegate: DateSelectDelegate?
@@ -20,6 +22,8 @@ class DatePickerVC: UIViewController {
     guard let existingDate = date else { return }
     datePicker.setDate(existingDate, animated: true)
     self.title = "Select Date"
+    
+    doneBtn.backgroundColor = UIColor(named: Constants.Colors.primary.rawValue)
   }
   
   @IBAction func save(sender: UIButton) {
