@@ -52,11 +52,11 @@ class LoginVC: UIViewController, FUIAuthDelegate {
   
   func setNavBarAppearance() {
     guard let nav = navigationController else { return }
-    nav.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+    nav.navigationBar.titleTextAttributes = [.foregroundColor: UIColor(named: Constants.Colors.altBlack.rawValue)!]
     nav.navigationBar.isTranslucent = false
     nav.navigationBar.backgroundColor = UIColor(named: Constants.Colors.primary.rawValue)
-    nav.navigationBar.barTintColor = UIColor(named: Constants.Colors.primary.rawValue)
-    nav.navigationBar.tintColor = .white
+    nav.navigationBar.barTintColor = .white //UIColor(named: Constants.Colors.primary.rawValue)
+    nav.navigationBar.tintColor = UIColor(named: Constants.Colors.altBlack.rawValue) //.white
   }
   
   // MARK: Auth Delegate

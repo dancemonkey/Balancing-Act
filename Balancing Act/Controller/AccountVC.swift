@@ -17,6 +17,7 @@ class AccountVC: UIViewController {
   @IBOutlet weak var reconcileBtn: UIBarButtonItem!
   @IBOutlet weak var newTransaction: UIBarButtonItem!
   @IBOutlet weak var reconcileModeBtn: UIBarButtonItem!
+  @IBOutlet weak var toolbar: UIToolbar!
   
   // MARK: Properties
   var trxRef: DatabaseQuery!
@@ -30,7 +31,7 @@ class AccountVC: UIViewController {
         updateInfoView()
         toggleInfoView()
       } else {
-        view.backgroundColor = UIColor(named: Constants.Colors.reconciledColor.rawValue)
+        view.backgroundColor = UIColor(named: Constants.Colors.primary.rawValue)
         if let acct = self.account {
           acct.setReconciledBalance()
           updateInfoView()
@@ -56,7 +57,11 @@ class AccountVC: UIViewController {
     
     trxRef = account?.ref?.child(Constants.FBPaths.transactions.rawValue).queryOrdered(byChild: Constants.TrxKeys.trxDate.rawValue)
     observeChanges()
-  
+    
+    self.toolbar.backgroundColor = .white //UIColor(named: Constants.Colors.primary.rawValue)
+    self.toolbar.barTintColor = .white //UIColor(named: Constants.Colors.primary.rawValue)
+    self.toolbar.isTranslucent = false
+    self.infoView.backgroundColor = .clear
   }
   
   override func viewWillAppear(_ animated: Bool) {

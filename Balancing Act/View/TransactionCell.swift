@@ -26,7 +26,7 @@ class TransactionCell: UITableViewCell {
     setLabelStyle(for: [payee, amount, date], isDeposit: deposit)
     self.date.text = trx.simpleDate
     container.layer.cornerRadius = 4.0
-    self.backgroundColor = UIColor(named: Constants.Colors.primary.rawValue)
+    self.backgroundColor = .clear
     if trx.cleared && !trx.reconciled {
       self.container.backgroundColor = UIColor(named: Constants.Colors.accentSuccess.rawValue)
     } else {

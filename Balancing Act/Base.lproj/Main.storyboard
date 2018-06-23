@@ -7,7 +7,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -113,7 +112,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="enI-iy-N8a">
-                                <rect key="frame" x="51.666666666666657" y="281" width="310.66666666666674" height="175"/>
+                                <rect key="frame" x="51.666666666666657" y="188.66666666666663" width="310.66666666666674" height="175"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nickname (required)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SaK-ht-PH2">
                                         <rect key="frame" x="0.0" y="0.0" width="310.66666666666669" height="45"/>
@@ -136,7 +135,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="nuF-KN-1qd">
-                                        <rect key="frame" x="0.0" y="130" width="310.66666666666669" height="45"/>
+                                        <rect key="frame" x="0.0" y="130.00000000000003" width="310.66666666666669" height="45"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ik-QC-942" customClass="CancelBtn" customModule="Balancing_Act" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="147.33333333333334" height="45"/>
@@ -165,7 +164,7 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="enI-iy-N8a" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="sWA-gO-vMQ"/>
+                            <constraint firstItem="enI-iy-N8a" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.75" id="sWA-gO-vMQ"/>
                             <constraint firstItem="enI-iy-N8a" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wAE-WZ-zX2"/>
                             <constraint firstItem="enI-iy-N8a" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="3:4" id="xbL-hv-r0V"/>
                         </constraints>
@@ -235,7 +234,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="never" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lzG-iX-5aR">
                                 <rect key="frame" x="0.0" y="120" width="414" height="572"/>
-                                <color key="backgroundColor" name="reconciledColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="scrollIndicatorInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="44"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="transactionCell" rowHeight="65" id="pVu-71-g3v" customClass="TransactionCell" customModule="Balancing_Act" customModuleProvider="target">
@@ -387,6 +386,7 @@
                         <outlet property="reconcileBtn" destination="Cv2-yc-ODL" id="wQR-TV-QhV"/>
                         <outlet property="reconcileModeBtn" destination="AhA-Kp-yKv" id="MED-gK-hyG"/>
                         <outlet property="table" destination="lzG-iX-5aR" id="iHv-Jk-bm4"/>
+                        <outlet property="toolbar" destination="yUv-JW-3Zq" id="hBr-oy-5Oz"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="accountEdit" id="T3r-j1-Ykc"/>
                         <segue destination="Z6q-o1-Mt3" kind="show" identifier="editTransaction" id="stU-tn-Ei9"/>
                     </connections>
@@ -700,9 +700,6 @@
     </scenes>
     <resources>
         <image name="dollarSign" width="24" height="24"/>
-        <namedColor name="reconciledColor">
-            <color white="0.87199997901916504" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="T3r-j1-Ykc"/>
