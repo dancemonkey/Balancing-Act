@@ -16,11 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-    // Override point for customization after application launch.
     FirebaseApp.configure()
     Database.database().isPersistenceEnabled = true
     
-    UINavigationBar.appearance().tintColor = UIColor(named: Constants.Colors.altBlack.rawValue)
+//    UINavigationBar.appearance().tintColor = UIColor(named: Constants.Colors.altBlack.rawValue)
+//    UINavigationBar.appearance().backgroundColor = UIColor(named: Constants.Colors.primary.rawValue)
 
     return true
   }

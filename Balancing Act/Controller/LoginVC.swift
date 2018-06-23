@@ -27,6 +27,8 @@ class LoginVC: UIViewController, FUIAuthDelegate {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    setNavBarAppearance()
+    
     authUI = FUIAuth.defaultAuthUI()
     authUI.delegate = self
     authUI.providers = self.providers
@@ -46,8 +48,15 @@ class LoginVC: UIViewController, FUIAuthDelegate {
     
   }
   
-  @IBAction func accountsPressed(sender: UIButton) {
-    performSegue(withIdentifier: Constants.SegueIDs.showAccounts.rawValue, sender: self)
+  // MARK: Helper Functions
+  
+  func setNavBarAppearance() {
+    guard let nav = navigationController else { return }
+    nav.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+    nav.navigationBar.isTranslucent = false
+    nav.navigationBar.backgroundColor = UIColor(named: Constants.Colors.primary.rawValue)
+    nav.navigationBar.barTintColor = UIColor(named: Constants.Colors.primary.rawValue)
+    nav.navigationBar.tintColor = .white
   }
   
   // MARK: Auth Delegate
@@ -75,5 +84,9 @@ class LoginVC: UIViewController, FUIAuthDelegate {
     } catch {
       print(error)
     }
+  }
+  
+  @IBAction func accountsPressed(sender: UIButton) {
+    performSegue(withIdentifier: Constants.SegueIDs.showAccounts.rawValue, sender: self)
   }
 }
