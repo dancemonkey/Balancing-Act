@@ -31,7 +31,7 @@ class AccountVC: UIViewController {
         updateInfoView()
         toggleInfoView()
       } else {
-        view.backgroundColor = UIColor(named: Constants.Colors.primary.rawValue)
+        view.backgroundColor = .white // UIColor(named: Constants.Colors.primary.rawValue)
         if let acct = self.account {
           acct.setReconciledBalance()
           updateInfoView()
@@ -51,7 +51,7 @@ class AccountVC: UIViewController {
     super.viewDidLoad()
     self.title = account!.nickname
     reconcileBtn.isEnabled = reconcileMode
-    view.backgroundColor = UIColor(named: Constants.Colors.primary.rawValue)
+    view.backgroundColor = .white // UIColor(named: Constants.Colors.primary.rawValue)
     table.delegate = self
     table.dataSource = self
     
@@ -89,9 +89,7 @@ class AccountVC: UIViewController {
   }
   
   @IBAction func reconcileModeTapped(sender: UIBarButtonItem) {
-    reconcileMode = !reconcileMode
-    reconcileBtn.isEnabled = reconcileMode
-    newTransaction.isEnabled = !reconcileMode
+    setReconcileMode()
   }
   
   @IBAction func reconcileCleared() {
@@ -102,6 +100,7 @@ class AccountVC: UIViewController {
     }
     setUnreconciledTrx()
     account?.resetCleared()
+    setReconcileMode()
     table.reloadData()
   }
   
@@ -124,6 +123,12 @@ class AccountVC: UIViewController {
   }
   
   // MARK: Helper Functions
+  
+  func setReconcileMode() {
+    reconcileMode = !reconcileMode
+    reconcileBtn.isEnabled = reconcileMode
+    newTransaction.isEnabled = !reconcileMode
+  }
   
   func indexOfTransaction(snapshot: DataSnapshot) -> Int? {
     if let trx = Transaction(snapshot: snapshot) {

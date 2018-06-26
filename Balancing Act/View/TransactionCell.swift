@@ -30,7 +30,7 @@ class TransactionCell: UITableViewCell {
     if trx.cleared && !trx.reconciled {
       self.container.backgroundColor = UIColor(named: Constants.Colors.accentSuccess.rawValue)
     } else {
-      self.container.backgroundColor = trx.reconciled ? UIColor(named: Constants.Colors.accentSuccess.rawValue) : UIColor.white
+      self.container.backgroundColor = trx.reconciled ? UIColor(named: Constants.Colors.accentSuccess.rawValue) : .white // UIColor(named: Constants.Colors.primary.rawValue)
     }
     self.selectionStyle = .none
   }
