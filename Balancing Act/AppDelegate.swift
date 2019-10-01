@@ -21,6 +21,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
 //    UINavigationBar.appearance().tintColor = UIColor(named: Constants.Colors.altBlack.rawValue)
 //    UINavigationBar.appearance().backgroundColor = UIColor(named: Constants.Colors.primary.rawValue)
+    
+    let coloredAppearance = UINavigationBarAppearance()
+    coloredAppearance.configureWithOpaqueBackground()
+    coloredAppearance.backgroundColor = UIColor(named: Constants.Colors.primary.rawValue)
+    coloredAppearance.titleTextAttributes = [.foregroundColor: UIColor(named: Constants.Colors.altBlack.rawValue)!]
+    coloredAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor(named: Constants.Colors.altBlack.rawValue)!]
+           
+    UINavigationBar.appearance().standardAppearance = coloredAppearance
+    UINavigationBar.appearance().scrollEdgeAppearance = coloredAppearance
 
     return true
   }

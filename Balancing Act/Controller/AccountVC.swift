@@ -27,11 +27,11 @@ class AccountVC: UIViewController {
     didSet {
       if reconcileMode {
         setUnreconciledTrx()
-        view.backgroundColor = UIColor(named: Constants.Colors.depositColor.rawValue)
+//        view.backgroundColor = UIColor(named: Constants.Colors.depositColor.rawValue)
         updateInfoView()
         toggleInfoView()
       } else {
-        view.backgroundColor = .white // UIColor(named: Constants.Colors.primary.rawValue)
+//        view.backgroundColor = .white // UIColor(named: Constants.Colors.primary.rawValue)
         if let acct = self.account {
           acct.setReconciledBalance()
           updateInfoView()
@@ -51,7 +51,7 @@ class AccountVC: UIViewController {
     super.viewDidLoad()
     self.title = account!.nickname
     reconcileBtn.isEnabled = reconcileMode
-    view.backgroundColor = .white
+//    view.backgroundColor = .white
     table.delegate = self
     table.dataSource = self
     
