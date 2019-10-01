@@ -24,6 +24,7 @@ class EditTransactionVC: UIViewController {
   @IBOutlet weak var depositSwitch: UISwitch!
   @IBOutlet weak var scrollView: UIScrollView!
   @IBOutlet weak var dateField: UITextField!
+  @IBOutlet weak var clearRecButtonStack: UIStackView!
   
   // MARK: Properties
   
@@ -56,8 +57,9 @@ class EditTransactionVC: UIViewController {
       setupForExisting(transaction: trx)
       self.title = trx.payee
     } else {
-      clearSwitch.setOn(false, animated: true)
-      reconcileSwitch.setOn(false, animated: true)
+//      clearSwitch.setOn(false, animated: true)
+//      reconcileSwitch.setOn(false, animated: true)
+      self.clearRecButtonStack.isHidden = true
       self.title = "New Transaction"
       self.rawDate = Date()
       dateField.text = simpleDate(from: Date())

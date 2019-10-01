@@ -51,15 +51,15 @@ class AccountVC: UIViewController {
     super.viewDidLoad()
     self.title = account!.nickname
     reconcileBtn.isEnabled = reconcileMode
-    view.backgroundColor = .white // UIColor(named: Constants.Colors.primary.rawValue)
+    view.backgroundColor = .white
     table.delegate = self
     table.dataSource = self
     
     trxRef = account?.ref?.child(Constants.FBPaths.transactions.rawValue).queryOrdered(byChild: Constants.TrxKeys.trxDate.rawValue)
     observeChanges()
     
-    self.toolbar.backgroundColor = .white //UIColor(named: Constants.Colors.primary.rawValue)
-    self.toolbar.barTintColor = .white //UIColor(named: Constants.Colors.primary.rawValue)
+//    self.toolbar.backgroundColor = .white //UIColor(named: Constants.Colors.primary.rawValue)
+//    self.toolbar.barTintColor = .white //UIColor(named: Constants.Colors.primary.rawValue)
     self.toolbar.isTranslucent = false
     self.infoView.backgroundColor = .clear
   }
